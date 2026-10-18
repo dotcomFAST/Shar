@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Shar — каталог, мобільна</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./vendor/react.production.min.js"></script>
-<script src="./vendor/react-dom.production.min.js"></script>
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -191,24 +191,24 @@ class Component extends DCLogic {
   data() {
     const B = (id) => '/_blob/' + id;
     return [
-      ['Фліс Затишок', 'Cozy Fleece', 2390, 4, 14, 'l2', 'gcm', 'images/06.jpg'],
-      ['Жилет Пуфер', 'Puffer Vest', 2190, 2, 14, 'l2', 'cg', 'images/11.jpg'],
-      ['Пончо-плед', 'Blanket Poncho', 2890, 0, 12, 'l3', 'mg', 'images/17.jpg'],
-      ['Лонгслів База', 'Base Longsleeve', 1290, 10, 18, 'l1', 'gmn', 'images/03.jpg'],
-      ['Рукавички Сенсор', 'Touch Gloves', 490, -10, 10, 'acc', 'g', 'images/21.jpg'],
-      ['Фліс Затишок Худі', 'Cozy Fleece Hoodie', 2590, 4, 14, 'l2', 'gcn', 'images/09.jpg'],
-      ['Світшот Теплий', 'Warm Sweatshirt', 1790, 8, 16, 'l2', 'gcnm', 'images/14.jpg'],
-      ['Куртка Вітер', 'Wind Jacket', 4890, -15, 5, 'l3', 'gn', 'images/18.jpg'],
-      ['Термокомплект Ніч', 'Night Thermal Set', 1790, 6, 16, 'l1', 'gn', 'images/05.jpg'],
-      ['Фліс Мікро', 'Micro Fleece', 1590, 8, 17, 'l2', 'gcnm', 'images/10.jpg'],
-      ['Жилет Тиша', 'Quiet Vest', 1990, 6, 16, 'l2', 'gn', 'images/12.jpg'],
-      ['Жилет Довгий', 'Long Vest', 2490, 2, 12, 'l2', 'gc', 'images/13.jpg'],
-      ['Світшот Хвиля', 'Wave Sweatshirt', 1890, 8, 16, 'l2', 'gcm', 'images/15.jpg'],
-      ['Кардиган Флісовий', 'Fleece Cardigan', 2290, 6, 15, 'l2', 'mcg', 'images/16.jpg'],
-      ['Штани Утеплені Місто', 'City Insulated Trousers', 2690, -10, 10, 'l3', 'gc', 'images/19.jpg'],
-      ['Термошкарпетки', 'Thermal Socks', 390, -10, 12, 'acc', 'cg', 'images/20.jpg'],
-      ['Футболка База', 'Base Tee', 890, 14, 20, 'l1', 'gm', 'images/04.jpg'],
-      ['Сумка Павербанк', 'Power Bank Bag', 1490, -30, 30, 'acc', 'g', 'images/22.jpg']
+      ['Фліс Затишок', 'Cozy Fleece', 2390, 4, 14, 'l2', 'gcm', '06.jpg'],
+      ['Жилет Пуфер', 'Puffer Vest', 2190, 2, 14, 'l2', 'cg', '11.jpg'],
+      ['Пончо-плед', 'Blanket Poncho', 2890, 0, 12, 'l3', 'mg', '17.jpg'],
+      ['Лонгслів База', 'Base Longsleeve', 1290, 10, 18, 'l1', 'gmn', '03.jpg'],
+      ['Рукавички Сенсор', 'Touch Gloves', 490, -10, 10, 'acc', 'g', '21.jpg'],
+      ['Фліс Затишок Худі', 'Cozy Fleece Hoodie', 2590, 4, 14, 'l2', 'gcn', '09.jpg'],
+      ['Світшот Теплий', 'Warm Sweatshirt', 1790, 8, 16, 'l2', 'gcnm', '14.jpg'],
+      ['Куртка Вітер', 'Wind Jacket', 4890, -15, 5, 'l3', 'gn', '18.jpg'],
+      ['Термокомплект Ніч', 'Night Thermal Set', 1790, 6, 16, 'l1', 'gn', '05.jpg'],
+      ['Фліс Мікро', 'Micro Fleece', 1590, 8, 17, 'l2', 'gcnm', '10.jpg'],
+      ['Жилет Тиша', 'Quiet Vest', 1990, 6, 16, 'l2', 'gn', '12.jpg'],
+      ['Жилет Довгий', 'Long Vest', 2490, 2, 12, 'l2', 'gc', '13.jpg'],
+      ['Світшот Хвиля', 'Wave Sweatshirt', 1890, 8, 16, 'l2', 'gcm', '15.jpg'],
+      ['Кардиган Флісовий', 'Fleece Cardigan', 2290, 6, 15, 'l2', 'mcg', '16.jpg'],
+      ['Штани Утеплені Місто', 'City Insulated Trousers', 2690, -10, 10, 'l3', 'gc', '19.jpg'],
+      ['Термошкарпетки', 'Thermal Socks', 390, -10, 12, 'acc', 'cg', '20.jpg'],
+      ['Футболка База', 'Base Tee', 890, 14, 20, 'l1', 'gm', '04.jpg'],
+      ['Сумка Павербанк', 'Power Bank Bag', 1490, -30, 30, 'acc', 'g', '22.jpg']
     ];
   }
   renderVals() {

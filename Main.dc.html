@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Shar — головна</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./vendor/react.production.min.js"></script>
-<script src="./vendor/react-dom.production.min.js"></script>
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -74,7 +74,7 @@ button:active,.cta:active{transform:scale(.97)}
 </header>
 
 <section style="position: relative; overflow: hidden">
-<img class="kb" src="images/23.jpg" alt="Жінка з чаєм на підвіконні, темне місто за вікном" style="width: 100%; display: block; object-fit: cover; object-position: 70% center; height: 720px; border: none; border-bottom: 1px solid #3B4047">
+<img class="kb" src="23.jpg" alt="Жінка з чаєм на підвіконні, темне місто за вікном" style="width: 100%; display: block; object-fit: cover; object-position: 70% center; height: 720px; border: none; border-bottom: 1px solid #3B4047">
 <div style="position: absolute; inset: 0; max-width: 1280px; margin: 0 auto; padding: 96px 32px 64px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 56px; pointer-events: none">
 <div style="display: flex; flex-direction: column; gap: 24px; max-width: 760px; pointer-events: auto">
 <h1 class="h" style="font-size: 104px; line-height: 0.92; font-weight: 700; white-space: pre-line">{{t.heroH}}</h1>
@@ -128,7 +128,7 @@ button:active,.cta:active{transform:scale(.97)}
 <a href="Builder.dc.html" class="cta" style="align-self: flex-start; height: 52px; padding: 0 28px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; font-weight: 600">{{t.bBtn}}</a>
 </div>
 <div style="flex: 1 1 480px; position: relative; min-height: 520px">
-<img src="images/38.jpg" alt="Манекен у трьох шарах одягу Shar" style="display: block; object-fit: cover; object-position: center; position: absolute; left: 15%; width: 70%; top: 0; height: 100%">
+<img src="38.jpg" alt="Манекен у трьох шарах одягу Shar" style="display: block; object-fit: cover; object-position: center; position: absolute; left: 15%; width: 70%; top: 0; height: 100%">
 <div class="sway" style="animation-delay: 0s; will-change: transform; position: absolute; left: 0; top: 40px; background: #2E3238; border: 1px solid #484E56; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.layer}} 01</span><span style="font-size: 15px">{{t.p1}}</span></div>
 <div class="sway" style="animation-delay: -1.5s; will-change: transform; position: absolute; right: 0; top: 140px; background: #2E3238; border: 1px solid #484E56; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.layer}} 02</span><span style="font-size: 15px">{{t.p2}}</span></div>
 <div class="sway" style="animation-delay: -3s; will-change: transform; position: absolute; left: 0; bottom: 120px; background: #2E3238; border: 1px solid #484E56; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.warmTo}}</span><span class="mono" style="font-size: 28px; color: #C8794A">+6 °C</span></div>
@@ -173,7 +173,7 @@ button:active,.cta:active{transform:scale(.97)}
 </section>
 
 <section class="reveal" id="about" style="margin-top: 120px; position: relative">
-<img src="images/29.jpg" alt="Вечірня вулиця без світла, люди з ліхтариками" style="width: 100%; display: block; object-fit: cover; object-position: center; height: 560px; border-left: none; border-right: none">
+<img src="29.jpg" alt="Вечірня вулиця без світла, люди з ліхтариками" style="width: 100%; display: block; object-fit: cover; object-position: center; height: 560px; border-left: none; border-right: none">
 <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 32px; pointer-events: none">
 <div style="max-width: 820px; text-align: center; display: flex; flex-direction: column; gap: 20px; align-items: center">
 <p class="h" style="font-size: 56px; line-height: 1.05; font-weight: 600">{{t.mH}}</p>
@@ -363,7 +363,7 @@ class Component extends DCLogic {
   componentDidMount() { try { if (window.IntersectionObserver && this._layEl) { this._io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { this.setState({ layIn: true }); this._io.disconnect(); } }, { threshold: 0.25 }); this._io.observe(this._layEl); } else this.setState({ layIn: true }); } catch (e) { this.setState({ layIn: true }); } try { this._calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {} this._a = this._a || 0; this._v = this._v || 0; const loop = (now) => { this.ccFrame(now); this._raf = requestAnimationFrame(loop); }; this._raf = requestAnimationFrame(loop); if (!this.storeOk()) return; this._sync = setInterval(() => { const c = this.loadCart(), l = this.loadLang(); if (c !== this.state.cart || l !== this.state.lang) this.setState({ cart: c, lang: l }); }, 700); }
   componentWillUnmount() { clearInterval(this._sync); cancelAnimationFrame(this._raf); if (this._io) this._io.disconnect(); }
   setLang(l) { try { localStorage.setItem('shar-lang', l); } catch (e) {} this.setState({ lang: l }); }
-  img(n) { return ({"Лонгслів База": "images/03.jpg", "Футболка База": "images/04.jpg", "Термокомплект Ніч": "images/05.jpg", "Фліс Затишок": "images/06.jpg", "Фліс Затишок Худі": "images/09.jpg", "Фліс Мікро": "images/10.jpg", "Жилет Пуфер": "images/11.jpg", "Жилет Тиша": "images/12.jpg", "Жилет Довгий": "images/13.jpg", "Світшот Теплий": "images/14.jpg", "Світшот Хвиля": "images/15.jpg", "Кардиган Флісовий": "images/16.jpg", "Пончо-плед": "images/17.jpg", "Куртка Вітер": "images/18.jpg", "Штани Утеплені Місто": "images/19.jpg", "Термошкарпетки": "images/20.jpg", "Рукавички Сенсор": "images/21.jpg", "Сумка Павербанк": "images/22.jpg", "Вдома": "images/25.jpg", "Офіс": "images/26.jpg", "Місто": "images/27.jpg", "Укриття": "images/28.jpg"})[n]; }
+  img(n) { return ({"Лонгслів База": "03.jpg", "Футболка База": "04.jpg", "Термокомплект Ніч": "05.jpg", "Фліс Затишок": "06.jpg", "Фліс Затишок Худі": "09.jpg", "Фліс Мікро": "10.jpg", "Жилет Пуфер": "11.jpg", "Жилет Тиша": "12.jpg", "Жилет Довгий": "13.jpg", "Світшот Теплий": "14.jpg", "Світшот Хвиля": "15.jpg", "Кардиган Флісовий": "16.jpg", "Пончо-плед": "17.jpg", "Куртка Вітер": "18.jpg", "Штани Утеплені Місто": "19.jpg", "Термошкарпетки": "20.jpg", "Рукавички Сенсор": "21.jpg", "Сумка Павербанк": "22.jpg", "Вдома": "25.jpg", "Офіс": "26.jpg", "Місто": "27.jpg", "Укриття": "28.jpg"})[n]; }
   constructor(props) {
     super(props);
     this.state = { layIn: false, cc: 0, sc: 0, hold: false, tip: null, lang: this.loadLang(), cart: this.loadCart() };

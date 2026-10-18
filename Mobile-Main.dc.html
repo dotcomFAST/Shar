@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Shar — головна, мобільна</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./vendor/react.production.min.js"></script>
-<script src="./vendor/react-dom.production.min.js"></script>
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -71,7 +71,7 @@ button:active,.cta:active{transform:scale(.97)}
 </sc-if>
 
 <section style="position: relative; overflow: hidden">
-<img class="kb" src="images/24.jpg" alt="Жінка з чаєм біля вікна, темне місто" style="width: 100%; display: block; object-fit: cover; object-position: center top; height: 600px; border: none">
+<img class="kb" src="24.jpg" alt="Жінка з чаєм біля вікна, темне місто" style="width: 100%; display: block; object-fit: cover; object-position: center top; height: 600px; border: none">
 <span class="spray" style="position: absolute; right: 20px; top: 150px; font-size: 38px; transform: rotate(-7deg)">{{t.spray1}}</span>
 <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 16px 28px; display: flex; flex-direction: column; gap: 16px">
 <h1 class="h" style="font-size: 56px; line-height: 0.92; font-weight: 700; white-space: pre-line">{{t.heroH}}</h1>
@@ -116,7 +116,7 @@ button:active,.cta:active{transform:scale(.97)}
 <h2 class="h" style="font-size: 38px; line-height: 1; font-weight: 700">{{t.bH}}</h2>
 <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CDD2">{{t.bP}}</p>
 <div style="position: relative; height: 400px; margin-top: 8px">
-<img src="images/38.jpg" alt="Манекен у трьох шарах одягу Shar" style="display: block; object-fit: cover; object-position: center; position: absolute; left: 12%; width: 76%; top: 0; height: 100%">
+<img src="38.jpg" alt="Манекен у трьох шарах одягу Shar" style="display: block; object-fit: cover; object-position: center; position: absolute; left: 12%; width: 76%; top: 0; height: 100%">
 <div class="fc sway" style="animation-delay: 0s; will-change: transform; left: 0; top: 24px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.layer}} 01</span><span style="font-size: 13px">{{t.p1}}</span></div>
 <div class="fc sway" style="animation-delay: -1.5s; will-change: transform; right: 0; top: 110px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.layer}} 02</span><span style="font-size: 13px">{{t.p2}}</span></div>
 <div class="fc sway" style="animation-delay: -3s; will-change: transform; left: 0; bottom: 70px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.warmTo}}</span><span class="mono" style="font-size: 22px; color: #C8794A">+6 °C</span></div>
@@ -165,7 +165,7 @@ button:active,.cta:active{transform:scale(.97)}
 </section>
 
 <section class="reveal" style="margin-top: 56px; position: relative">
-<img src="images/30.jpg" alt="Вечірня вулиця без світла" style="width: 100%; display: block; object-fit: cover; object-position: center; height: 480px; border-left: none; border-right: none">
+<img src="30.jpg" alt="Вечірня вулиця без світла" style="width: 100%; display: block; object-fit: cover; object-position: center; height: 480px; border-left: none; border-right: none">
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 24px 16px">
 <p class="h" style="font-size: 36px; line-height: 1.05; font-weight: 600">{{t.mH}}</p>
 <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CDD2">{{t.mP}}</p>
@@ -363,7 +363,7 @@ class Component extends DCLogic {
       setUk: () => this.setLang('uk'), setEn: () => this.setLang('en')
     };
   }
-  img(n) { return ({"Лонгслів База": "images/03.jpg", "Футболка База": "images/04.jpg", "Термокомплект Ніч": "images/05.jpg", "Фліс Затишок": "images/06.jpg", "Фліс Затишок Худі": "images/09.jpg", "Фліс Мікро": "images/10.jpg", "Жилет Пуфер": "images/11.jpg", "Жилет Тиша": "images/12.jpg", "Жилет Довгий": "images/13.jpg", "Світшот Теплий": "images/14.jpg", "Світшот Хвиля": "images/15.jpg", "Кардиган Флісовий": "images/16.jpg", "Пончо-плед": "images/17.jpg", "Куртка Вітер": "images/18.jpg", "Штани Утеплені Місто": "images/19.jpg", "Термошкарпетки": "images/20.jpg", "Рукавички Сенсор": "images/21.jpg", "Сумка Павербанк": "images/22.jpg", "Вдома": "images/25.jpg", "Офіс": "images/26.jpg", "Місто": "images/27.jpg", "Укриття": "images/28.jpg"})[n]; }
+  img(n) { return ({"Лонгслів База": "03.jpg", "Футболка База": "04.jpg", "Термокомплект Ніч": "05.jpg", "Фліс Затишок": "06.jpg", "Фліс Затишок Худі": "09.jpg", "Фліс Мікро": "10.jpg", "Жилет Пуфер": "11.jpg", "Жилет Тиша": "12.jpg", "Жилет Довгий": "13.jpg", "Світшот Теплий": "14.jpg", "Світшот Хвиля": "15.jpg", "Кардиган Флісовий": "16.jpg", "Пончо-плед": "17.jpg", "Куртка Вітер": "18.jpg", "Штани Утеплені Місто": "19.jpg", "Термошкарпетки": "20.jpg", "Рукавички Сенсор": "21.jpg", "Сумка Павербанк": "22.jpg", "Вдома": "25.jpg", "Офіс": "26.jpg", "Місто": "27.jpg", "Укриття": "28.jpg"})[n]; }
   constructor(props) {
     super(props);
     this.state = { layIn: false, cc: 0, sc: 0, hold: false, tip: null, lang: this.loadLang(), cart: this.loadCart(), menu: false };

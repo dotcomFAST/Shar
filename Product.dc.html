@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Shar — Фліс Затишок</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./vendor/react.production.min.js"></script>
-<script src="./vendor/react-dom.production.min.js"></script>
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -176,7 +176,7 @@ button:active,.cta:active{transform:scale(.97)}
 </sc-for>
 </dl>
 </div>
-<img src="images/35.jpg" alt="{{t.macroAlt}}" style="display: block; flex: 1 1 400px; min-width: 0; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
+<img src="35.jpg" alt="{{t.macroAlt}}" style="display: block; flex: 1 1 400px; min-width: 0; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
 </section>
 </div>
 </x-dc>
@@ -232,16 +232,16 @@ class Component extends DCLogic {
     t.price = price(2390);
     const COL = { g: ['#3A3E44', L('Графіт', 'Graphite')], c: ['#7C8086', L('Бетон', 'Concrete')], m: ['#E6E1D8', L('Молочний', 'Milk white')] };
     const GAL = {
-      g: ['images/31.jpg', 'images/32.jpg', 'images/33.jpg', 'images/34.jpg', 'images/35.jpg'],
-      c: ['images/07.jpg'],
-      m: ['images/08.jpg']
+      g: ['31.jpg', '32.jpg', '33.jpg', '34.jpg', '35.jpg'],
+      c: ['07.jpg'],
+      m: ['08.jpg']
     };
     const gal = GAL[S.color];
     const idx = Math.min(S.photo, gal.length - 1);
     const pairsData = [
-      ['p1', L('ШАР 01', 'LAYER 01'), L('Лонгслів База', 'Base Longsleeve'), 1290, 'images/03.jpg'],
-      ['p3', L('ШАР 03', 'LAYER 03'), L('Штани Утеплені Місто', 'City Insulated Trousers'), 2690, 'images/19.jpg'],
-      ['pa', L('АКСЕСУАР', 'ACCESSORY'), L('Термошкарпетки', 'Thermal Socks'), 390, 'images/20.jpg']
+      ['p1', L('ШАР 01', 'LAYER 01'), L('Лонгслів База', 'Base Longsleeve'), 1290, '03.jpg'],
+      ['p3', L('ШАР 03', 'LAYER 03'), L('Штани Утеплені Місто', 'City Insulated Trousers'), 2690, '19.jpg'],
+      ['pa', L('АКСЕСУАР', 'ACCESSORY'), L('Термошкарпетки', 'Thermal Socks'), 390, '20.jpg']
     ];
     return {
       t, isUk: uk, isEn: !uk, cartCount: S.cart, cartBorder: S.added ? '#C8794A' : '#3B4047',

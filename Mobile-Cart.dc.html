@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>Shar — кошик, мобільна</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./vendor/react.production.min.js"></script>
-<script src="./vendor/react-dom.production.min.js"></script>
+<script src="react.production.min.js"></script>
+<script src="react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -187,21 +187,21 @@ class Component extends DCLogic {
     const price = (n) => uk ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' грн' : 'UAH ' + n.toLocaleString('en-US');
     const B = (id) => '/_blob/' + id;
     const CAT = {
-      ls: { name: L('Лонгслів База', 'Base Longsleeve'), price: 1290, lay: 1, img: 'images/03.jpg' },
-      tee: { name: L('Футболка База', 'Base Tee'), price: 890, lay: 1, img: 'images/04.jpg' },
-      ts: { name: L('Термокомплект Ніч', 'Night Thermal Set'), price: 1790, lay: 1, img: 'images/05.jpg' },
-      fl: { name: L('Фліс Затишок', 'Cozy Fleece'), price: 2390, lay: 2, img: 'images/06.jpg' },
-      pv: { name: L('Жилет Пуфер', 'Puffer Vest'), price: 2190, lay: 2, img: 'images/11.jpg' },
-      sw: { name: L('Світшот Теплий', 'Warm Sweatshirt'), price: 1790, lay: 2, img: 'images/14.jpg' },
-      po: { name: L('Пончо-плед', 'Blanket Poncho'), price: 2890, lay: 3, img: 'images/17.jpg' },
-      jk: { name: L('Куртка Вітер', 'Wind Jacket'), price: 4890, lay: 3, img: 'images/18.jpg' },
-      tr: { name: L('Штани Утеплені Місто', 'City Insulated Trousers'), price: 2690, lay: 3, img: 'images/19.jpg' },
-      so: { name: L('Термошкарпетки', 'Thermal Socks'), price: 390, lay: 0, img: 'images/20.jpg' }
+      ls: { name: L('Лонгслів База', 'Base Longsleeve'), price: 1290, lay: 1, img: '03.jpg' },
+      tee: { name: L('Футболка База', 'Base Tee'), price: 890, lay: 1, img: '04.jpg' },
+      ts: { name: L('Термокомплект Ніч', 'Night Thermal Set'), price: 1790, lay: 1, img: '05.jpg' },
+      fl: { name: L('Фліс Затишок', 'Cozy Fleece'), price: 2390, lay: 2, img: '06.jpg' },
+      pv: { name: L('Жилет Пуфер', 'Puffer Vest'), price: 2190, lay: 2, img: '11.jpg' },
+      sw: { name: L('Світшот Теплий', 'Warm Sweatshirt'), price: 1790, lay: 2, img: '14.jpg' },
+      po: { name: L('Пончо-плед', 'Blanket Poncho'), price: 2890, lay: 3, img: '17.jpg' },
+      jk: { name: L('Куртка Вітер', 'Wind Jacket'), price: 4890, lay: 3, img: '18.jpg' },
+      tr: { name: L('Штани Утеплені Місто', 'City Insulated Trousers'), price: 2690, lay: 3, img: '19.jpg' },
+      so: { name: L('Термошкарпетки', 'Thermal Socks'), price: 390, lay: 0, img: '20.jpg' }
     };
     const LAY = [L('АКСЕСУАР', 'ACCESSORY'), L('ШАР 01', 'LAYER 01'), L('ШАР 02', 'LAYER 02'), L('ШАР 03', 'LAYER 03')];
     const COLN = { g: L('Графіт', 'Graphite'), c: L('Бетон', 'Concrete'), n: L('Нічний синій', 'Night blue'), m: L('Молочний', 'Milk white') };
     const meta = (it) => [COLN[it.color], it.size === 'one' ? L('один розмір', 'one size') : it.size].filter(Boolean).join(' · ');
-    const imgOf = (it) => it.id === 'fl' && it.color === 'c' ? 'images/07.jpg' : it.id === 'fl' && it.color === 'm' ? 'images/08.jpg' : CAT[it.id].img;
+    const imgOf = (it) => it.id === 'fl' && it.color === 'c' ? '07.jpg' : it.id === 'fl' && it.color === 'm' ? '08.jpg' : CAT[it.id].img;
     const t = uk ? {
       h1: 'Кошик', back: '← Покупки', home: 'Головна', setName: 'Твій комплект', less: 'Менше', more: 'Більше',
       upH: 'ДОДАЙ ШАР 03 — І ТЕПЛО БУДЕ ДО −2 °C', upItem: 'Пончо-плед →', upPrice: '2 600 грн у комплекті', upBtn: 'Додати в комплект', spray: 'надягни ще один',
