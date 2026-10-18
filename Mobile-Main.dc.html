@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Shar — головна, мобільна</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./vendor/react.production.min.js"></script>
+<script src="./vendor/react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Onest:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Rubik+Spray+Paint&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#22262B}
+a{color:#EDEDEB;text-decoration:none}a:hover{color:#C8794A}
+button{cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
+.cta:active{background:#D68A5A !important}
+:focus-visible{outline:2px solid #C8794A;outline-offset:2px}
+.ph{background:repeating-linear-gradient(135deg,#2E3238 0 14px,#2A2E33 14px 28px);border:1px dashed #484E56;display:flex;align-items:center;justify-content:center;color:#A3A9B0;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5;text-align:center;padding:12px;box-sizing:border-box}
+.h{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0}
+.mono{font-family:'JetBrains Mono',monospace}
+.spray{font-family:'Rubik Spray Paint',cursive;color:#C8794A}
+.fc{position:absolute;background:#2E3238;border:1px solid #484E56;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+html{scroll-behavior:smooth}
+a,button,input,select,label{transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
+button:active,.cta:active{transform:scale(.97)}
+@keyframes pagein{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes popin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes sprayin{from{opacity:0;transform:scale(.8) rotate(-14deg)}}
+.page{animation:pagein .7s cubic-bezier(.2,.7,.2,1) both}
+.pop{animation:popin .32s cubic-bezier(.2,.7,.2,1) both}
+.kb{animation:kb 16s cubic-bezier(.2,.7,.2,1) both}
+.spray{animation:sprayin .9s .45s cubic-bezier(.2,.7,.2,1) both}
+.card img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.card:hover img{transform:scale(1.04)}
+@supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+@keyframes ccrise{from{opacity:0;transform:translateY(140px)}to{opacity:1;transform:none}}
+.ccin{animation:ccrise .9s cubic-bezier(.22,1,.36,1) both}
+@keyframes sway{0%,100%{transform:translateX(-10px)}50%{transform:translateX(10px)}}
+.sway{animation:sway 6s ease-in-out infinite}
+@keyframes stagin{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.lay .st{opacity:0}
+.lay.in .st{animation:stagin .75s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion: reduce){.lay .st{opacity:1 !important;transform:none !important}}
+</style>
+</helmet>
+<div class="page" style="width: 390px; min-height: 4300px; background: #22262B; color: #EDEDEB; font-family: 'Onest', sans-serif">
+
+<header style="height: 64px; padding: 0 8px 0 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3B4047">
+<a href="Mobile-Main.dc.html" class="h" style="font-size: 24px; font-weight: 700; letter-spacing: 0.08em">SHAR</a>
+<div style="display: flex; align-items: center; gap: 4px">
+<div role="group" aria-label="{{mm.lang}}" style="display: flex; border: 1px solid #3B4047; border-radius: 4px; overflow: hidden">
+<button onClick="{{setUk}}" aria-pressed="{{isUk}}" style="height: 40px; width: 40px; border: none; background: {{ukBg}}; color: {{ukFg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px">UA</button>
+<button onClick="{{setEn}}" aria-pressed="{{isEn}}" style="height: 40px; width: 40px; border: none; background: {{enBg}}; color: {{enFg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px">EN</button>
+</div>
+<a href="Mobile-Cart.dc.html" aria-label="{{mm.cart}}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg><span class="mono" style="position: absolute; top: 6px; right: 4px; background: #C8794A; color: #121417; font-size: 10px; border-radius: 999px; padding: 0 5px">{{cartCount}}</span></a>
+<button onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" aria-label="{{mm.menu}}" style="width: 44px; height: 44px; background: none; border: none; color: {{menuColor}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<nav class="pop" aria-label="{{mm.menu}}" style="padding: 4px 16px 16px; border-bottom: 1px solid #3B4047; display: flex; flex-direction: column">
+<sc-for list="{{menuItems}}" as="m" hint-placeholder-count="4">
+<a data-dc-href="{{m.href}}" aria-current="{{m.cur}}" style="min-height: 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3B4047; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 24px; color: {{m.color}}">{{m.label}}<span aria-hidden="true">→</span></a>
+</sc-for>
+</nav>
+</sc-if>
+
+<section style="position: relative; overflow: hidden">
+<img class="kb" src="images/24.jpg" alt="Жінка з чаєм біля вікна, темне місто" style="width: 100%; display: block; object-fit: cover; object-position: center top; height: 600px; border: none">
+<span class="spray" style="position: absolute; right: 20px; top: 150px; font-size: 38px; transform: rotate(-7deg)">{{t.spray1}}</span>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 16px 28px; display: flex; flex-direction: column; gap: 16px">
+<h1 class="h" style="font-size: 56px; line-height: 0.92; font-weight: 700; white-space: pre-line">{{t.heroH}}</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #C9CDD2">{{t.heroP}}</p>
+<a href="Mobile-Builder.dc.html" class="cta" style="height: 52px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 16px">{{t.cta1}}</a>
+<div class="mono" style="display: flex; gap: 24px; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #A3A9B0">{{t.home}}</span><span style="font-size: 22px">+14 °C</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #A3A9B0">{{t.outside}}</span><span style="font-size: 22px">−8 °C</span></div>
+</div>
+</div>
+</section>
+
+<section class="reveal" style="padding: 56px 16px 0">
+<h2 class="h" style="font-size: 34px; font-weight: 600; margin-bottom: 20px">{{t.scenH}}</h2>
+<div role="region" aria-roledescription="carousel" aria-label="{{t.scenH}}" tabIndex="0" onKeyDown="{{ccKey}}" onPointerDown="{{ccDown}}" onPointerMove="{{ccMove}}" onPointerUp="{{ccUp}}" onPointerLeave="{{ccLeave}}" onPointerEnter="{{ccEnter}}" style="position: relative; height: 380px; perspective: 2500px; overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; outline-offset: 6px">
+<div ref="{{ccRingRef}}" style="position: absolute; left: 50%; top: 30px; width: 0; height: 0; transform-style: preserve-3d; will-change: transform">
+<sc-for list="{{ccCards}}" as="c" hint-placeholder-count="8">
+<div ref="{{c.ref}}" style="position: absolute; left: -110px; top: 0; width: 220px; transform: rotateY({{c.deg}}deg) translateZ({{ccR}}px)">
+<div class="ccin" data-i="{{c.i}}" style="animation-delay: {{c.delay}}; border: 1px solid #3B4047; border-radius: 6px; overflow: hidden; background: #22262B">
+<img data-dc-src="{{c.img}}" alt="" draggable="false" style="display: block; width: 100%; height: 270px; object-fit: cover; pointer-events: none">
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; flex-wrap: wrap">
+<div aria-live="polite" style="display: flex; align-items: baseline; gap: 10px; min-width: 0">
+<span class="mono" style="font-size: 12px; color: #C8794A">{{ccNum}}</span>
+<span class="h" style="font-size: 24px; font-weight: 600">{{ccTitle}}</span>
+<span class="mono" style="font-size: 12px; color: #A3A9B0">{{ccSub}}</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<button onClick="{{ccPrev}}" aria-label="{{ccPrevLabel}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #484E56; background: none; color: #EDEDEB; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+<button onClick="{{ccNext}}" aria-label="{{ccNextLabel}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #484E56; background: none; color: #EDEDEB; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+<a href="Mobile-Catalog.dc.html" class="cta" style="height: 48px; padding: 0 14px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; font-weight: 600; font-size: 14px">{{ccGo}}</a>
+</div>
+</div>
+</section>
+
+<section class="reveal" style="padding: 56px 16px 0">
+<div style="border: 1px solid #3B4047; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<h2 class="h" style="font-size: 38px; line-height: 1; font-weight: 700">{{t.bH}}</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CDD2">{{t.bP}}</p>
+<div style="position: relative; height: 400px; margin-top: 8px">
+<img src="images/38.jpg" alt="Манекен у трьох шарах одягу Shar" style="display: block; object-fit: cover; object-position: center; position: absolute; left: 12%; width: 76%; top: 0; height: 100%">
+<div class="fc sway" style="animation-delay: 0s; will-change: transform; left: 0; top: 24px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.layer}} 01</span><span style="font-size: 13px">{{t.p1}}</span></div>
+<div class="fc sway" style="animation-delay: -1.5s; will-change: transform; right: 0; top: 110px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.layer}} 02</span><span style="font-size: 13px">{{t.p2}}</span></div>
+<div class="fc sway" style="animation-delay: -3s; will-change: transform; left: 0; bottom: 70px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.warmTo}}</span><span class="mono" style="font-size: 22px; color: #C8794A">+6 °C</span></div>
+<div class="fc sway" style="animation-delay: -4.5s; will-change: transform; right: 0; bottom: 16px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.setWeight}}</span><span class="mono" style="font-size: 16px">{{t.g620}}</span></div>
+<span class="spray" style="position: absolute; right: 14%; top: -18px; font-size: 30px; transform: rotate(-5deg)">{{t.spray2}}</span>
+</div>
+<a href="Mobile-Builder.dc.html" class="cta" style="height: 52px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 600">{{t.bBtn}}</a>
+</div>
+</section>
+
+<section class="lay {{layIn}}" ref="{{layRef}}" style="padding: 56px 16px 0">
+<h2 class="st h" style="animation-delay: 0s; font-size: 34px; font-weight: 600; margin-bottom: 8px">{{t.lH}}</h2>
+<p class="st" style="animation-delay: 0.12s; margin: 0 0 20px; font-size: 15px; line-height: 1.5; color: #A3A9B0">{{t.lP}}</p>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #3B4047">
+<sc-for list="{{layers}}" as="l" hint-placeholder-count="3">
+<div style="padding: 20px 0; display: flex; gap: 16px; border-bottom: 1px solid #3B4047">
+<span class="st mono" style="animation-delay: {{l.d0}}; font-size: 36px; color: #C8794A; line-height: 1">{{l.num}}</span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span class="st h" style="animation-delay: {{l.d1}}; font-size: 20px; font-weight: 600">{{l.name}}</span>
+<span class="st" style="animation-delay: {{l.d2}}; font-size: 14px; line-height: 1.55; color: #C9CDD2">{{l.text}}</span>
+<a href="Mobile-Catalog.dc.html" class="st mono" style="animation-delay: {{l.d3}}; font-size: 12px; color: #A3A9B0; min-height: 32px; display: flex; align-items: center">{{l.link}} →</a>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section class="reveal" style="padding: 56px 16px 0">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 20px">
+<h2 class="h" style="font-size: 34px; font-weight: 600">{{t.prH}}</h2>
+<a href="Mobile-Catalog.dc.html" style="font-size: 14px; border-bottom: 1px solid currentColor; white-space: nowrap">{{t.prAll}}</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 10px">
+<sc-for list="{{products}}" as="p" hint-placeholder-count="4">
+<a href="Mobile-Product.dc.html" class="card" style="display: flex; flex-direction: column; gap: 8px">
+<div style="position: relative">
+<img data-dc-src="{{p.img}}" alt="" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 3 / 4">
+<span class="mono" style="position: absolute; left: 8px; top: 8px; background: #22262B; border: 1px solid #484E56; padding: 3px 6px; font-size: 10px; border-radius: 2px">{{p.layer}}</span>
+</div>
+<span style="font-size: 14px; font-weight: 500">{{p.name}}</span>
+<span style="font-size: 14px">{{p.price}}</span>
+<span class="mono" style="font-size: 11px; color: #A3A9B0">{{p.temp}}</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section class="reveal" style="margin-top: 56px; position: relative">
+<img src="images/30.jpg" alt="Вечірня вулиця без світла" style="width: 100%; display: block; object-fit: cover; object-position: center; height: 480px; border-left: none; border-right: none">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 24px 16px">
+<p class="h" style="font-size: 36px; line-height: 1.05; font-weight: 600">{{t.mH}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CDD2">{{t.mP}}</p>
+</div>
+</section>
+
+<section class="reveal" style="padding: 56px 16px 0">
+<h2 class="h" style="font-size: 34px; font-weight: 600; margin-bottom: 20px">{{t.tH}}</h2>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{tips}}" as="x" hint-placeholder-count="3">
+<button onClick="{{x.open}}" aria-haspopup="dialog" class="card" style="width: 100%; text-align: left; border: 1px solid #3B4047; border-radius: 4px; padding: 18px; display: flex; flex-direction: column; gap: 10px; background: none; color: #EDEDEB; font-family: 'Onest', sans-serif">
+<span class="mono" style="font-size: 11px; color: #A3A9B0">{{x.tag}}</span>
+<span style="font-size: 18px; font-weight: 500; line-height: 1.3">{{x.title}}</span>
+<span class="mono" style="font-size: 12px; color: #C8794A">{{t.read}}</span>
+</button>
+</sc-for>
+</div>
+</section>
+
+<footer style="margin-top: 56px; border-top: 1px solid #3B4047; padding: 32px 16px 40px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span class="h" style="font-size: 26px; font-weight: 700; letter-spacing: 0.08em">SHAR</span>
+<span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.footTag}}</span>
+</div>
+<nav aria-label="{{t.footer}}" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; font-size: 14px">
+<a href="Mobile-Catalog.dc.html">{{t.navCatalog}}</a><a href="#">{{t.fDelivery}}</a>
+<a href="Mobile-Builder.dc.html">{{t.navBuilder}}</a><a href="#">{{t.fReturns}}</a>
+<a href="#">{{t.fTips}}</a><a href="#">{{t.fSizes}}</a>
+<a href="#">Instagram</a><a href="#">Telegram</a>
+</nav>
+</footer>
+<sc-if value="{{tipOpen}}" hint-placeholder-val="{{false}}">
+<div class="pop" onClick="{{closeTip}}" style="position: fixed; inset: 0; z-index: 50; background: rgba(10, 12, 14, 0.75); display: flex; align-items: center; justify-content: center; padding: 12px">
+<div role="dialog" aria-modal="true" aria-labelledby="tip-title" onClick="{{stop}}" style="position: relative; width: 100%; max-width: 560px; max-height: 86vh; overflow-y: auto; box-sizing: border-box; background: #2A2E33; border: 1px solid #484E56; border-radius: 8px; padding: 24px 20px; display: flex; flex-direction: column; gap: 16px">
+<button onClick="{{closeTip}}" aria-label="{{t.close}}" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border: 1px solid transparent; border-radius: 4px; background: none; color: #EDEDEB; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<span class="mono" style="font-size: 12px; color: #C8794A">{{tip.tag}}</span>
+<h3 id="tip-title" class="h" style="font-size: 28px; line-height: 1.05; font-weight: 600; padding-right: 44px">{{tip.title}}</h3>
+<sc-for list="{{tip.paras}}" as="b" hint-placeholder-count="3"><p style="margin: 0; font-size: 15px; line-height: 1.65; color: #C9CDD2">{{b.text}}</p></sc-for>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid #3B4047; padding-top: 20px; margin-top: 4px">
+<a data-dc-href="{{tip.href}}" class="cta" style="flex: 1 1 200px; height: 48px; padding: 0 20px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 600">{{tip.cta}}</a>
+<button onClick="{{closeTip}}" style="flex: 1 1 140px; height: 48px; padding: 0 20px; border: 1px solid #484E56; background: none; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px">{{t.gotIt}}</button>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":4300}}'>
+class Component extends DCLogic {
+  wobFrame(dt) {
+    if (this._calm || !dt) return;
+    let y = 0; try { y = window.scrollY || document.documentElement.scrollTop || 0; } catch (e) {}
+    if (this._lastY === undefined) this._lastY = y;
+    let dy = y - this._lastY; this._lastY = y;
+    dy += this._wheel || 0; this._wheel = 0;
+    this._wx = this._wx || [0, 0, 0, 0]; this._wv = this._wv || [0, 0, 0, 0];
+    const dirs = [1, -1, -1, 1], gains = [1, 0.8, 1.25, 0.9];
+    for (let i = 0; i < 4; i++) {
+      this._wv[i] += dy * 0.4 * dirs[i] * gains[i];
+      const acc = -55 * this._wx[i] - 6 * this._wv[i];
+      this._wv[i] += acc * dt; this._wx[i] += this._wv[i] * dt;
+      if (this._wx[i] > 14) { this._wx[i] = 14; this._wv[i] *= -0.4; }
+      if (this._wx[i] < -14) { this._wx[i] = -14; this._wv[i] *= -0.4; }
+      const el = this._wob && this._wob[i];
+      if (el) el.style.transform = 'translateX(' + this._wx[i].toFixed(2) + 'px) rotate(' + (this._wx[i] * 0.2).toFixed(2) + 'deg)';
+    }
+  }
+  ccFrame(now) {
+    const n = 8, step = 45, R = 300;
+    const dt = Math.min(0.05, Math.max(0, (now - (this._last || now)) / 1000)); this._last = now;
+    if (!this._drag) {
+      if (this._target !== null && this._target !== undefined) {
+        const k = 118, c = 2 * Math.sqrt(k), acc = k * (this._target - this._a) - c * this._v;
+        this._v += acc * dt; this._a += this._v * dt;
+        if (Math.abs(this._target - this._a) < 0.02 && Math.abs(this._v) < 0.3) { this._a = this._target; this._v = 0; this._target = null; }
+      } else {
+        const still = this._hover || this._calm || now < (this._holdUntil || 0) || this.state.tip || this.state.menu;
+        const cruise = still ? 0 : -14, tau = 0.18 + 0.3 * 1.5;
+        this._v += (cruise - this._v) * (1 - Math.exp(-dt / tau)); this._a += this._v * dt;
+      }
+    }
+    if (this._ring) this._ring.style.transform = 'translateZ(' + (-R) + 'px) rotateX(-5deg) rotateY(' + this._a.toFixed(3) + 'deg)';
+    for (let i = 0; i < n; i++) {
+      const el = this._cards && this._cards[i]; if (!el) continue;
+      const f = Math.cos((i * step + this._a) * Math.PI / 180);
+      el.style.filter = 'brightness(' + (0.2 + 0.8 * Math.pow((f + 1) / 2, 1.6)).toFixed(3) + ')';
+    }
+    const act = ((Math.round(-this._a / step) % n) + n) % n;
+    if (act !== this.state.cc) this.setState({ cc: act });
+  }
+  ccFocus(i) { const step = 45, d = -i * step, diff = ((d - this._a) % 360 + 540) % 360 - 180; this._target = this._a + diff; this._holdUntil = performance.now() + 2800; }
+  ccStep(dir) { const step = 45; this._target = Math.round((this._target != null ? this._target : this._a) / step) * step - dir * step; this._holdUntil = performance.now() + 2800; }
+  ccVals(uk) {
+    const L = (a, b) => uk ? a : b, R = 300;
+    this._cards = this._cards || [];
+    const S4 = [[L('Вдома', 'At home'), '+14 °C', 'Вдома'], [L('Офіс', 'Office'), '+16 °C', 'Офіс'], [L('Місто', 'City'), '−8 °C', 'Місто'], [L('Укриття', 'Shelter'), '+10 °C', 'Укриття']];
+    const k = (this.state.cc || 0) % 4;
+    const finish = (e) => {
+      const d = this._drag; if (!d) return; this._drag = null;
+      if (!d.moved) { const el = e && e.target && e.target.closest ? e.target.closest('[data-i]') : null; if (el) this.ccFocus(parseInt(el.getAttribute('data-i'), 10)); return; }
+      const now = performance.now(), s = d.s.filter((p) => now - p.t <= 110);
+      let v = 0; if (s.length > 1) { const span = (s[s.length - 1].t - s[0].t) / 1000; if (span > 0) v = (s[s.length - 1].a - s[0].a) / span; }
+      this._v = v; this._target = Math.round((this._a + v * 0.25) / 45) * 45; this._holdUntil = now + 2800;
+    };
+    return {
+      ccR: R,
+      ccRingRef: (el) => { this._ring = el; },
+      ccCards: Array.from({ length: 8 }, (_, i) => {
+        const sc = S4[i % 4], ang = Math.min(i * 45, 360 - i * 45);
+        return { i, deg: i * 45, img: this.img(sc[2]), delay: Math.round(ang / 180 * 480) + 'ms', ref: (el) => { this._cards[i] = el; } };
+      }),
+      ccNum: '0' + (k + 1) + ' / 04', ccTitle: S4[k][0], ccSub: S4[k][1],
+      ccGo: L('Дивитись у каталозі', 'See in the shop'),
+      ccPrevLabel: L('Попередній сценарій', 'Previous scenario'), ccNextLabel: L('Наступний сценарій', 'Next scenario'),
+      ccPrev: () => this.ccStep(-1), ccNext: () => this.ccStep(1),
+      ccKey: (e) => { if (e.key === 'ArrowRight') this.ccStep(1); if (e.key === 'ArrowLeft') this.ccStep(-1); },
+      ccEnter: (e) => { if (e.pointerType === 'mouse') this._hover = true; },
+      ccLeave: (e) => { this._hover = false; finish(e); },
+      ccDown: (e) => { this._drag = { x: e.clientX, a0: this._a, moved: false, s: [{ t: performance.now(), a: this._a }] }; this._target = null; this._v = 0; },
+      ccMove: (e) => {
+        const d = this._drag; if (!d) return;
+        const dx = e.clientX - d.x; if (Math.abs(dx) > 5) d.moved = true;
+        this._a = d.a0 + dx * 180 / (Math.PI * R);
+        d.s.push({ t: performance.now(), a: this._a }); if (d.s.length > 12) d.s.shift();
+      },
+      ccUp: (e) => finish(e)
+    };
+  }
+  carousel(list, uk) {
+    const n = list.length, a0 = this.state.sc || 0;
+    return list.map((s, i) => {
+      let d = ((i - a0) % n + n) % n; if (d > n / 2) d -= n;
+      const ang = d * 34, rad = ang * Math.PI / 180;
+      const x = Math.round(300 * Math.sin(rad)), z = Math.round(300 * (Math.cos(rad) - 1));
+      const act = d === 0, vis = Math.abs(d) <= 1;
+      return Object.assign({}, s, { isActive: act, notActive: !act,
+        tf: 'translateX(' + x + 'px) translateZ(' + z + 'px) rotateY(' + ang + 'deg)',
+        op: act ? 1 : vis ? 0.6 : 0, z: 10 - Math.abs(d), pe: vis ? 'auto' : 'none', tab: vis ? 0 : -1, hidden: vis ? 'false' : 'true',
+        border: act ? '#C8794A' : '#3B4047', bright: act ? 1 : 0.5, shadow: act ? '0 30px 60px rgba(0, 0, 0, 0.45)' : 'none',
+        goLabel: (uk ? 'Каталог для сценарію ' : 'Shop for ') + s.name, showLabel: (uk ? 'Показати сценарій ' : 'Show scenario ') + s.name,
+        pick: () => this.setState({ sc: i }) });
+    });
+  }
+  scVals(uk, n) {
+    const a = this.state.sc || 0, go = (k) => this.setState({ sc: ((k % n) + n) % n });
+    return {
+      scPrev: () => go(a - 1), scNext: () => go(a + 1),
+      scPrevLabel: uk ? 'Попередній сценарій' : 'Previous scenario', scNextLabel: uk ? 'Наступний сценарій' : 'Next scenario',
+      scKey: (e) => { if (e.key === 'ArrowRight') go(a + 1); if (e.key === 'ArrowLeft') go(a - 1); },
+      scHold: () => this.setState({ hold: true }), scGo: () => this.setState({ hold: false }),
+      scTouchStart: (e) => { this._tx = e.touches && e.touches[0] ? e.touches[0].clientX : null; this.setState({ hold: true }); },
+      scTouchEnd: (e) => { const x = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : null; if (this._tx !== null && x !== null && Math.abs(x - this._tx) > 40) go(x < this._tx ? a + 1 : a - 1); this.setState({ hold: false }); },
+      scDots: Array.from({ length: n }, (_, i) => ({ cur: i === a ? 'true' : 'false', label: (uk ? 'Сценарій ' : 'Scenario ') + (i + 1), w: i === a ? '24px' : '8px', c: i === a ? '#C8794A' : '#6B7179', pick: () => go(i) }))
+    };
+  }
+  tipsData(uk) {
+    const L = (a, b) => uk ? a : b;
+    return [
+      { tag: L('ГІД · 4 ХВ', 'GUIDE · 4 MIN'), title: L('Чому три тонкі шари тепліші за один товстий светр', 'Why three thin layers beat one thick sweater'), cta: L('Зібрати свої шари', 'Build your layers'), body: [
+        L('Гріє не тканина, а повітря, яке вона тримає біля тіла. Між трьома тонкими шарами застигають три прошарки теплого повітря — а товстий светр дає лише один.', 'Fabric doesn’t warm you — the air it holds next to your body does. Three thin layers trap three pockets of warm air; one thick sweater traps just one.'),
+        L('Кожен шар має свою роботу: термобаза відводить вологу, утеплення накопичує тепло, захист не пускає холод і вітер. Мокре тіло мерзне вдвічі швидше, тому база важливіша, ніж здається.', 'Each layer has a job: the base layer wicks moisture, the mid layer holds heat, the outer layer keeps cold and wind out. A damp body loses heat twice as fast, so the base matters more than it looks.'),
+        L('І головне — шарами легко керувати. Стало тепліше або увімкнули світло — зняв один шар і не спітнів.', 'And layers are easy to adjust. It got warmer or the power came back — take one off and you won’t overheat.')
+      ] },
+      { tag: L('ВДОМА', 'AT HOME'), title: L('Як працювати при +14 і не мерзнути: комплект на робочий день', 'Working at +14 without freezing: a set for your workday'), cta: L('Зібрати комплект «Вдома»', 'Build an at-home set'), body: [
+        L('Базовий комплект: лонгслів і термолегінси як перший шар, фліс або жилет поверх, теплі шкарпетки. Так тепло до +10 °C навіть без руху.', 'The basic set: a longsleeve and thermal leggings as the base, a fleece or vest on top, warm socks. That keeps you warm down to +10 °C even sitting still.'),
+        L('Найшвидше мерзнуть руки й ноги. Сенсорні рукавички дозволяють друкувати й торкатися телефону, а шкарпетки з мериносу гріють навіть на холодній підлозі.', 'Hands and feet get cold first. Touchscreen gloves let you type and use your phone, and merino socks stay warm even on a cold floor.'),
+        L('Раз на годину встань і пройдися 3–5 хвилин, тримай поруч гарячий напій. Рух і тепла чашка — дві безкоштовні «батареї».', 'Once an hour, get up and walk for 3–5 minutes, and keep a hot drink nearby. Movement and a warm mug are two free heaters.')
+      ] },
+      { tag: L('ДОГЛЯД', 'CARE'), title: L('Як прати термобілизну, щоб вона не втратила властивостей', 'How to wash base layers so they keep working'), cta: L('Перейти в каталог', 'Go to the shop'), body: [
+        L('Пери при 30 °C, навиворіт і в делікатному режимі. Висока температура руйнує волокна, які відводять вологу.', 'Wash at 30 °C, inside out, on a gentle cycle. High heat damages the fibres that wick moisture.'),
+        L('Не додавай кондиціонер: він забиває волокна плівкою, і річ перестає «дихати». Краще спеціальний засіб для функціонального одягу.', 'Skip the softener: it coats the fibres and the garment stops breathing. Use a detergent made for technical clothing instead.'),
+        L('Сушити — розклавши на горизонтальній поверхні, подалі від батареї та прямого сонця. Так річ не втратить форму й прослужить кілька сезонів.', 'Dry flat, away from radiators and direct sun. That way it keeps its shape and lasts several seasons.')
+      ] }
+    ];
+  }
+  tipView(uk) { const i = this.state.tip; if (i === null || i === undefined) return { tag: '', title: '', cta: '', href: '#', paras: [] }; const x = this.tipsData(uk)[i]; return { tag: x.tag, title: x.title, cta: x.cta, href: ['Mobile-Builder.dc.html', 'Mobile-Builder.dc.html', 'Mobile-Catalog.dc.html'][i], paras: x.body.map((text) => ({ text })) }; }
+  loadLang() { try { return localStorage.getItem('shar-lang') || 'uk'; } catch (e) { return 'uk'; } }
+  defaultItems() { return [{ id: 'ls', color: 'g', size: 'M', qty: 1 }, { id: 'fl', color: 'g', size: 'M', qty: 1 }, { id: 'so', color: 'c', size: '42–44', qty: 1 }]; }
+  loadItems() { try { const v = JSON.parse(localStorage.getItem('shar-items')); if (Array.isArray(v)) return v; } catch (e) {} return this.defaultItems(); }
+  saveItems(items) { try { localStorage.setItem('shar-items', JSON.stringify(items)); } catch (e) {} }
+  loadCart() { return this.loadItems().reduce((s, i) => s + i.qty, 0); }
+  addItem(it, d) { const step = d || 1; const items = this.loadItems(); const k = items.findIndex((x) => x.id === it.id && x.color === it.color && x.size === it.size); if (k >= 0) items[k] = Object.assign({}, items[k], { qty: items[k].qty + step }); else if (step > 0) items.push(Object.assign({ qty: 1 }, it)); const next = items.filter((x) => x.qty > 0); this.saveItems(next); return next.reduce((s, i) => s + i.qty, 0); }
+  storeOk() { try { localStorage.setItem('shar-t', '1'); localStorage.removeItem('shar-t'); return true; } catch (e) { return false; } }
+  componentDidMount() { try { if (window.IntersectionObserver && this._layEl) { this._io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { this.setState({ layIn: true }); this._io.disconnect(); } }, { threshold: 0.25 }); this._io.observe(this._layEl); } else this.setState({ layIn: true }); } catch (e) { this.setState({ layIn: true }); } try { this._calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {} this._a = this._a || 0; this._v = this._v || 0; const loop = (now) => { this.ccFrame(now); this._raf = requestAnimationFrame(loop); }; this._raf = requestAnimationFrame(loop); if (!this.storeOk()) return; this._sync = setInterval(() => { const c = this.loadCart(), l = this.loadLang(); if (c !== this.state.cart || l !== this.state.lang) this.setState({ cart: c, lang: l }); }, 700); }
+  componentWillUnmount() { clearInterval(this._sync); cancelAnimationFrame(this._raf); if (this._io) this._io.disconnect(); }
+  setLang(l) { try { localStorage.setItem('shar-lang', l); } catch (e) {} this.setState({ lang: l }); }
+  navVals(uk, active) {
+    const items = [['home', 'Mobile-Main.dc.html', uk ? 'Про Shar' : 'About Shar'], ['catalog', 'Mobile-Catalog.dc.html', uk ? 'Каталог' : 'Shop'], ['builder', 'Mobile-Builder.dc.html', uk ? 'Конструктор шарів' : 'Layer builder'], ['cart', 'Mobile-Cart.dc.html', uk ? 'Кошик' : 'Cart']];
+    return {
+      mm: { lang: uk ? 'Мова' : 'Language', cart: uk ? 'Кошик' : 'Cart', menu: uk ? 'Меню' : 'Menu' },
+      menuItems: items.map(([k, href, label]) => ({ href, label, cur: k === active ? 'page' : 'false', color: k === active ? '#C8794A' : '#EDEDEB' })),
+      menuOpen: !!this.state.menu, menuColor: this.state.menu ? '#C8794A' : '#EDEDEB', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      cartCount: this.state.cart, isUk: uk, isEn: !uk,
+      ukBg: uk ? '#C8794A' : 'transparent', ukFg: uk ? '#121417' : '#EDEDEB', enBg: uk ? 'transparent' : '#C8794A', enFg: uk ? '#EDEDEB' : '#121417',
+      setUk: () => this.setLang('uk'), setEn: () => this.setLang('en')
+    };
+  }
+  img(n) { return ({"Лонгслів База": "images/03.jpg", "Футболка База": "images/04.jpg", "Термокомплект Ніч": "images/05.jpg", "Фліс Затишок": "images/06.jpg", "Фліс Затишок Худі": "images/09.jpg", "Фліс Мікро": "images/10.jpg", "Жилет Пуфер": "images/11.jpg", "Жилет Тиша": "images/12.jpg", "Жилет Довгий": "images/13.jpg", "Світшот Теплий": "images/14.jpg", "Світшот Хвиля": "images/15.jpg", "Кардиган Флісовий": "images/16.jpg", "Пончо-плед": "images/17.jpg", "Куртка Вітер": "images/18.jpg", "Штани Утеплені Місто": "images/19.jpg", "Термошкарпетки": "images/20.jpg", "Рукавички Сенсор": "images/21.jpg", "Сумка Павербанк": "images/22.jpg", "Вдома": "images/25.jpg", "Офіс": "images/26.jpg", "Місто": "images/27.jpg", "Укриття": "images/28.jpg"})[n]; }
+  constructor(props) {
+    super(props);
+    this.state = { layIn: false, cc: 0, sc: 0, hold: false, tip: null, lang: this.loadLang(), cart: this.loadCart(), menu: false };
+  }
+  renderVals() {
+    const uk = this.state.lang === 'uk';
+    const L = (a, b) => uk ? a : b;
+    const price = (n) => uk ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' грн' : 'UAH ' + n.toLocaleString('en-US');
+    const t = uk ? {
+      langLabel: 'Мова', menu: 'Меню', cart: 'Кошик, 2 товари',
+      heroH: 'Тепло\nбез розетки.', heroP: 'Одяг шарами для холодної квартири, офісу без опалення і міста без світла.',
+      cta1: 'Зібрати свій комплект', home: 'ВДОМА', outside: 'НАДВОРІ', spray1: '+14 вдома',
+      scenH: 'Де тобі холодно?',
+      bH: 'Збери свої шари', bP: 'Обери річ для кожного шару і побач, при якій температурі тобі буде тепло. Комплект — на 10% дешевше.', bBtn: 'Відкрити конструктор',
+      layer: 'ШАР', p1: 'Лонгслів База', p2: 'Фліс Затишок', warmTo: 'ТЕПЛО ДО', setWeight: 'ВАГА', g620: '620 г', spray2: 'тепло тут',
+      lH: 'Шар за шаром', lP: 'Тепло не в товщині одного светра, а в повітрі між шарами.',
+      prH: 'Носять найчастіше', prAll: 'Усі',
+      mH: 'Світло вимикають. Тепло — ні.', mP: 'Ми робимо одяг для міста, яке не зупиняється. Без драми — просто щоб тобі було тепло.',
+      tH: 'Як вдягатись шарами', read: 'Читати →', close: 'Закрити', gotIt: 'Зрозуміло',
+      footTag: 'тепло без розетки · доставка по Україні', footer: 'Футер', navCatalog: 'Каталог', navBuilder: 'Конструктор', fTips: 'Поради', fDelivery: 'Доставка й оплата', fReturns: 'Обмін і повернення', fSizes: 'Таблиця розмірів'
+    } : {
+      langLabel: 'Language', menu: 'Menu', cart: 'Cart, 2 items',
+      heroH: 'Warmth,\nunplugged.', heroP: 'Layered clothing for a cold apartment, an unheated office and a city without power.',
+      cta1: 'Build your set', home: 'AT HOME', outside: 'OUTSIDE', spray1: '+14 at home',
+      scenH: 'Where are you cold?',
+      bH: 'Build your layers', bP: 'Pick one piece for each layer and see how cold it can get while you stay warm. Sets are 10% off.', bBtn: 'Open the builder',
+      layer: 'LAYER', p1: 'Base Longsleeve', p2: 'Cozy Fleece', warmTo: 'WARM DOWN TO', setWeight: 'WEIGHT', g620: '620 g', spray2: 'warmth here',
+      lH: 'Layer by layer', lP: 'Warmth isn’t about one thick sweater. It’s the air between layers.',
+      prH: 'Most worn', prAll: 'All',
+      mH: 'The lights go out. The warmth stays.', mP: 'We make clothes for a city that keeps going. No drama — just so you’re warm.',
+      tH: 'How to layer', read: 'Read →', close: 'Close', gotIt: 'Got it',
+      footTag: 'warmth, unplugged · delivery across Ukraine', footer: 'Footer', navCatalog: 'Shop', navBuilder: 'Builder', fTips: 'Guides', fDelivery: 'Delivery and payment', fReturns: 'Exchanges and returns', fSizes: 'Size guide'
+    };
+    return Object.assign(this.navVals(uk, 'home'), {
+      t,
+      ...this.ccVals(uk),
+      layIn: this.state.layIn ? 'in' : '', layRef: (el) => { this._layEl = el; },
+      wob0: (el) => { this._wob = this._wob || []; this._wob[0] = el; }, wob1: (el) => { this._wob = this._wob || []; this._wob[1] = el; }, wob2: (el) => { this._wob = this._wob || []; this._wob[2] = el; }, wob3: (el) => { this._wob = this._wob || []; this._wob[3] = el; },
+      scenarios: this.carousel([
+        { img: this.img('Вдома'), name: L('Вдома', 'Home'), temp: '+14°', photo: '[ФОТО: «Вдома»]' },
+        { img: this.img('Офіс'), name: L('Офіс', 'Office'), temp: '+16°', photo: '[ФОТО: «Офіс»]' },
+        { img: this.img('Місто'), name: L('Місто', 'City'), temp: '−8°', photo: '[ФОТО: «Місто»]' },
+        { img: this.img('Укриття'), name: L('Укриття', 'Shelter'), temp: '+10°', photo: '[ФОТО: «Укриття»]' }
+      ], uk),
+      layers: [
+        { num: '01', name: L('Термобаза', 'Base layer'), text: L('Тримає тепло тіла і відводить вологу. Не видно під сорочкою.', 'Keeps body heat and wicks moisture. Invisible under a shirt.'), link: L('Лонгсліви, легінси', 'Longsleeves, leggings') },
+        { num: '02', name: L('Утеплення', 'Mid layer'), text: L('Накопичує тепле повітря. Виглядає як звичайний одяг.', 'Traps warm air. Looks like everyday clothes.'), link: L('Фліси, жилети', 'Fleeces, vests') },
+        { num: '03', name: L('Захист', 'Outer layer'), text: L('Не пускає холод і вітер. Для вулиці й укриття.', 'Keeps cold and wind out. For the street and the shelter.'), link: L('Штани, пончо, куртки', 'Trousers, ponchos, jackets') }
+      ].map((l, i) => Object.assign(l, { d0: (0.3 + i * 0.35).toFixed(2) + 's', d1: (0.38 + i * 0.35).toFixed(2) + 's', d2: (0.46 + i * 0.35).toFixed(2) + 's', d3: (0.54 + i * 0.35).toFixed(2) + 's' })),
+      products: [
+        { img: this.img('Лонгслів База'), ph: 'Лонгслів База', name: L('Лонгслів База', 'Base Longsleeve'), price: price(1290), layer: L('ШАР 01', 'LAYER 01'), temp: '+10…+18 °C' },
+        { img: this.img('Фліс Затишок'), ph: 'Фліс Затишок', name: L('Фліс Затишок', 'Cozy Fleece'), price: price(2390), layer: L('ШАР 02', 'LAYER 02'), temp: '+4…+14 °C' },
+        { img: this.img('Пончо-плед'), ph: 'Пончо-плед', name: L('Пончо-плед', 'Blanket Poncho'), price: price(2890), layer: L('ШАР 03', 'LAYER 03'), temp: '0…+12 °C' },
+        { img: this.img('Рукавички Сенсор'), ph: 'Рукавички Сенсор', name: L('Рукавички Сенсор', 'Touch Gloves'), price: price(490), layer: L('АКСЕСУАР', 'ACCESSORY'), temp: '−10…+10 °C' }
+      ],
+      tips: this.tipsData(uk).map((x, i) => ({ tag: x.tag, title: x.title, open: () => this.setState({ tip: i }) })),
+      tipOpen: this.state.tip !== null && this.state.tip !== undefined, tip: this.tipView(uk),
+      closeTip: () => this.setState({ tip: null }), stop: (e) => e.stopPropagation()
+    });
+  }
+}
+</script>
+</body>
+</html>

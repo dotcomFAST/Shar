@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Shar — кошик</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./vendor/react.production.min.js"></script>
+<script src="./vendor/react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Onest:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Rubik+Spray+Paint&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#22262B}
+a{color:#EDEDEB;text-decoration:none;transition:color .15s}a:hover{color:#C8794A}
+button{cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
+button:not(.cta):hover{border-color:#C8794A !important}
+.cta:hover{background:#D68A5A !important}
+label{cursor:pointer}
+:focus-visible{outline:2px solid #C8794A;outline-offset:2px}
+.h{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0}
+.mono{font-family:'JetBrains Mono',monospace}
+.spray{font-family:'Rubik Spray Paint',cursive;color:#C8794A}
+html{scroll-behavior:smooth}
+a,button,input,select,label{transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
+button:active,.cta:active{transform:scale(.97)}
+@keyframes pagein{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes popin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes sprayin{from{opacity:0;transform:scale(.8) rotate(-14deg)}}
+.page{animation:pagein .7s cubic-bezier(.2,.7,.2,1) both}
+.pop{animation:popin .32s cubic-bezier(.2,.7,.2,1) both}
+.kb{animation:kb 16s cubic-bezier(.2,.7,.2,1) both}
+.spray{animation:sprayin .9s .45s cubic-bezier(.2,.7,.2,1) both}
+.card img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.card:hover img{transform:scale(1.04)}
+@supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+</style>
+</helmet>
+<div class="page" style="background: #22262B; color: #EDEDEB; font-family: 'Onest', sans-serif; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #3B4047">
+<div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" style="display: flex; align-items: baseline; gap: 12px">
+<span class="h" style="font-size: 30px; font-weight: 700; letter-spacing: 0.08em">SHAR</span>
+<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.tag}}</span>
+</a>
+<nav aria-label="{{t.menu}}" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
+<a href="Main.dc.html">{{t.navAbout}}</a>
+<a href="Catalog.dc.html">{{t.navCatalog}}</a>
+<a href="Builder.dc.html">{{t.navBuilder}}</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 8px">
+<div role="group" aria-label="{{t.langLabel}}" style="display: flex; border: 1px solid #3B4047; border-radius: 4px; overflow: hidden">
+<button onClick="{{setUk}}" aria-pressed="{{isUk}}" style="height: 42px; width: 44px; border: none; background: {{ukBg}}; color: {{ukFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">UA</button>
+<button onClick="{{setEn}}" aria-pressed="{{isEn}}" style="height: 42px; width: 44px; border: none; background: {{enBg}}; color: {{enFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">EN</button>
+</div>
+<a href="Catalog.dc.html" aria-label="{{t.search}}" style="width: 44px; height: 44px; border: 1px solid #3B4047; border-radius: 4px; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a>
+<a href="Cart.dc.html" aria-current="page" aria-label="{{t.cart}}" style="height: 44px; padding: 0 14px; border: 1px solid #C8794A; color: #C8794A; border-radius: 4px; display: flex; align-items: center; gap: 8px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>{{count}}</a>
+</div>
+</div>
+</header>
+
+<sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div style="max-width: 720px; margin: 0 auto; padding: 120px 32px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+<span class="spray" style="font-size: 64px; transform: rotate(-5deg)">{{t.doneSpray}}</span>
+<h1 class="h" style="font-size: 56px; font-weight: 700">{{t.doneH}}</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9CDD2">{{doneText}}</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
+<a href="Main.dc.html" class="cta" style="height: 52px; padding: 0 28px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; font-weight: 600">{{t.navHome}}</a>
+<button onClick="{{restart}}" style="height: 52px; padding: 0 28px; border: 1px solid #EDEDEB; background: none; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 16px">{{t.again}}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{notDone}}" hint-placeholder-val="{{true}}">
+<div style="max-width: 1280px; margin: 0 auto; padding: 48px 32px 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+<h1 class="h" style="font-size: 72px; line-height: 1; font-weight: 700">{{t.h1}}</h1>
+<a href="Catalog.dc.html" style="font-size: 15px">{{t.back}}</a>
+</div>
+
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px 32px 120px">
+<div style="border: 1px dashed #484E56; border-radius: 4px; padding: 72px 24px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+<span class="spray" style="font-size: 52px; transform: rotate(-5deg)">{{t.spray}}</span>
+<p style="margin: 0; font-size: 18px; color: #C9CDD2; max-width: 420px">{{t.emptyText}}</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
+<a href="Builder.dc.html" class="cta" style="height: 52px; padding: 0 24px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; font-weight: 600">{{t.toBuilder}}</a>
+<a href="Catalog.dc.html" style="height: 52px; padding: 0 24px; border: 1px solid #EDEDEB; border-radius: 4px; display: flex; align-items: center">{{t.navCatalog}}</a>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{notEmpty}}" hint-placeholder-val="{{true}}">
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px 32px 96px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="border: 1px solid {{setBorder}}; border-radius: 4px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px">
+<span class="h" style="font-size: 22px; font-weight: 600">{{t.setName}}</span>
+<span class="mono" style="font-size: 13px; color: {{setNoteColor}}">{{setNote}}</span>
+</div>
+<sc-for list="{{items}}" as="i" hint-placeholder-count="3">
+<div style="display: flex; gap: 16px; align-items: center; border-top: 1px solid #3B4047; padding-top: 16px; flex-wrap: wrap">
+<img data-dc-src="{{i.img}}" alt="" style="display: block; width: 96px; height: 120px; object-fit: cover; flex-shrink: 0; border-radius: 2px">
+<div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="font-size: 11px; color: #A3A9B0">{{i.layer}}</span>
+<span style="font-size: 17px; font-weight: 500">{{i.name}}</span>
+<span style="font-size: 14px; color: #A3A9B0">{{i.meta}}</span>
+</div>
+<div role="group" aria-label="{{i.qtyLabel}}" style="display: flex; align-items: center; border: 1px solid #484E56; border-radius: 4px">
+<button onClick="{{i.dec}}" aria-label="{{t.less}}" style="width: 44px; height: 44px; background: none; border: none; color: #EDEDEB; font-size: 18px">−</button>
+<span class="mono" aria-live="polite" style="width: 28px; text-align: center">{{i.qty}}</span>
+<button onClick="{{i.inc}}" aria-label="{{t.more}}" style="width: 44px; height: 44px; background: none; border: none; color: #EDEDEB; font-size: 18px">+</button>
+</div>
+<span style="width: 110px; text-align: right; font-size: 16px">{{i.price}}</span>
+<button onClick="{{i.remove}}" aria-label="{{i.removeLabel}}" style="width: 44px; height: 44px; background: none; border: 1px solid transparent; border-radius: 4px; color: #A3A9B0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{showUpsell}}" hint-placeholder-val="{{true}}">
+<div style="border: 1px dashed #484E56; border-radius: 4px; padding: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; position: relative; margin-top: 16px">
+<div style="display: flex; align-items: center; gap: 16px">
+<img src="images/17.jpg" alt="" style="display: block; width: 64px; height: 80px; object-fit: cover; border-radius: 2px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.upH}}</span>
+<span style="font-size: 16px">{{t.upItem}} <span style="color: #C8794A">{{t.upPrice}}</span></span>
+</div>
+</div>
+<button onClick="{{addPoncho}}" style="height: 48px; padding: 0 20px; background: none; border: 1px solid #C8794A; color: #C8794A; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px">{{t.upBtn}}</button>
+<span class="spray" style="position: absolute; right: 24px; top: -30px; font-size: 32px; transform: rotate(-5deg)">{{t.spray}}</span>
+</div>
+</sc-if>
+</div>
+
+<aside aria-label="{{t.summary}}" style="flex: 1 1 340px; min-width: 0; border: 1px solid #3B4047; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+<span class="h" style="font-size: 26px; font-weight: 600">{{t.total}}</span>
+<div class="mono" style="display: flex; flex-direction: column; gap: 12px; font-size: 14px">
+<div style="display: flex; justify-content: space-between"><span style="color: #A3A9B0">{{goodsLabel}}</span><span>{{goodsSum}}</span></div>
+<sc-if value="{{hasSetDisc}}" hint-placeholder-val="{{true}}"><div style="display: flex; justify-content: space-between"><span style="color: #A3A9B0">{{t.disc}}</span><span style="color: #C8794A">{{discSum}}</span></div></sc-if>
+<sc-if value="{{promoOk}}" hint-placeholder-val="{{false}}"><div class="pop" style="display: flex; justify-content: space-between"><span style="color: #A3A9B0">{{t.promoDisc}}</span><span style="color: #C8794A">{{promoSum}}</span></div></sc-if>
+<div style="display: flex; justify-content: space-between; gap: 12px"><span style="color: #A3A9B0">{{t.delivery}}</span><span style="text-align: right">{{deliveryVal}}</span></div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #3B4047; padding-top: 20px"><span style="font-size: 18px">{{t.toPay}}</span><span style="font-size: 32px; font-weight: 600">{{toPay}}</span></div>
+<div role="radiogroup" aria-label="{{t.dH}}" style="display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.dH}}</span>
+<sc-for list="{{deliveries}}" as="d" hint-placeholder-count="3">
+<label style="display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 48px; padding: 0 14px; border: 1px solid {{d.border}}; background: {{d.bg}}; border-radius: 4px; font-size: 15px"><span style="display: flex; align-items: center; gap: 10px"><input type="radio" name="d" checked="{{d.on}}" onChange="{{d.pick}}" style="accent-color: #C8794A; width: 18px; height: 18px"> {{d.label}}</span><span class="mono" style="font-size: 12px; color: #A3A9B0">{{d.note}}</span></label>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="promo" style="font-size: 14px; color: #A3A9B0">{{t.promo}}</label>
+<div style="display: flex; gap: 8px"><input id="promo" type="text" value="{{promo}}" onChange="{{onPromo}}" placeholder="{{t.promoPh}}" style="flex: 1; min-width: 0; height: 48px; background: #2A2E33; border: 1px solid {{promoBorder}}; border-radius: 4px; color: #EDEDEB; padding: 0 14px; font-family: 'Onest', sans-serif; font-size: 15px; text-transform: uppercase"><button onClick="{{applyPromo}}" style="height: 48px; padding: 0 16px; background: none; border: 1px solid #484E56; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 14px">{{t.apply}}</button></div>
+<sc-if value="{{promoMsgShow}}" hint-placeholder-val="{{false}}"><span class="pop" role="status" style="font-size: 13px; color: {{promoMsgColor}}">{{promoMsg}}</span></sc-if>
+</div>
+<button onClick="{{checkout}}" class="cta" style="height: 56px; background: #C8794A; color: #121417; border: none; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 17px; font-weight: 600">{{t.checkout}}</button>
+<span class="mono" style="font-size: 12px; color: #A3A9B0; line-height: 1.6">{{t.payNote}}</span>
+</aside>
+</div>
+</sc-if>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1250}}'>
+class Component extends DCLogic {
+  loadLang() { try { return localStorage.getItem('shar-lang') || 'uk'; } catch (e) { return 'uk'; } }
+  storeOk() { try { localStorage.setItem('shar-t', '1'); localStorage.removeItem('shar-t'); return true; } catch (e) { return false; } }
+  componentDidMount() { if (!this.storeOk()) return; this._sync = setInterval(() => { const v = JSON.stringify(this.loadItems()), l = this.loadLang(); if (this.state.done) return; if (v !== JSON.stringify(this.state.items) || l !== this.state.lang) this.setState({ items: JSON.parse(v), lang: l }); }, 700); }
+  componentWillUnmount() { clearInterval(this._sync); }
+  setLang(l) { try { localStorage.setItem('shar-lang', l); } catch (e) {} this.setState({ lang: l }); }
+  defaultItems() { return [{ id: 'ls', color: 'g', size: 'M', qty: 1 }, { id: 'fl', color: 'g', size: 'M', qty: 1 }, { id: 'so', color: 'c', size: '42–44', qty: 1 }]; }
+  loadItems() { try { const v = JSON.parse(localStorage.getItem('shar-items')); if (Array.isArray(v)) return v; } catch (e) {} return this.defaultItems(); }
+  saveItems(items) { try { localStorage.setItem('shar-items', JSON.stringify(items)); } catch (e) {} }
+  addItem(it, d) { const step = d || 1; const items = this.loadItems(); const k = items.findIndex((x) => x.id === it.id && x.color === it.color && x.size === it.size); if (k >= 0) items[k] = Object.assign({}, items[k], { qty: items[k].qty + step }); else if (step > 0) items.push(Object.assign({ qty: 1 }, it)); const next = items.filter((x) => x.qty > 0); this.saveItems(next); return next.reduce((s, i) => s + i.qty, 0); }
+  constructor(props) {
+    super(props);
+    this.state = { lang: this.loadLang(), items: this.loadItems(), delivery: 'np', promo: '', promoState: null, done: false, order: '' };
+  }
+  setItems(items) { this.saveItems(items); this.setState({ items }); }
+  renderVals() {
+    const S = this.state;
+    const uk = S.lang === 'uk';
+    const L = (a, b) => uk ? a : b;
+    const price = (n) => uk ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' грн' : 'UAH ' + n.toLocaleString('en-US');
+    const B = (id) => '/_blob/' + id;
+    const CAT = {
+      ls: { name: L('Лонгслів База', 'Base Longsleeve'), price: 1290, lay: 1, img: 'images/03.jpg' },
+      tee: { name: L('Футболка База', 'Base Tee'), price: 890, lay: 1, img: 'images/04.jpg' },
+      ts: { name: L('Термокомплект Ніч', 'Night Thermal Set'), price: 1790, lay: 1, img: 'images/05.jpg' },
+      fl: { name: L('Фліс Затишок', 'Cozy Fleece'), price: 2390, lay: 2, img: 'images/06.jpg' },
+      pv: { name: L('Жилет Пуфер', 'Puffer Vest'), price: 2190, lay: 2, img: 'images/11.jpg' },
+      sw: { name: L('Світшот Теплий', 'Warm Sweatshirt'), price: 1790, lay: 2, img: 'images/14.jpg' },
+      po: { name: L('Пончо-плед', 'Blanket Poncho'), price: 2890, lay: 3, img: 'images/17.jpg' },
+      jk: { name: L('Куртка Вітер', 'Wind Jacket'), price: 4890, lay: 3, img: 'images/18.jpg' },
+      tr: { name: L('Штани Утеплені Місто', 'City Insulated Trousers'), price: 2690, lay: 3, img: 'images/19.jpg' },
+      so: { name: L('Термошкарпетки', 'Thermal Socks'), price: 390, lay: 0, img: 'images/20.jpg' }
+    };
+    const LAY = [L('АКСЕСУАР', 'ACCESSORY'), L('ШАР 01', 'LAYER 01'), L('ШАР 02', 'LAYER 02'), L('ШАР 03', 'LAYER 03')];
+    const COLN = { g: L('Графіт', 'Graphite'), c: L('Бетон', 'Concrete'), n: L('Нічний синій', 'Night blue'), m: L('Молочний', 'Milk white') };
+    const meta = (it) => [COLN[it.color], it.size === 'one' ? L('один розмір', 'one size') : it.size].filter(Boolean).join(' · ');
+    const imgOf = (it) => it.id === 'fl' && it.color === 'c' ? 'images/07.jpg' : it.id === 'fl' && it.color === 'm' ? 'images/08.jpg' : CAT[it.id].img;
+    const t = uk ? {
+      tag: 'тепло без розетки', menu: 'Головне меню', langLabel: 'Мова', search: 'Пошук', cart: 'Кошик',
+      navHome: 'Головна', navCatalog: 'Каталог', navBuilder: 'Конструктор шарів', navAbout: 'Про Shar',
+      h1: 'Кошик', back: '← Продовжити покупки', setName: 'Твій комплект', less: 'Менше', more: 'Більше',
+      upH: 'ДОДАЙ ШАР 03 — І ТЕПЛО БУДЕ ДО −2 °C', upItem: 'Пончо-плед · 2 890 грн →', upPrice: '2 600 грн у комплекті', upBtn: 'Додати в комплект', spray: 'надягни ще один',
+      emptyText: 'Кошик порожній. Збери комплект у конструкторі — так вийде на 10% дешевше.', toBuilder: 'Зібрати комплект',
+      summary: 'Підсумок замовлення', total: 'Разом', disc: 'Знижка за комплект', promoDisc: 'Промокод', delivery: 'Доставка',
+      toPay: 'До сплати', dH: 'ДОСТАВКА ПО УКРАЇНІ', promo: 'Промокод', promoPh: 'ТЕПЛО10', apply: 'Застосувати',
+      checkout: 'Оформити замовлення', payNote: 'Картка · Apple Pay · Google Pay · при отриманні. Кошик зберігається, навіть якщо зник звʼязок.',
+      doneSpray: 'тепло вже їде', doneH: 'Дякуємо!', again: 'Почати спочатку'
+    } : {
+      tag: 'warmth, unplugged', menu: 'Main menu', langLabel: 'Language', search: 'Search', cart: 'Cart',
+      navHome: 'Home', navCatalog: 'Shop', navBuilder: 'Layer builder', navAbout: 'About Shar',
+      h1: 'Cart', back: '← Continue shopping', setName: 'Your set', less: 'Decrease', more: 'Increase',
+      upH: 'ADD LAYER 03 — STAY WARM DOWN TO −2 °C', upItem: 'Blanket Poncho · UAH 2,890 →', upPrice: 'UAH 2,600 in a set', upBtn: 'Add to set', spray: 'one more layer',
+      emptyText: 'Your cart is empty. Build a set in the layer builder — it’s 10% cheaper.', toBuilder: 'Build a set',
+      summary: 'Order summary', total: 'Total', disc: 'Set discount', promoDisc: 'Promo code', delivery: 'Delivery',
+      toPay: 'To pay', dH: 'DELIVERY ACROSS UKRAINE', promo: 'Promo code', promoPh: 'WARM10', apply: 'Apply',
+      checkout: 'Check out', payNote: 'Card · Apple Pay · Google Pay · on delivery. Your cart stays saved even if the connection drops.',
+      doneSpray: 'warmth is on its way', doneH: 'Thank you!', again: 'Start over'
+    };
+    const items = S.items.map((it, k) => {
+      const c = CAT[it.id];
+      const upd = (q) => { const next = S.items.map((x, j) => j === k ? Object.assign({}, x, { qty: q }) : x).filter((x) => x.qty > 0); this.setItems(next); };
+      return { layer: LAY[c.lay], name: c.name, meta: meta(it), img: imgOf(it), qty: it.qty, price: price(c.price * it.qty),
+        qtyLabel: L('Кількість: ', 'Quantity: ') + c.name, removeLabel: L('Видалити ', 'Remove ') + c.name,
+        inc: () => upd(it.qty + 1), dec: () => upd(it.qty - 1), remove: () => upd(0) };
+    });
+    const count = S.items.reduce((s, i) => s + i.qty, 0);
+    const goods = S.items.reduce((s, i) => s + CAT[i.id].price * i.qty, 0);
+    const setItems = S.items.filter((i) => CAT[i.id].lay > 0);
+    const setOn = new Set(setItems.map((i) => CAT[i.id].lay)).size >= 2;
+    const setDisc = setOn ? Math.round(setItems.reduce((s, i) => s + CAT[i.id].price * i.qty, 0) * 0.1 / 10) * 10 : 0;
+    const promoDisc = S.promoState === 'ok' ? Math.round((goods - setDisc) * 0.1 / 10) * 10 : 0;
+    const hasPoncho = S.items.some((i) => i.id === 'po');
+    const D = [
+      ['np', L('Нова пошта · відділення', 'Nova Poshta · branch'), L('завтра', 'tomorrow'), 0],
+      ['nc', L('Нова пошта · курʼєр', 'Nova Poshta · courier'), L('завтра', 'tomorrow'), 0],
+      ['up', L('Укрпошта', 'Ukrposhta'), L('2–4 дні', '2–4 days'), 0]
+    ];
+    const total = goods - setDisc - promoDisc;
+    const pm = S.promoState;
+    return {
+      t, isUk: uk, isEn: !uk, count,
+      ukBg: uk ? '#C8794A' : 'transparent', ukFg: uk ? '#121417' : '#EDEDEB',
+      enBg: uk ? 'transparent' : '#C8794A', enFg: uk ? '#EDEDEB' : '#121417',
+      setUk: () => this.setLang('uk'), setEn: () => this.setLang('en'),
+      items, empty: S.items.length === 0, notEmpty: S.items.length > 0,
+      setBorder: setOn ? '#C8794A' : '#3B4047', setNoteColor: setOn ? '#C8794A' : '#A3A9B0',
+      setNote: setOn ? L('КОМПЛЕКТ · −10%', 'SET · −10%') : L('ДОДАЙ ЩЕ ШАР — І БУДЕ −10%', 'ADD A LAYER TO GET −10%'),
+      showUpsell: !hasPoncho, addPoncho: () => this.setItems(S.items.concat([{ id: 'po', color: 'm', size: 'one', qty: 1 }])),
+      goodsLabel: L('Товари (', 'Items (') + count + ')', goodsSum: price(goods),
+      hasSetDisc: setOn, discSum: '−' + price(setDisc), promoOk: pm === 'ok', promoSum: '−' + price(promoDisc),
+      deliveryVal: L('за тарифом перевізника', 'carrier rates apply'), toPay: price(total),
+      deliveries: D.map(([k, label, note]) => ({ label, note, on: S.delivery === k, border: S.delivery === k ? '#C8794A' : '#3B4047', bg: S.delivery === k ? '#3A2C24' : 'transparent', pick: () => this.setState({ delivery: k }) })),
+      promo: S.promo, onPromo: (e) => this.setState({ promo: e.target.value, promoState: null }),
+      applyPromo: () => { const code = S.promo.trim().toUpperCase(); this.setState({ promoState: code === 'ТЕПЛО10' || code === 'WARM10' ? 'ok' : (code ? 'bad' : 'empty') }); },
+      promoMsgShow: pm !== null, promoMsgColor: pm === 'ok' ? '#C8794A' : '#E8A27C',
+      promoMsg: pm === 'ok' ? L('Промокод застосовано: ще −10%', 'Promo applied: another −10%') : pm === 'bad' ? L('Такого промокоду немає. Спробуй ТЕПЛО10.', 'That code doesn’t exist. Try WARM10.') : L('Введи промокод.', 'Enter a promo code.'),
+      promoBorder: pm === 'bad' || pm === 'empty' ? '#E8A27C' : pm === 'ok' ? '#C8794A' : '#484E56',
+      checkout: () => { const n = 'SH-' + String(Date.now()).slice(-5); try { localStorage.setItem('shar-items', '[]'); } catch (e) {} this.setState({ done: true, order: n }); },
+      done: S.done, notDone: !S.done,
+      doneText: L('Замовлення ' + S.order + ' прийнято. Ми надішлемо SMS із номером відправлення, щойно посилка поїде.', 'Order ' + S.order + ' is confirmed. We’ll text you the tracking number as soon as it ships.'),
+      restart: () => { const s = this.defaultItems(); this.saveItems(s); this.setState({ done: false, items: s, promo: '', promoState: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
