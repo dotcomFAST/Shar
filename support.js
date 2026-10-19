@@ -194,6 +194,28 @@
     ReactDOM.createRoot(mount).render(React.createElement(Component, defaults));
   }
 
+  // Desktop and mobile are separate pages: send each screen to its own version.
+  var BREAK = 768;
+  function counterpart() {
+    var parts = location.pathname.split('/');
+    var file = parts.pop();
+    if (!/\.dc\.html$/.test(file)) return null;
+    var mobileFile = file.indexOf('Mobile-') === 0;
+    var narrow = window.innerWidth < BREAK;
+    if (narrow && !mobileFile) file = 'Mobile-' + file;
+    else if (!narrow && mobileFile) file = file.slice(7);
+    else return null;
+    parts.push(file);
+    return parts.join('/') + location.search + location.hash;
+  }
+  var target = counterpart();
+  if (target) { location.replace(target); return; }
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { var t = counterpart(); if (t) location.replace(t); }, 250);
+  });
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
