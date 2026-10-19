@@ -14,20 +14,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Onest:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Rubik+Spray+Paint&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#22262B}
-a{color:#EDEDEB;text-decoration:none;transition:color .15s}a:hover{color:#C8794A}
+body{margin:0;background:#D9E2E7}
+a{color:#26303A;text-decoration:none;transition:color .15s}a:hover{color:#46596A}
 button{cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
-button:not(.cta):not(:disabled):hover{border-color:#C8794A !important}
-.cta:hover{background:#D68A5A !important}
+button:not(.cta):not(:disabled):hover{border-color:#46596A !important}
+.cta:hover{background:#3A4B59 !important}
 button:disabled{cursor:not-allowed}
-:focus-visible{outline:2px solid #C8794A;outline-offset:2px}
+:focus-visible{outline:2px solid #46596A;outline-offset:2px}
 .h{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0}
 .mono{font-family:'JetBrains Mono',monospace}
-.spray{font-family:'Rubik Spray Paint',cursive;color:#C8794A}
-.fc{position:absolute;background:#2E3238;border:1px solid #484E56;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
-.dt{padding:14px 0;border-bottom:1px solid #3B4047;color:#A3A9B0}
-.dd{margin:0;padding:14px 0;border-bottom:1px solid #3B4047}
-.st td,.st th{padding:10px 8px;border-bottom:1px solid #3B4047;text-align:left;font-weight:400}
+.spray{font-family:'Rubik Spray Paint',cursive;color:#B05600}
+.fc{position:absolute;background:#EEF2F4;border:1px solid #AEBCC5;border-radius:20px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.dt{padding:14px 0;border-bottom:1px solid #C3CED5;color:#56636E}
+.dd{margin:0;padding:14px 0;border-bottom:1px solid #C3CED5}
+.st td,.st th{padding:10px 8px;border-bottom:1px solid #C3CED5;text-align:left;font-weight:400}
 html{scroll-behavior:smooth}
 a,button,input,select,label{transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 button:active,.cta:active{transform:scale(.97)}
@@ -43,64 +43,65 @@ button:active,.cta:active{transform:scale(.97)}
 .card img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.card:hover img{transform:scale(1.04)}
 @supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+.onph,.onph a{color:#EDEDEB}.onph a:hover{color:#E2D5CD}.onph .spray{color:#B05600}
 </style>
 </helmet>
-<div class="page" style="background: #22262B; color: #EDEDEB; font-family: 'Onest', sans-serif; min-height: 100vh">
+<div class="page" style="background: #D9E2E7; color: #26303A; font-family: 'Onest', sans-serif; min-height: 100vh">
 
-<header style="border-bottom: 1px solid #3B4047">
+<header style="border-bottom: 1px solid #C3CED5">
 <div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="Main.dc.html" style="display: flex; align-items: baseline; gap: 12px">
 <span class="h" style="font-size: 30px; font-weight: 700; letter-spacing: 0.08em">SHAR</span>
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.tag}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{t.tag}}</span>
 </a>
 <nav aria-label="{{t.menu}}" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
 <a href="Main.dc.html">{{t.navAbout}}</a>
-<a href="Catalog.dc.html" style="color: #C8794A">{{t.navCatalog}}</a>
+<a href="Catalog.dc.html" style="color: #46596A">{{t.navCatalog}}</a>
 <a href="Builder.dc.html">{{t.navBuilder}}</a>
 </nav>
 <div style="display: flex; align-items: center; gap: 8px">
-<div role="group" aria-label="{{t.langLabel}}" style="display: flex; border: 1px solid #3B4047; border-radius: 4px; overflow: hidden">
+<div role="group" aria-label="{{t.langLabel}}" style="display: flex; border: 1px solid #C3CED5; border-radius: 18px; overflow: hidden">
 <button onClick="{{setUk}}" aria-pressed="{{isUk}}" style="height: 42px; width: 44px; border: none; background: {{ukBg}}; color: {{ukFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">UA</button>
 <button onClick="{{setEn}}" aria-pressed="{{isEn}}" style="height: 42px; width: 44px; border: none; background: {{enBg}}; color: {{enFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">EN</button>
 </div>
-<a href="Catalog.dc.html" aria-label="{{t.search}}" style="width: 44px; height: 44px; border: 1px solid #3B4047; border-radius: 4px; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a>
-<a href="Cart.dc.html" aria-label="{{t.cart}}" style="height: 44px; padding: 0 14px; border: 1px solid {{cartBorder}}; border-radius: 4px; display: flex; align-items: center; gap: 8px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>{{cartCount}}</a>
+<a href="Catalog.dc.html" aria-label="{{t.search}}" style="width: 44px; height: 44px; border: 1px solid #C3CED5; border-radius: 12px; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a>
+<a href="Cart.dc.html" aria-label="{{t.cart}}" style="height: 44px; padding: 0 14px; border: 1px solid {{cartBorder}}; border-radius: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>{{cartCount}}</a>
 </div>
 </div>
 </header>
 
 <div style="max-width: 1280px; margin: 0 auto; padding: 32px 32px 0">
-<nav aria-label="{{t.crumbs}}" class="mono" style="font-size: 12px; color: #A3A9B0; display: flex; gap: 8px"><a href="Main.dc.html" style="color: #A3A9B0">{{t.navHome}}</a><span>/</span><a href="Catalog.dc.html" style="color: #A3A9B0">{{t.navCatalog}}</a><span>/</span><span>{{t.name}}</span></nav>
+<nav aria-label="{{t.crumbs}}" class="mono" style="font-size: 12px; color: #56636E; display: flex; gap: 8px"><a href="Main.dc.html" style="color: #56636E">{{t.navHome}}</a><span>/</span><a href="Catalog.dc.html" style="color: #56636E">{{t.navCatalog}}</a><span>/</span><span>{{t.name}}</span></nav>
 </div>
 
 <div style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 0; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
 <div style="flex: 1 1 520px; min-width: 0; display: flex; gap: 12px">
 <div style="display: flex; flex-direction: column; gap: 12px; width: 88px; flex-shrink: 0">
 <sc-for list="{{thumbs}}" as="th" hint-placeholder-count="5">
-<button aria-label="{{th.label}}" aria-pressed="{{th.on}}" onClick="{{th.pick}}" style="width: 88px; height: 112px; padding: 0; border: {{th.border}}; border-radius: 2px; overflow: hidden; background: none"><img data-dc-src="{{th.src}}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></button>
+<button aria-label="{{th.label}}" aria-pressed="{{th.on}}" onClick="{{th.pick}}" style="width: 88px; height: 112px; padding: 0; border: {{th.border}}; border-radius: 8px; overflow: hidden; background: none"><img data-dc-src="{{th.src}}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></button>
 </sc-for>
 </div>
 <div style="flex: 1; position: relative; min-width: 0">
-<div style="position: relative; width: 100%; aspect-ratio: 4 / 5; border-radius: 2px; overflow: hidden; background: #2A2E33"><sc-for list="{{stack}}" as="g" hint-placeholder-count="7"><img data-dc-src="{{g.src}}" alt="{{g.alt}}" aria-hidden="{{g.hidden}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: {{g.op}}; transform: scale({{g.sc}}); transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)"></sc-for></div>
-<div class="fc" style="left: 16px; top: 24px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.layer}}</span><span class="mono" style="font-size: 22px; color: #C8794A">02</span></div>
-<div class="fc" style="right: 16px; top: 38%"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.keepsWarm}}</span><span class="mono" style="font-size: 18px">+4…+14 °C</span></div>
-<div class="fc" style="left: 16px; bottom: 96px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.weight}}</span><span class="mono" style="font-size: 18px">{{t.g340}}</span></div>
-<div class="fc" style="right: 16px; bottom: 24px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.fabric}}</span><span class="mono" style="font-size: 16px">{{t.fabricVal}}</span></div>
+<div style="position: relative; width: 100%; aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; background: #E6ECEF"><sc-for list="{{stack}}" as="g" hint-placeholder-count="7"><img data-dc-src="{{g.src}}" alt="{{g.alt}}" aria-hidden="{{g.hidden}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: {{g.op}}; transform: scale({{g.sc}}); transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)"></sc-for></div>
+<div class="fc" style="left: 16px; top: 24px"><span class="mono" style="font-size: 11px; color: #56636E">{{t.layer}}</span><span class="mono" style="font-size: 22px; color: #46596A">02</span></div>
+<div class="fc" style="right: 16px; top: 38%"><span class="mono" style="font-size: 11px; color: #56636E">{{t.keepsWarm}}</span><span class="mono" style="font-size: 18px">+4…+14 °C</span></div>
+<div class="fc" style="left: 16px; bottom: 96px"><span class="mono" style="font-size: 11px; color: #56636E">{{t.weight}}</span><span class="mono" style="font-size: 18px">{{t.g340}}</span></div>
+<div class="fc" style="right: 16px; bottom: 24px"><span class="mono" style="font-size: 11px; color: #56636E">{{t.fabric}}</span><span class="mono" style="font-size: 16px">{{t.fabricVal}}</span></div>
 </div>
 </div>
 
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px; position: relative">
 <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
-<span class="mono" style="background: #C8794A; color: #121417; padding: 4px 10px; font-size: 12px; border-radius: 2px; font-weight: 500">{{t.badge}}</span>
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.where}}</span>
+<span class="mono" style="background: #46596A; color: #F5F2EF; padding: 4px 10px; font-size: 12px; border-radius: 6px; font-weight: 500">{{t.badge}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{t.where}}</span>
 </div>
 <h1 class="h" style="font-size: 64px; line-height: 1; font-weight: 700">{{t.name}}</h1>
 <span class="spray" style="position: absolute; right: 0; top: 56px; font-size: 40px; transform: rotate(-6deg)">{{t.spray}}</span>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9CDD2">{{t.desc}}</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3E4A55">{{t.desc}}</p>
 <span style="font-size: 32px; font-weight: 500">{{t.price}}</span>
 
 <div role="group" aria-label="{{t.color}}" style="display: flex; flex-direction: column; gap: 12px">
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.color}} · <span style="color: #EDEDEB">{{colorName}}</span></span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{t.color}} · <span style="color: #26303A">{{colorName}}</span></span>
 <div style="display: flex; gap: 10px">
 <sc-for list="{{colors}}" as="c" hint-placeholder-count="3">
 <button onClick="{{c.pick}}" aria-pressed="{{c.on}}" aria-label="{{c.label}}" title="{{c.label}}" style="width: 40px; height: 40px; border-radius: 50%; background: {{c.hex}}; border: {{c.ring}}; box-shadow: {{c.halo}}"></button>
@@ -109,15 +110,15 @@ button:active,.cta:active{transform:scale(.97)}
 </div>
 
 <div role="group" aria-label="{{t.size}}" style="display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span class="mono" style="font-size: 12px; color: {{sizeLblColor}}">{{t.size}}{{sizeName}}</span><button onClick="{{toggleGuide}}" aria-expanded="{{guide}}" style="height: 32px; padding: 0; border: none; border-bottom: 1px solid currentColor; background: none; color: #EDEDEB; font-family: 'Onest', sans-serif; font-size: 14px">{{guideLabel}}</button></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span class="mono" style="font-size: 12px; color: {{sizeLblColor}}">{{t.size}}{{sizeName}}</span><button onClick="{{toggleGuide}}" aria-expanded="{{guide}}" style="height: 32px; padding: 0; border: none; border-bottom: 1px solid currentColor; background: none; color: #26303A; font-family: 'Onest', sans-serif; font-size: 14px">{{guideLabel}}</button></div>
 <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
 <sc-for list="{{sizes}}" as="z" hint-placeholder-count="5">
-<button onClick="{{z.pick}}" disabled="{{z.disabled}}" aria-pressed="{{z.on}}" aria-label="{{z.aria}}" class="mono" style="height: 48px; border: 1px {{z.lineStyle}} {{z.border}}; background: {{z.bg}}; color: {{z.fg}}; border-radius: 4px; font-size: 14px; text-decoration: {{z.deco}}">{{z.label}}</button>
+<button onClick="{{z.pick}}" disabled="{{z.disabled}}" aria-pressed="{{z.on}}" aria-label="{{z.aria}}" class="mono" style="height: 48px; border: 1px {{z.lineStyle}} {{z.border}}; background: {{z.bg}}; color: {{z.fg}}; border-radius: 12px; font-size: 14px; text-decoration: {{z.deco}}">{{z.label}}</button>
 </sc-for>
 </div>
 <sc-if value="{{guide}}" hint-placeholder-val="{{false}}">
-<table class="pop st mono" style="width: 100%; border-collapse: collapse; font-size: 13px; border-top: 1px solid #3B4047">
-<thead><tr style="color: #A3A9B0"><th>{{t.size}}</th><th>{{t.chest}}</th><th>{{t.length}}</th><th>{{t.height}}</th></tr></thead>
+<table class="pop st mono" style="width: 100%; border-collapse: collapse; font-size: 13px; border-top: 1px solid #C3CED5">
+<thead><tr style="color: #56636E"><th>{{t.size}}</th><th>{{t.chest}}</th><th>{{t.length}}</th><th>{{t.height}}</th></tr></thead>
 <tbody>
 <tr><td>XS</td><td>88–92</td><td>66</td><td>160–166</td></tr>
 <tr><td>S</td><td>92–98</td><td>68</td><td>166–172</td></tr>
@@ -127,21 +128,21 @@ button:active,.cta:active{transform:scale(.97)}
 </tbody>
 </table>
 </sc-if>
-<span style="font-size: 13px; color: #A3A9B0">{{t.fitNote}}</span>
+<span style="font-size: 13px; color: #56636E">{{t.fitNote}}</span>
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px">
-<button onClick="{{addToCart}}" class="cta" style="height: 56px; background: #C8794A; color: #121417; border: none; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 17px; font-weight: 600">{{addLabel}}</button>
-<sc-if value="{{needSize}}" hint-placeholder-val="{{false}}"><span class="pop" role="alert" style="font-size: 14px; color: #E8A27C">{{t.pickSize}}</span></sc-if>
+<button onClick="{{addToCart}}" class="cta" style="height: 56px; background: #46596A; color: #F5F2EF; border: none; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 17px; font-weight: 600">{{addLabel}}</button>
+<sc-if value="{{needSize}}" hint-placeholder-val="{{false}}"><span class="pop" role="alert" style="font-size: 14px; color: #A4483A">{{t.pickSize}}</span></sc-if>
 <sc-if value="{{added}}" hint-placeholder-val="{{false}}">
-<div class="pop" role="status" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #C8794A; border-radius: 4px; background: #3A2C24">
+<div class="pop" role="status" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #46596A; border-radius: 18px; background: #EADFD8">
 <span style="font-size: 15px">{{addedText}}</span>
-<a href="Cart.dc.html" style="font-size: 15px; font-weight: 600; color: #C8794A; white-space: nowrap">{{t.toCart}} →</a>
+<a href="Cart.dc.html" style="font-size: 15px; font-weight: 600; color: #46596A; white-space: nowrap">{{t.toCart}} →</a>
 </div>
 </sc-if>
-<a href="Builder.dc.html" style="height: 56px; border: 1px solid #EDEDEB; border-radius: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px">{{t.toSet}} <span class="mono" style="color: #C8794A">−10%</span></a>
+<a href="Builder.dc.html" style="height: 56px; border: 1px solid #26303A; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px">{{t.toSet}} <span class="mono" style="color: #46596A">−10%</span></a>
 </div>
-<div class="mono" style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: #C9CDD2; border-top: 1px solid #3B4047; padding-top: 20px">
+<div class="mono" style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: #3E4A55; border-top: 1px solid #C3CED5; padding-top: 20px">
 <span>→ {{t.i1}}</span><span>→ {{t.i2}}</span><span>→ {{t.i3}}</span>
 </div>
 </div>
@@ -150,18 +151,18 @@ button:active,.cta:active{transform:scale(.97)}
 <section class="reveal" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px 0">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px">
 <h2 class="h" style="font-size: 44px; font-weight: 600">{{t.pairH}}</h2>
-<span class="mono" style="font-size: 13px; color: #A3A9B0">{{t.pairNote}}</span>
+<span class="mono" style="font-size: 13px; color: #56636E">{{t.pairNote}}</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
 <sc-for list="{{pairs}}" as="p" hint-placeholder-count="3">
-<div style="border: 1px solid {{p.border}}; border-radius: 4px; padding: 16px; display: flex; gap: 16px; align-items: center">
-<img data-dc-src="{{p.img}}" alt="" style="display: block; width: 96px; height: 120px; object-fit: cover; flex-shrink: 0; border-radius: 2px">
+<div style="border: 1px solid {{p.border}}; border-radius: 18px; padding: 16px; display: flex; gap: 16px; align-items: center">
+<img data-dc-src="{{p.img}}" alt="" style="display: block; width: 96px; height: 120px; object-fit: cover; flex-shrink: 0; border-radius: 14px">
 <div style="display: flex; flex-direction: column; gap: 6px; flex: 1">
-<span class="mono" style="font-size: 11px; color: #A3A9B0">{{p.layer}}</span>
+<span class="mono" style="font-size: 11px; color: #56636E">{{p.layer}}</span>
 <span style="font-size: 16px; font-weight: 500">{{p.name}}</span>
 <span style="font-size: 15px">{{p.price}}</span>
 </div>
-<button onClick="{{p.toggle}}" aria-pressed="{{p.on}}" aria-label="{{p.aria}}" style="width: 44px; height: 44px; border: 1px solid {{p.border}}; background: {{p.bg}}; color: {{p.fg}}; border-radius: 4px; font-size: 20px">{{p.icon}}</button>
+<button onClick="{{p.toggle}}" aria-pressed="{{p.on}}" aria-label="{{p.aria}}" style="width: 44px; height: 44px; border: 1px solid {{p.border}}; background: {{p.bg}}; color: {{p.fg}}; border-radius: 12px; font-size: 20px">{{p.icon}}</button>
 </div>
 </sc-for>
 </div>
@@ -170,13 +171,13 @@ button:active,.cta:active{transform:scale(.97)}
 <section class="reveal" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px 96px; display: flex; flex-wrap: wrap; gap: 48px">
 <div style="flex: 1 1 400px">
 <h2 class="h" style="font-size: 32px; font-weight: 600; margin-bottom: 24px">{{t.specs}}</h2>
-<dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid #3B4047">
+<dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid #C3CED5">
 <sc-for list="{{specs}}" as="s" hint-placeholder-count="5">
 <dt class="dt">{{s.k}}</dt><dd class="dd">{{s.v}}</dd>
 </sc-for>
 </dl>
 </div>
-<img src="35.jpg" alt="{{t.macroAlt}}" style="display: block; flex: 1 1 400px; min-width: 0; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
+<img src="35.jpg" alt="{{t.macroAlt}}" style="display: block; flex: 1 1 400px; min-width: 0; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 14px">
 </section>
 </div>
 </x-dc>
@@ -244,21 +245,21 @@ class Component extends DCLogic {
       ['pa', L('АКСЕСУАР', 'ACCESSORY'), L('Термошкарпетки', 'Thermal Socks'), 390, '20.jpg']
     ];
     return {
-      t, isUk: uk, isEn: !uk, cartCount: S.cart, cartBorder: S.added ? '#C8794A' : '#3B4047',
-      ukBg: uk ? '#C8794A' : 'transparent', ukFg: uk ? '#121417' : '#EDEDEB',
-      enBg: uk ? 'transparent' : '#C8794A', enFg: uk ? '#EDEDEB' : '#121417',
+      t, isUk: uk, isEn: !uk, cartCount: S.cart, cartBorder: S.added ? '#46596A' : '#C3CED5',
+      ukBg: uk ? '#46596A' : 'transparent', ukFg: uk ? '#F5F2EF' : '#26303A',
+      enBg: uk ? 'transparent' : '#46596A', enFg: uk ? '#26303A' : '#F5F2EF',
       setUk: () => this.setLang('uk'), setEn: () => this.setLang('en'),
-      thumbs: gal.map((src, i) => ({ src, on: i === idx, label: t.photo + ' ' + (i + 1), border: i === idx ? '2px solid #C8794A' : '1px solid #3B4047', pick: () => this.setState({ photo: i }) })),
+      thumbs: gal.map((src, i) => ({ src, on: i === idx, label: t.photo + ' ' + (i + 1), border: i === idx ? '2px solid #46596A' : '1px solid #C3CED5', pick: () => this.setState({ photo: i }) })),
       stack: GAL.g.concat(GAL.c, GAL.m).map((src) => ({ src, op: src === gal[idx] ? 1 : 0, sc: src === gal[idx] ? 1 : 1.03, hidden: src === gal[idx] ? 'false' : 'true', alt: src === gal[idx] ? t.name + ', ' + COL[S.color][1] : '' })), mainImg: gal[idx], mainAlt: t.name + ', ' + COL[S.color][1],
-      colors: ['g', 'c', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #22262B' : '1px solid #484E56', halo: S.color === k ? '0 0 0 2px #C8794A' : 'none', pick: () => this.setState({ color: k, photo: 0, added: false }) })),
+      colors: ['g', 'c', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #D9E2E7' : '1px solid #AEBCC5', halo: S.color === k ? '0 0 0 2px #46596A' : 'none', pick: () => this.setState({ color: k, photo: 0, added: false }) })),
       colorName: COL[S.color][1],
       sizes: ['XS', 'S', 'M', 'L', 'XL'].map((z) => {
         const out = z === 'XL', on = S.size === z;
         return { label: z, on, disabled: out, aria: out ? z + ' — ' + t.soldOut : z, lineStyle: out ? 'dashed' : 'solid', deco: out ? 'line-through' : 'none',
-          border: out ? '#3B4047' : on ? '#C8794A' : '#484E56', bg: on ? '#3A2C24' : 'transparent', fg: out ? '#6B7179' : on ? '#C8794A' : '#EDEDEB',
+          border: out ? '#C3CED5' : on ? '#46596A' : '#AEBCC5', bg: on ? '#EADFD8' : 'transparent', fg: out ? '#7D8C96' : on ? '#46596A' : '#26303A',
           pick: () => this.setState({ size: on ? null : z, needSize: false, added: false }) };
       }),
-      sizeName: S.size ? ' · ' + S.size : '', sizeLblColor: S.needSize ? '#E8A27C' : '#A3A9B0',
+      sizeName: S.size ? ' · ' + S.size : '', sizeLblColor: S.needSize ? '#A4483A' : '#56636E',
       guide: S.guide, guideLabel: S.guide ? t.guideClose : t.guideOpen, toggleGuide: () => this.setState({ guide: !S.guide }),
       addToCart: () => { if (!S.size) { this.setState({ needSize: true }); return; } this.setState({ cart: this.addItem({ id: 'fl', color: S.color, size: S.size }), added: true, needSize: false }); },
       addLabel: S.added ? t.addMore : t.add, added: S.added, needSize: S.needSize,
@@ -266,7 +267,7 @@ class Component extends DCLogic {
       pairs: pairsData.map(([k, layer, name, pr, img]) => {
         const on = !!S.pairs[k];
         return { layer, name, img, price: price(pr), on, icon: on ? '✓' : '+', aria: (on ? t.removeFromSet : t.addToSet) + name,
-          border: on ? '#C8794A' : '#3B4047', bg: on ? '#C8794A' : 'transparent', fg: on ? '#121417' : '#C8794A',
+          border: on ? '#46596A' : '#C3CED5', bg: on ? '#46596A' : 'transparent', fg: on ? '#F5F2EF' : '#46596A',
           toggle: () => this.setState({ pairs: Object.assign({}, S.pairs, { [k]: !on }), cart: this.addItem({ p1: { id: 'ls', color: 'g', size: 'M' }, p3: { id: 'tr', color: 'g', size: 'M' }, pa: { id: 'so', color: 'c', size: '42–44' } }[k], on ? -1 : 1) }) };
       }),
       specs: [

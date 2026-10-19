@@ -14,14 +14,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Onest:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Rubik+Spray+Paint&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#22262B}
-a{color:#EDEDEB;text-decoration:none}a:hover{color:#C8794A}
+body{margin:0;background:#D9E2E7}
+a{color:#26303A;text-decoration:none}a:hover{color:#46596A}
 button{cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
-.cta:active{background:#D68A5A !important}
-:focus-visible{outline:2px solid #C8794A;outline-offset:2px}
+.cta:active{background:#3A4B59 !important}
+:focus-visible{outline:2px solid #46596A;outline-offset:2px}
 .h{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0}
 .mono{font-family:'JetBrains Mono',monospace}
-.lbl{font-family:'JetBrains Mono',monospace;font-size:11px;color:#A3A9B0}
+.lbl{font-family:'JetBrains Mono',monospace;font-size:11px;color:#56636E}
 html{scroll-behavior:smooth}
 a,button,input,select,label{transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 button:active,.cta:active{transform:scale(.97)}
@@ -37,31 +37,32 @@ button:active,.cta:active{transform:scale(.97)}
 .card img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.card:hover img{transform:scale(1.04)}
 @supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+.onph,.onph a{color:#EDEDEB}.onph a:hover{color:#E2D5CD}.onph .spray{color:#B05600}
 </style>
 </helmet>
-<div class="page" style="width: 390px; min-height: 2600px; background: #22262B; color: #EDEDEB; font-family: 'Onest', sans-serif">
+<div class="page" style="width: 390px; min-height: 2600px; background: #D9E2E7; color: #26303A; font-family: 'Onest', sans-serif">
 
-<header style="height: 64px; padding: 0 8px 0 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3B4047">
+<header style="height: 64px; padding: 0 8px 0 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #C3CED5">
 <a href="Mobile-Main.dc.html" class="h" style="font-size: 24px; font-weight: 700; letter-spacing: 0.08em">SHAR</a>
 <div style="display: flex; align-items: center; gap: 4px">
-<div role="group" aria-label="{{mm.lang}}" style="display: flex; border: 1px solid #3B4047; border-radius: 4px; overflow: hidden">
+<div role="group" aria-label="{{mm.lang}}" style="display: flex; border: 1px solid #C3CED5; border-radius: 18px; overflow: hidden">
 <button onClick="{{setUk}}" aria-pressed="{{isUk}}" style="height: 40px; width: 40px; border: none; background: {{ukBg}}; color: {{ukFg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px">UA</button>
 <button onClick="{{setEn}}" aria-pressed="{{isEn}}" style="height: 40px; width: 40px; border: none; background: {{enBg}}; color: {{enFg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px">EN</button>
 </div>
-<a href="Mobile-Cart.dc.html" aria-label="{{mm.cart}}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg><span class="mono" style="position: absolute; top: 6px; right: 4px; background: #C8794A; color: #121417; font-size: 10px; border-radius: 999px; padding: 0 5px">{{cartCount}}</span></a>
+<a href="Mobile-Cart.dc.html" aria-label="{{mm.cart}}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg><span class="mono" style="position: absolute; top: 6px; right: 4px; background: #46596A; color: #F5F2EF; font-size: 10px; border-radius: 999px; padding: 0 5px">{{cartCount}}</span></a>
 <button onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" aria-label="{{mm.menu}}" style="width: 44px; height: 44px; background: none; border: none; color: {{menuColor}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
 </div>
 </header>
 <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
-<nav class="pop" aria-label="{{mm.menu}}" style="padding: 4px 16px 16px; border-bottom: 1px solid #3B4047; display: flex; flex-direction: column">
+<nav class="pop" aria-label="{{mm.menu}}" style="padding: 4px 16px 16px; border-bottom: 1px solid #C3CED5; display: flex; flex-direction: column">
 <sc-for list="{{menuItems}}" as="m" hint-placeholder-count="4">
-<a data-dc-href="{{m.href}}" aria-current="{{m.cur}}" style="min-height: 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3B4047; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 24px; color: {{m.color}}">{{m.label}}<span aria-hidden="true">→</span></a>
+<a data-dc-href="{{m.href}}" aria-current="{{m.cur}}" style="min-height: 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #C3CED5; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 24px; color: {{m.color}}">{{m.label}}<span aria-hidden="true">→</span></a>
 </sc-for>
 </nav>
 </sc-if>
 
 <div style="padding: 20px 16px 0">
-<nav aria-label="{{t.crumbs}}" class="mono" style="font-size: 11px; color: #A3A9B0; display: flex; gap: 6px"><a href="Mobile-Main.dc.html" style="color: #A3A9B0">{{t.home}}</a><span>/</span><span>{{t.title}}</span></nav>
+<nav aria-label="{{t.crumbs}}" class="mono" style="font-size: 11px; color: #56636E; display: flex; gap: 6px"><a href="Mobile-Main.dc.html" style="color: #56636E">{{t.home}}</a><span>/</span><span>{{t.title}}</span></nav>
 <h1 class="h" style="font-size: 48px; font-weight: 700; line-height: 1; margin-top: 12px">{{t.title}}</h1>
 </div>
 
@@ -72,24 +73,24 @@ button:active,.cta:active{transform:scale(.97)}
 </div>
 
 <div style="padding: 16px 16px 0">
-<label style="display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 12px; border: 1px solid #484E56; border-radius: 4px; background: #2A2E33"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A3A9B0" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" value="{{q}}" onChange="{{onQ}}" placeholder="{{t.searchPh}}" aria-label="{{t.search}}" style="flex: 1; min-width: 0; height: 44px; border: none; background: none; color: #EDEDEB; font-family: 'Onest', sans-serif; font-size: 16px; outline: none"></label>
+<label style="display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 12px; border: 1px solid #AEBCC5; border-radius: 12px; background: #E6ECEF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#56636E" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" value="{{q}}" onChange="{{onQ}}" placeholder="{{t.searchPh}}" aria-label="{{t.search}}" style="flex: 1; min-width: 0; height: 44px; border: none; background: none; color: #26303A; font-family: 'Onest', sans-serif; font-size: 16px; outline: none"></label>
 </div>
 
 <div style="display: flex; gap: 8px; padding: 10px 16px 0">
-<button onClick="{{toggleFilters}}" aria-expanded="{{filtersOpen}}" style="flex: 1; height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid {{fBorder}}; background: {{fBg}}; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>{{t.filters}}<sc-if value="{{hasChips}}" hint-placeholder-val="{{false}}"><span class="mono" style="background: #C8794A; color: #121417; font-size: 11px; border-radius: 999px; padding: 0 6px">{{chipCount}}</span></sc-if></button>
-<button onClick="{{toggleSort}}" aria-expanded="{{sortOpen}}" style="flex: 1; height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid {{sBorder}}; background: {{sBg}}; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 4v16M7 20l-3-3M7 20l3-3M17 20V4M17 4l-3 3M17 4l3 3"></path></svg>{{sortLabel}}</button>
+<button onClick="{{toggleFilters}}" aria-expanded="{{filtersOpen}}" style="flex: 1; height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid {{fBorder}}; background: {{fBg}}; color: #26303A; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>{{t.filters}}<sc-if value="{{hasChips}}" hint-placeholder-val="{{false}}"><span class="mono" style="background: #46596A; color: #F5F2EF; font-size: 11px; border-radius: 999px; padding: 0 6px">{{chipCount}}</span></sc-if></button>
+<button onClick="{{toggleSort}}" aria-expanded="{{sortOpen}}" style="flex: 1; height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid {{sBorder}}; background: {{sBg}}; color: #26303A; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 4v16M7 20l-3-3M7 20l3-3M17 20V4M17 4l-3 3M17 4l3 3"></path></svg>{{sortLabel}}</button>
 </div>
 
 <sc-if value="{{sortOpen}}" hint-placeholder-val="{{false}}">
-<div class="pop" role="radiogroup" aria-label="{{t.sort}}" style="margin: 8px 16px 0; border: 1px solid #484E56; border-radius: 4px; overflow: hidden">
+<div class="pop" role="radiogroup" aria-label="{{t.sort}}" style="margin: 8px 16px 0; border: 1px solid #AEBCC5; border-radius: 18px; overflow: hidden">
 <sc-for list="{{sorts}}" as="o" hint-placeholder-count="3">
-<button role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="width: 100%; min-height: 48px; padding: 0 14px; display: flex; justify-content: space-between; align-items: center; border: none; border-bottom: 1px solid #3B4047; background: {{o.bg}}; color: {{o.fg}}; font-family: 'Onest', sans-serif; font-size: 15px; text-align: left">{{o.label}}<span aria-hidden="true">{{o.mark}}</span></button>
+<button role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="width: 100%; min-height: 48px; padding: 0 14px; display: flex; justify-content: space-between; align-items: center; border: none; border-bottom: 1px solid #C3CED5; background: {{o.bg}}; color: {{o.fg}}; font-family: 'Onest', sans-serif; font-size: 15px; text-align: left">{{o.label}}<span aria-hidden="true">{{o.mark}}</span></button>
 </sc-for>
 </div>
 </sc-if>
 
 <sc-if value="{{filtersOpen}}" hint-placeholder-val="{{false}}">
-<div class="pop" style="margin: 8px 16px 0; border: 1px solid #484E56; border-radius: 4px; padding: 16px; display: flex; flex-direction: column; gap: 20px; background: #2A2E33">
+<div class="pop" style="margin: 8px 16px 0; border: 1px solid #AEBCC5; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 20px; background: #E6ECEF">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span class="lbl">{{t.fLayer}}</span>
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
@@ -100,14 +101,14 @@ button:active,.cta:active{transform:scale(.97)}
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <label for="mtemp" class="lbl">{{t.fTemp}}</label>
-<input id="mtemp" type="range" min="-15" max="20" step="1" value="{{tempVal}}" onChange="{{onTemp}}" aria-valuetext="{{tempLabel}}" style="accent-color: #C8794A; width: 100%">
-<div class="mono" style="display: flex; justify-content: space-between; font-size: 11px; color: #A3A9B0"><span>−15 °C</span><span style="color: #C8794A; font-size: 13px">{{tempLabel}}</span><span>+20 °C</span></div>
+<input id="mtemp" type="range" min="-15" max="20" step="1" value="{{tempVal}}" onChange="{{onTemp}}" aria-valuetext="{{tempLabel}}" style="accent-color: #46596A; width: 100%">
+<div class="mono" style="display: flex; justify-content: space-between; font-size: 11px; color: #56636E"><span>−15 °C</span><span style="color: #46596A; font-size: 13px">{{tempLabel}}</span><span>+20 °C</span></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span class="lbl">{{t.fSize}}</span>
 <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px">
 <sc-for list="{{sizes}}" as="z" hint-placeholder-count="6">
-<button onClick="{{z.pick}}" aria-pressed="{{z.on}}" class="mono" style="height: 44px; border: 1px solid {{z.border}}; background: none; color: {{z.fg}}; border-radius: 4px; font-size: 12px">{{z.label}}</button>
+<button onClick="{{z.pick}}" aria-pressed="{{z.on}}" class="mono" style="height: 44px; border: 1px solid {{z.border}}; background: none; color: {{z.fg}}; border-radius: 12px; font-size: 12px">{{z.label}}</button>
 </sc-for>
 </div>
 </div>
@@ -120,24 +121,24 @@ button:active,.cta:active{transform:scale(.97)}
 </div>
 </div>
 <div style="display: flex; gap: 8px">
-<button onClick="{{resetAll}}" style="flex: 1; height: 48px; border: 1px solid #484E56; background: none; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px">{{t.reset}}</button>
-<button onClick="{{toggleFilters}}" class="cta" style="flex: 1; height: 48px; border: none; background: #C8794A; color: #121417; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 600">{{showLabel}}</button>
+<button onClick="{{resetAll}}" style="flex: 1; height: 48px; border: 1px solid #AEBCC5; background: none; color: #26303A; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px">{{t.reset}}</button>
+<button onClick="{{toggleFilters}}" class="cta" style="flex: 1; height: 48px; border: none; background: #46596A; color: #F5F2EF; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 600">{{showLabel}}</button>
 </div>
 </div>
 </sc-if>
 
 <div style="padding: 12px 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
-<span class="mono" style="font-size: 12px; color: #A3A9B0; margin-right: 4px">{{foundLabel}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E; margin-right: 4px">{{foundLabel}}</span>
 <sc-for list="{{chips}}" as="c" hint-placeholder-count="0">
-<button onClick="{{c.remove}}" aria-label="{{c.aria}}" class="mono" style="height: 32px; padding: 0 10px; border: 1px solid #484E56; background: none; color: #EDEDEB; border-radius: 4px; font-size: 12px; display: flex; align-items: center; gap: 6px">{{c.label}} <span aria-hidden="true" style="color: #A3A9B0">×</span></button>
+<button onClick="{{c.remove}}" aria-label="{{c.aria}}" class="mono" style="height: 32px; padding: 0 10px; border: 1px solid #AEBCC5; background: none; color: #26303A; border-radius: 12px; font-size: 12px; display: flex; align-items: center; gap: 6px">{{c.label}} <span aria-hidden="true" style="color: #56636E">×</span></button>
 </sc-for>
 </div>
 
 <sc-if value="{{isEmpty}}" hint-placeholder-val="{{false}}">
-<div style="margin: 20px 16px 0; border: 1px dashed #484E56; border-radius: 4px; padding: 40px 16px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
-<span style="font-family: 'Rubik Spray Paint', cursive; color: #C8794A; font-size: 32px; transform: rotate(-4deg)">{{t.emptySpray}}</span>
-<p style="margin: 0; font-size: 15px; color: #C9CDD2">{{t.emptyText}}</p>
-<button onClick="{{resetAll}}" class="cta" style="height: 48px; padding: 0 24px; background: #C8794A; color: #121417; border: none; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 600">{{t.reset}}</button>
+<div style="margin: 20px 16px 0; border: 1px dashed #AEBCC5; border-radius: 18px; padding: 40px 16px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+<span style="font-family: 'Rubik Spray Paint', cursive; color: #46596A; font-size: 32px; transform: rotate(-4deg)">{{t.emptySpray}}</span>
+<p style="margin: 0; font-size: 15px; color: #3E4A55">{{t.emptyText}}</p>
+<button onClick="{{resetAll}}" class="cta" style="height: 48px; padding: 0 24px; background: #46596A; color: #F5F2EF; border: none; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 600">{{t.reset}}</button>
 </div>
 </sc-if>
 
@@ -145,18 +146,18 @@ button:active,.cta:active{transform:scale(.97)}
 <sc-for list="{{products}}" as="p" hint-placeholder-count="8">
 <a href="Mobile-Product.dc.html" class="card" style="display: flex; flex-direction: column; gap: 6px">
 <div style="position: relative">
-<img data-dc-src="{{p.img}}" alt="{{p.name}}" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 2px">
-<span class="mono" style="position: absolute; left: 8px; top: 8px; background: #22262B; border: 1px solid #484E56; padding: 3px 6px; font-size: 10px; border-radius: 2px; color: #EDEDEB">{{p.layer}}</span>
+<img data-dc-src="{{p.img}}" alt="{{p.name}}" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px">
+<span class="mono" style="position: absolute; left: 8px; top: 8px; background: #D9E2E7; border: 1px solid #AEBCC5; padding: 3px 6px; font-size: 10px; border-radius: 6px; color: #26303A">{{p.layer}}</span>
 </div>
 <span style="font-size: 14px; font-weight: 500">{{p.name}}</span>
 <span style="font-size: 14px">{{p.price}}</span>
-<span class="mono" style="font-size: 11px; color: #A3A9B0">{{p.temp}}</span>
+<span class="mono" style="font-size: 11px; color: #56636E">{{p.temp}}</span>
 </a>
 </sc-for>
 </div>
 
 <sc-if value="{{hasMore}}" hint-placeholder-val="{{true}}">
-<div style="padding: 32px 16px 0"><button onClick="{{showMore}}" style="width: 100%; height: 52px; border: 1px solid #EDEDEB; background: none; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px">{{moreLabel}}</button></div>
+<div style="padding: 32px 16px 0"><button onClick="{{showMore}}" style="width: 100%; height: 52px; border: 1px solid #26303A; background: none; color: #26303A; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px">{{moreLabel}}</button></div>
 </sc-if>
 <div style="height: 48px"></div>
 </div>
@@ -177,10 +178,10 @@ class Component extends DCLogic {
     const items = [['home', 'Mobile-Main.dc.html', uk ? 'Про Shar' : 'About Shar'], ['catalog', 'Mobile-Catalog.dc.html', uk ? 'Каталог' : 'Shop'], ['builder', 'Mobile-Builder.dc.html', uk ? 'Конструктор шарів' : 'Layer builder'], ['cart', 'Mobile-Cart.dc.html', uk ? 'Кошик' : 'Cart']];
     return {
       mm: { lang: uk ? 'Мова' : 'Language', cart: uk ? 'Кошик' : 'Cart', menu: uk ? 'Меню' : 'Menu' },
-      menuItems: items.map(([k, href, label]) => ({ href, label, cur: k === active ? 'page' : 'false', color: k === active ? '#C8794A' : '#EDEDEB' })),
-      menuOpen: !!this.state.menu, menuColor: this.state.menu ? '#C8794A' : '#EDEDEB', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      menuItems: items.map(([k, href, label]) => ({ href, label, cur: k === active ? 'page' : 'false', color: k === active ? '#46596A' : '#26303A' })),
+      menuOpen: !!this.state.menu, menuColor: this.state.menu ? '#46596A' : '#26303A', toggleMenu: () => this.setState({ menu: !this.state.menu }),
       cartCount: this.state.cart, isUk: uk, isEn: !uk,
-      ukBg: uk ? '#C8794A' : 'transparent', ukFg: uk ? '#121417' : '#EDEDEB', enBg: uk ? 'transparent' : '#C8794A', enFg: uk ? '#EDEDEB' : '#121417',
+      ukBg: uk ? '#46596A' : 'transparent', ukFg: uk ? '#F5F2EF' : '#26303A', enBg: uk ? 'transparent' : '#46596A', enFg: uk ? '#26303A' : '#F5F2EF',
       setUk: () => this.setLang('uk'), setEn: () => this.setLang('en')
     };
   }
@@ -240,7 +241,7 @@ class Component extends DCLogic {
     if (S.sort === 'warm') list = list.slice().sort((a, b) => a[3] - b[3]);
     if (S.sort === 'price') list = list.slice().sort((a, b) => a[2] - b[2]);
     const shown = S.more ? list : list.slice(0, 8);
-    const pill = (on) => ({ bg: on ? '#C8794A' : 'transparent', fg: on ? '#121417' : '#EDEDEB', border: on ? '#C8794A' : '#484E56' });
+    const pill = (on) => ({ bg: on ? '#46596A' : 'transparent', fg: on ? '#F5F2EF' : '#26303A', border: on ? '#46596A' : '#AEBCC5' });
     const scLabels = uk ? ['Усе', 'Вдома', 'Офіс', 'Місто', 'Укриття'] : ['All', 'At home', 'Office', 'City', 'Shelter'];
     const scTemps = [null, 14, 16, -8, 10];
     const chips = [];
@@ -255,14 +256,14 @@ class Component extends DCLogic {
       t,
       scenarios: scLabels.map((label, i) => Object.assign({ label, on: S.sc === i, pick: () => this.setState({ sc: i, temp: scTemps[i] }) }, pill(S.sc === i))),
       q: S.q, onQ: (e) => this.setState({ q: e.target.value }),
-      filtersOpen: S.fo, toggleFilters: () => this.setState({ fo: !S.fo, so: false }), fBorder: S.fo ? '#C8794A' : '#484E56', fBg: S.fo ? '#3A2C24' : '#2A2E33',
-      sortOpen: S.so, toggleSort: () => this.setState({ so: !S.so, fo: false }), sBorder: S.so ? '#C8794A' : '#484E56', sBg: S.so ? '#3A2C24' : '#2A2E33', sortLabel: SORTS[S.sort],
-      sorts: ['pop', 'warm', 'price'].map((k) => ({ label: SORTS[k], on: S.sort === k, mark: S.sort === k ? '✓' : '', bg: S.sort === k ? '#3A2C24' : 'transparent', fg: S.sort === k ? '#C8794A' : '#EDEDEB', pick: () => this.setState({ sort: k, so: false }) })),
+      filtersOpen: S.fo, toggleFilters: () => this.setState({ fo: !S.fo, so: false }), fBorder: S.fo ? '#46596A' : '#AEBCC5', fBg: S.fo ? '#EADFD8' : '#E6ECEF',
+      sortOpen: S.so, toggleSort: () => this.setState({ so: !S.so, fo: false }), sBorder: S.so ? '#46596A' : '#AEBCC5', sBg: S.so ? '#EADFD8' : '#E6ECEF', sortLabel: SORTS[S.sort],
+      sorts: ['pop', 'warm', 'price'].map((k) => ({ label: SORTS[k], on: S.sort === k, mark: S.sort === k ? '✓' : '', bg: S.sort === k ? '#EADFD8' : 'transparent', fg: S.sort === k ? '#46596A' : '#26303A', pick: () => this.setState({ sort: k, so: false }) })),
       layers: ['l1', 'l2', 'l3', 'acc'].map((k) => Object.assign({ label: LNAME[k], on: S[k], toggle: () => this.setState({ [k]: !S[k] }) }, pill(S[k]))),
       tempVal: S.temp === null ? 14 : S.temp, tempLabel: S.temp === null ? (uk ? 'будь-яка' : 'any') : ft(S.temp) + ' °C',
       onTemp: (e) => this.setState({ temp: parseInt(e.target.value, 10), sc: 0 }),
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((z) => ({ label: z, on: S.size === z, pick: () => this.setState({ size: S.size === z ? null : z }), fg: S.size === z ? '#C8794A' : '#EDEDEB', border: S.size === z ? '#C8794A' : '#484E56' })),
-      colors: ['g', 'c', 'n', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #2A2E33' : '1px solid #484E56', halo: S.color === k ? '0 0 0 2px #C8794A' : 'none', pick: () => this.setState({ color: S.color === k ? null : k }) })),
+      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((z) => ({ label: z, on: S.size === z, pick: () => this.setState({ size: S.size === z ? null : z }), fg: S.size === z ? '#46596A' : '#26303A', border: S.size === z ? '#46596A' : '#AEBCC5' })),
+      colors: ['g', 'c', 'n', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #E6ECEF' : '1px solid #AEBCC5', halo: S.color === k ? '0 0 0 2px #46596A' : 'none', pick: () => this.setState({ color: S.color === k ? null : k }) })),
       colorName: S.color ? ' · ' + COL[S.color][1] : '',
       chips, hasChips: chips.length > 0, chipCount: chips.length,
       resetAll: () => this.setState({ sc: 0, temp: null, l1: false, l2: false, l3: false, acc: false, size: null, color: null, q: '', more: false }),

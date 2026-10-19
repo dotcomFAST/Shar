@@ -14,19 +14,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Onest:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Rubik+Spray+Paint&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#22262B}
-a{color:#EDEDEB;text-decoration:none}a:hover{color:#C8794A}
+body{margin:0;background:#D9E2E7}
+a{color:#26303A;text-decoration:none}a:hover{color:#46596A}
 button{cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
 button:disabled{cursor:not-allowed}
-.cta:active{background:#D68A5A !important}
-:focus-visible{outline:2px solid #C8794A;outline-offset:2px}
+.cta:active{background:#3A4B59 !important}
+:focus-visible{outline:2px solid #46596A;outline-offset:2px}
 .h{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0}
 .mono{font-family:'JetBrains Mono',monospace}
-.spray{font-family:'Rubik Spray Paint',cursive;color:#C8794A}
-.fc{position:absolute;background:#2E3238;border:1px solid #484E56;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
-.dt{padding:12px 0;border-bottom:1px solid #3B4047;color:#A3A9B0;font-size:14px}
-.dd{margin:0;padding:12px 0;border-bottom:1px solid #3B4047;font-size:14px}
-.st td,.st th{padding:8px 6px;border-bottom:1px solid #3B4047;text-align:left;font-weight:400}
+.spray{font-family:'Rubik Spray Paint',cursive;color:#B05600}
+.fc{position:absolute;background:#EEF2F4;border:1px solid #AEBCC5;border-radius:20px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.dt{padding:12px 0;border-bottom:1px solid #C3CED5;color:#56636E;font-size:14px}
+.dd{margin:0;padding:12px 0;border-bottom:1px solid #C3CED5;font-size:14px}
+.st td,.st th{padding:8px 6px;border-bottom:1px solid #C3CED5;text-align:left;font-weight:400}
 html{scroll-behavior:smooth}
 a,button,input,select,label{transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 button:active,.cta:active{transform:scale(.97)}
@@ -42,40 +42,41 @@ button:active,.cta:active{transform:scale(.97)}
 .card img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.card:hover img{transform:scale(1.04)}
 @supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+.onph,.onph a{color:#EDEDEB}.onph a:hover{color:#E2D5CD}.onph .spray{color:#B05600}
 </style>
 </helmet>
-<div class="page" style="width: 390px; min-height: 2900px; background: #22262B; color: #EDEDEB; font-family: 'Onest', sans-serif; position: relative">
+<div class="page" style="width: 390px; min-height: 2900px; background: #D9E2E7; color: #26303A; font-family: 'Onest', sans-serif; position: relative">
 
-<header style="height: 64px; padding: 0 8px 0 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3B4047">
+<header style="height: 64px; padding: 0 8px 0 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #C3CED5">
 <a href="Mobile-Main.dc.html" class="h" style="font-size: 24px; font-weight: 700; letter-spacing: 0.08em">SHAR</a>
 <div style="display: flex; align-items: center; gap: 4px">
-<div role="group" aria-label="{{mm.lang}}" style="display: flex; border: 1px solid #3B4047; border-radius: 4px; overflow: hidden">
+<div role="group" aria-label="{{mm.lang}}" style="display: flex; border: 1px solid #C3CED5; border-radius: 18px; overflow: hidden">
 <button onClick="{{setUk}}" aria-pressed="{{isUk}}" style="height: 40px; width: 40px; border: none; background: {{ukBg}}; color: {{ukFg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px">UA</button>
 <button onClick="{{setEn}}" aria-pressed="{{isEn}}" style="height: 40px; width: 40px; border: none; background: {{enBg}}; color: {{enFg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px">EN</button>
 </div>
-<a href="Mobile-Cart.dc.html" aria-label="{{mm.cart}}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg><span class="mono" style="position: absolute; top: 6px; right: 4px; background: #C8794A; color: #121417; font-size: 10px; border-radius: 999px; padding: 0 5px">{{cartCount}}</span></a>
+<a href="Mobile-Cart.dc.html" aria-label="{{mm.cart}}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; position: relative"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg><span class="mono" style="position: absolute; top: 6px; right: 4px; background: #46596A; color: #F5F2EF; font-size: 10px; border-radius: 999px; padding: 0 5px">{{cartCount}}</span></a>
 <button onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" aria-label="{{mm.menu}}" style="width: 44px; height: 44px; background: none; border: none; color: {{menuColor}}; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
 </div>
 </header>
 <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
-<nav class="pop" aria-label="{{mm.menu}}" style="padding: 4px 16px 16px; border-bottom: 1px solid #3B4047; display: flex; flex-direction: column">
+<nav class="pop" aria-label="{{mm.menu}}" style="padding: 4px 16px 16px; border-bottom: 1px solid #C3CED5; display: flex; flex-direction: column">
 <sc-for list="{{menuItems}}" as="m" hint-placeholder-count="4">
-<a data-dc-href="{{m.href}}" aria-current="{{m.cur}}" style="min-height: 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3B4047; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 24px; color: {{m.color}}">{{m.label}}<span aria-hidden="true">→</span></a>
+<a data-dc-href="{{m.href}}" aria-current="{{m.cur}}" style="min-height: 56px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #C3CED5; font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 24px; color: {{m.color}}">{{m.label}}<span aria-hidden="true">→</span></a>
 </sc-for>
 </nav>
 </sc-if>
 
-<a href="Mobile-Catalog.dc.html" class="mono" style="display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px; font-size: 12px; color: #A3A9B0">← {{t.back}}</a>
+<a href="Mobile-Catalog.dc.html" class="mono" style="display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px; font-size: 12px; color: #56636E">← {{t.back}}</a>
 
 <div style="position: relative">
-<div style="position: relative; width: 100%; height: 488px; overflow: hidden; background: #2A2E33"><sc-for list="{{stack}}" as="g" hint-placeholder-count="7"><img data-dc-src="{{g.src}}" alt="{{g.alt}}" aria-hidden="{{g.hidden}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: {{g.op}}; transform: scale({{g.sc}}); transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)"></sc-for></div>
-<div class="fc" style="left: 12px; top: 16px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.layer}}</span><span class="mono" style="font-size: 18px; color: #C8794A">02</span></div>
-<div class="fc" style="right: 12px; top: 40%"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.keepsWarm}}</span><span class="mono" style="font-size: 14px">+4…+14 °C</span></div>
-<div class="fc" style="left: 12px; bottom: 56px"><span class="mono" style="font-size: 10px; color: #A3A9B0">{{t.weight}}</span><span class="mono" style="font-size: 14px">{{t.g340}}</span></div>
+<div style="position: relative; width: 100%; height: 488px; overflow: hidden; background: #E6ECEF"><sc-for list="{{stack}}" as="g" hint-placeholder-count="7"><img data-dc-src="{{g.src}}" alt="{{g.alt}}" aria-hidden="{{g.hidden}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: {{g.op}}; transform: scale({{g.sc}}); transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)"></sc-for></div>
+<div class="fc" style="left: 12px; top: 16px"><span class="mono" style="font-size: 10px; color: #56636E">{{t.layer}}</span><span class="mono" style="font-size: 18px; color: #46596A">02</span></div>
+<div class="fc" style="right: 12px; top: 40%"><span class="mono" style="font-size: 10px; color: #56636E">{{t.keepsWarm}}</span><span class="mono" style="font-size: 14px">+4…+14 °C</span></div>
+<div class="fc" style="left: 12px; bottom: 56px"><span class="mono" style="font-size: 10px; color: #56636E">{{t.weight}}</span><span class="mono" style="font-size: 14px">{{t.g340}}</span></div>
 <sc-if value="{{multi}}" hint-placeholder-val="{{true}}">
 <div role="group" aria-label="{{t.gallery}}" style="position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 2px">
 <sc-for list="{{dots}}" as="d" hint-placeholder-count="5">
-<button onClick="{{d.pick}}" aria-label="{{d.label}}" aria-pressed="{{d.on}}" style="width: 32px; height: 32px; background: none; border: none; display: flex; align-items: center; justify-content: center"><span style="display: block; width: {{d.w}}; height: 4px; border-radius: 2px; background: {{d.c}}"></span></button>
+<button onClick="{{d.pick}}" aria-label="{{d.label}}" aria-pressed="{{d.on}}" style="width: 32px; height: 32px; background: none; border: none; display: flex; align-items: center; justify-content: center"><span style="display: block; width: {{d.w}}; height: 4px; border-radius: 6px; background: {{d.c}}"></span></button>
 </sc-for>
 </div>
 </sc-if>
@@ -83,15 +84,15 @@ button:active,.cta:active{transform:scale(.97)}
 
 <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 18px; position: relative">
 <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
-<span class="mono" style="background: #C8794A; color: #121417; padding: 4px 8px; font-size: 11px; border-radius: 2px; font-weight: 500">{{t.badge}}</span>
-<span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.where}}</span>
+<span class="mono" style="background: #46596A; color: #F5F2EF; padding: 4px 8px; font-size: 11px; border-radius: 6px; font-weight: 500">{{t.badge}}</span>
+<span class="mono" style="font-size: 11px; color: #56636E">{{t.where}}</span>
 </div>
 <h1 class="h" style="font-size: 42px; line-height: 1; font-weight: 700">{{t.name}}</h1>
 <span class="spray" style="position: absolute; right: 16px; top: 52px; font-size: 28px; transform: rotate(-6deg)">{{t.spray}}</span>
 <span style="font-size: 26px; font-weight: 500">{{t.price}}</span>
-<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #C9CDD2">{{t.desc}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4A55">{{t.desc}}</p>
 <div role="group" aria-label="{{t.color}}" style="display: flex; flex-direction: column; gap: 10px">
-<span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.color}} · <span style="color: #EDEDEB">{{colorName}}</span></span>
+<span class="mono" style="font-size: 11px; color: #56636E">{{t.color}} · <span style="color: #26303A">{{colorName}}</span></span>
 <div style="display: flex; gap: 12px">
 <sc-for list="{{colors}}" as="c" hint-placeholder-count="3">
 <button onClick="{{c.pick}}" aria-pressed="{{c.on}}" aria-label="{{c.label}}" style="width: 44px; height: 44px; border-radius: 50%; background: {{c.hex}}; border: {{c.ring}}; box-shadow: {{c.halo}}"></button>
@@ -99,15 +100,15 @@ button:active,.cta:active{transform:scale(.97)}
 </div>
 </div>
 <div role="group" aria-label="{{t.size}}" style="display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span class="mono" style="font-size: 11px; color: {{sizeLblColor}}">{{t.size}}{{sizeName}}</span><button onClick="{{toggleGuide}}" aria-expanded="{{guide}}" style="min-height: 32px; padding: 0; border: none; border-bottom: 1px solid currentColor; background: none; color: #EDEDEB; font-family: 'Onest', sans-serif; font-size: 14px">{{guideLabel}}</button></div>
+<div style="display: flex; justify-content: space-between; align-items: center"><span class="mono" style="font-size: 11px; color: {{sizeLblColor}}">{{t.size}}{{sizeName}}</span><button onClick="{{toggleGuide}}" aria-expanded="{{guide}}" style="min-height: 32px; padding: 0; border: none; border-bottom: 1px solid currentColor; background: none; color: #26303A; font-family: 'Onest', sans-serif; font-size: 14px">{{guideLabel}}</button></div>
 <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
 <sc-for list="{{sizes}}" as="z" hint-placeholder-count="5">
-<button onClick="{{z.pick}}" disabled="{{z.disabled}}" aria-pressed="{{z.on}}" aria-label="{{z.aria}}" class="mono" style="height: 48px; border: 1px {{z.lineStyle}} {{z.border}}; background: {{z.bg}}; color: {{z.fg}}; border-radius: 4px; font-size: 13px; text-decoration: {{z.deco}}">{{z.label}}</button>
+<button onClick="{{z.pick}}" disabled="{{z.disabled}}" aria-pressed="{{z.on}}" aria-label="{{z.aria}}" class="mono" style="height: 48px; border: 1px {{z.lineStyle}} {{z.border}}; background: {{z.bg}}; color: {{z.fg}}; border-radius: 12px; font-size: 13px; text-decoration: {{z.deco}}">{{z.label}}</button>
 </sc-for>
 </div>
 <sc-if value="{{guide}}" hint-placeholder-val="{{false}}">
-<table class="pop st mono" style="width: 100%; border-collapse: collapse; font-size: 12px; border-top: 1px solid #3B4047">
-<thead><tr style="color: #A3A9B0"><th>{{t.size}}</th><th>{{t.chest}}</th><th>{{t.length}}</th><th>{{t.height}}</th></tr></thead>
+<table class="pop st mono" style="width: 100%; border-collapse: collapse; font-size: 12px; border-top: 1px solid #C3CED5">
+<thead><tr style="color: #56636E"><th>{{t.size}}</th><th>{{t.chest}}</th><th>{{t.length}}</th><th>{{t.height}}</th></tr></thead>
 <tbody>
 <tr><td>XS</td><td>88–92</td><td>66</td><td>160–166</td></tr>
 <tr><td>S</td><td>92–98</td><td>68</td><td>166–172</td></tr>
@@ -117,27 +118,27 @@ button:active,.cta:active{transform:scale(.97)}
 </tbody>
 </table>
 </sc-if>
-<span style="font-size: 13px; line-height: 1.5; color: #A3A9B0">{{t.fitNote}}</span>
+<span style="font-size: 13px; line-height: 1.5; color: #56636E">{{t.fitNote}}</span>
 </div>
-<a href="Mobile-Builder.dc.html" style="height: 52px; border: 1px solid #EDEDEB; border-radius: 4px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px">{{t.toSet}} <span class="mono" style="color: #C8794A">−10%</span></a>
-<div class="mono" style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; line-height: 1.5; color: #C9CDD2; border-top: 1px solid #3B4047; padding-top: 16px">
+<a href="Mobile-Builder.dc.html" style="height: 52px; border: 1px solid #26303A; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px">{{t.toSet}} <span class="mono" style="color: #46596A">−10%</span></a>
+<div class="mono" style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; line-height: 1.5; color: #3E4A55; border-top: 1px solid #C3CED5; padding-top: 16px">
 <span>→ {{t.i1}}</span><span>→ {{t.i2}}</span><span>→ {{t.i3}}</span>
 </div>
 </div>
 
 <section class="reveal" style="padding: 48px 16px 0">
 <h2 class="h" style="font-size: 30px; font-weight: 600">{{t.pairH}}</h2>
-<p class="mono" style="margin: 8px 0 16px; font-size: 11px; color: #A3A9B0">{{t.pairNote}}</p>
+<p class="mono" style="margin: 8px 0 16px; font-size: 11px; color: #56636E">{{t.pairNote}}</p>
 <div style="display: flex; flex-direction: column; gap: 10px">
 <sc-for list="{{pairs}}" as="p" hint-placeholder-count="3">
-<div style="border: 1px solid {{p.border}}; border-radius: 4px; padding: 12px; display: flex; gap: 12px; align-items: center">
-<img data-dc-src="{{p.img}}" alt="" style="display: block; width: 72px; height: 90px; object-fit: cover; flex-shrink: 0; border-radius: 2px">
+<div style="border: 1px solid {{p.border}}; border-radius: 18px; padding: 12px; display: flex; gap: 12px; align-items: center">
+<img data-dc-src="{{p.img}}" alt="" style="display: block; width: 72px; height: 90px; object-fit: cover; flex-shrink: 0; border-radius: 14px">
 <div style="display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0">
-<span class="mono" style="font-size: 10px; color: #A3A9B0">{{p.layer}}</span>
+<span class="mono" style="font-size: 10px; color: #56636E">{{p.layer}}</span>
 <span style="font-size: 15px; font-weight: 500">{{p.name}}</span>
 <span style="font-size: 14px">{{p.price}}</span>
 </div>
-<button onClick="{{p.toggle}}" aria-pressed="{{p.on}}" aria-label="{{p.aria}}" style="width: 44px; height: 44px; flex-shrink: 0; border: 1px solid {{p.border}}; background: {{p.bg}}; color: {{p.fg}}; border-radius: 4px; font-size: 20px">{{p.icon}}</button>
+<button onClick="{{p.toggle}}" aria-pressed="{{p.on}}" aria-label="{{p.aria}}" style="width: 44px; height: 44px; flex-shrink: 0; border: 1px solid {{p.border}}; background: {{p.bg}}; color: {{p.fg}}; border-radius: 12px; font-size: 20px">{{p.icon}}</button>
 </div>
 </sc-for>
 </div>
@@ -145,26 +146,26 @@ button:active,.cta:active{transform:scale(.97)}
 
 <section class="reveal" style="padding: 48px 16px 0">
 <h2 class="h" style="font-size: 30px; font-weight: 600; margin-bottom: 12px">{{t.specs}}</h2>
-<dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); column-gap: 12px; border-top: 1px solid #3B4047">
+<dl style="margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); column-gap: 12px; border-top: 1px solid #C3CED5">
 <sc-for list="{{specs}}" as="s" hint-placeholder-count="5">
 <dt class="dt">{{s.k}}</dt><dd class="dd">{{s.v}}</dd>
 </sc-for>
 </dl>
-<img src="35.jpg" alt="{{t.macroAlt}}" style="display: block; width: 100%; height: 358px; margin-top: 24px; object-fit: cover; border-radius: 2px">
+<img src="35.jpg" alt="{{t.macroAlt}}" style="display: block; width: 100%; height: 358px; margin-top: 24px; object-fit: cover; border-radius: 14px">
 </section>
 
 <div style="height: 160px"></div>
-<div style="position: absolute; left: 0; right: 0; bottom: 0; background: #22262B; border-top: 1px solid #3B4047">
+<div style="position: absolute; left: 0; right: 0; bottom: 0; background: #D9E2E7; border-top: 1px solid #C3CED5">
 <sc-if value="{{added}}" hint-placeholder-val="{{false}}">
-<div class="pop" role="status" style="margin: 12px 16px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 14px; border: 1px solid #C8794A; border-radius: 4px; background: #3A2C24">
+<div class="pop" role="status" style="margin: 12px 16px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 14px; border: 1px solid #46596A; border-radius: 18px; background: #EADFD8">
 <span style="font-size: 14px">{{t.added}}</span>
-<a href="Mobile-Cart.dc.html" style="font-size: 14px; font-weight: 600; color: #C8794A">{{t.toCart}} →</a>
+<a href="Mobile-Cart.dc.html" style="font-size: 14px; font-weight: 600; color: #46596A">{{t.toCart}} →</a>
 </div>
 </sc-if>
-<sc-if value="{{needSize}}" hint-placeholder-val="{{false}}"><p class="pop" role="alert" style="margin: 12px 16px 0; font-size: 14px; color: #E8A27C">{{t.pickSize}}</p></sc-if>
+<sc-if value="{{needSize}}" hint-placeholder-val="{{false}}"><p class="pop" role="alert" style="margin: 12px 16px 0; font-size: 14px; color: #A4483A">{{t.pickSize}}</p></sc-if>
 <div style="padding: 12px 16px 24px; display: flex; gap: 12px; align-items: center">
-<div style="display: flex; flex-direction: column"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{barMeta}}</span><span style="font-size: 18px; font-weight: 500">{{t.price}}</span></div>
-<button onClick="{{addToCart}}" class="cta" style="flex: 1; height: 52px; background: #C8794A; color: #121417; border: none; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 600">{{addLabel}}</button>
+<div style="display: flex; flex-direction: column"><span class="mono" style="font-size: 11px; color: #56636E">{{barMeta}}</span><span style="font-size: 18px; font-weight: 500">{{t.price}}</span></div>
+<button onClick="{{addToCart}}" class="cta" style="flex: 1; height: 52px; background: #46596A; color: #F5F2EF; border: none; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 600">{{addLabel}}</button>
 </div>
 </div>
 </div>
@@ -185,10 +186,10 @@ class Component extends DCLogic {
     const items = [['home', 'Mobile-Main.dc.html', uk ? 'Про Shar' : 'About Shar'], ['catalog', 'Mobile-Catalog.dc.html', uk ? 'Каталог' : 'Shop'], ['builder', 'Mobile-Builder.dc.html', uk ? 'Конструктор шарів' : 'Layer builder'], ['cart', 'Mobile-Cart.dc.html', uk ? 'Кошик' : 'Cart']];
     return {
       mm: { lang: uk ? 'Мова' : 'Language', cart: uk ? 'Кошик' : 'Cart', menu: uk ? 'Меню' : 'Menu' },
-      menuItems: items.map(([k, href, label]) => ({ href, label, cur: k === active ? 'page' : 'false', color: k === active ? '#C8794A' : '#EDEDEB' })),
-      menuOpen: !!this.state.menu, menuColor: this.state.menu ? '#C8794A' : '#EDEDEB', toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      menuItems: items.map(([k, href, label]) => ({ href, label, cur: k === active ? 'page' : 'false', color: k === active ? '#46596A' : '#26303A' })),
+      menuOpen: !!this.state.menu, menuColor: this.state.menu ? '#46596A' : '#26303A', toggleMenu: () => this.setState({ menu: !this.state.menu }),
       cartCount: this.state.cart, isUk: uk, isEn: !uk,
-      ukBg: uk ? '#C8794A' : 'transparent', ukFg: uk ? '#121417' : '#EDEDEB', enBg: uk ? 'transparent' : '#C8794A', enFg: uk ? '#EDEDEB' : '#121417',
+      ukBg: uk ? '#46596A' : 'transparent', ukFg: uk ? '#F5F2EF' : '#26303A', enBg: uk ? 'transparent' : '#46596A', enFg: uk ? '#26303A' : '#F5F2EF',
       setUk: () => this.setLang('uk'), setEn: () => this.setLang('en')
     };
   }
@@ -239,16 +240,16 @@ class Component extends DCLogic {
     return Object.assign(this.navVals(uk, 'catalog'), {
       t,
       stack: GAL.g.concat(GAL.c, GAL.m).map((src) => ({ src, op: src === gal[idx] ? 1 : 0, sc: src === gal[idx] ? 1 : 1.03, hidden: src === gal[idx] ? 'false' : 'true', alt: src === gal[idx] ? t.name + ', ' + COL[S.color][1] : '' })), mainImg: gal[idx], mainAlt: t.name + ', ' + COL[S.color][1], multi: gal.length > 1,
-      dots: gal.map((_, i) => ({ on: i === idx, label: t.photo + ' ' + (i + 1), w: i === idx ? '20px' : '6px', c: i === idx ? '#C8794A' : '#A3A9B0', pick: () => this.setState({ photo: i }) })),
-      colors: ['g', 'c', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #22262B' : '1px solid #484E56', halo: S.color === k ? '0 0 0 2px #C8794A' : 'none', pick: () => this.setState({ color: k, photo: 0, added: false }) })),
+      dots: gal.map((_, i) => ({ on: i === idx, label: t.photo + ' ' + (i + 1), w: i === idx ? '20px' : '6px', c: i === idx ? '#46596A' : '#56636E', pick: () => this.setState({ photo: i }) })),
+      colors: ['g', 'c', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #D9E2E7' : '1px solid #AEBCC5', halo: S.color === k ? '0 0 0 2px #46596A' : 'none', pick: () => this.setState({ color: k, photo: 0, added: false }) })),
       colorName: COL[S.color][1],
       sizes: ['XS', 'S', 'M', 'L', 'XL'].map((z) => {
         const out = z === 'XL', on = S.size === z;
         return { label: z, on, disabled: out, aria: out ? z + ' — ' + t.soldOut : z, lineStyle: out ? 'dashed' : 'solid', deco: out ? 'line-through' : 'none',
-          border: out ? '#3B4047' : on ? '#C8794A' : '#484E56', bg: on ? '#3A2C24' : 'transparent', fg: out ? '#6B7179' : on ? '#C8794A' : '#EDEDEB',
+          border: out ? '#C3CED5' : on ? '#46596A' : '#AEBCC5', bg: on ? '#EADFD8' : 'transparent', fg: out ? '#7D8C96' : on ? '#46596A' : '#26303A',
           pick: () => this.setState({ size: on ? null : z, needSize: false, added: false }) };
       }),
-      sizeName: S.size ? ' · ' + S.size : '', sizeLblColor: S.needSize ? '#E8A27C' : '#A3A9B0',
+      sizeName: S.size ? ' · ' + S.size : '', sizeLblColor: S.needSize ? '#A4483A' : '#56636E',
       guide: S.guide, guideLabel: S.guide ? t.guideClose : t.guideOpen, toggleGuide: () => this.setState({ guide: !S.guide }),
       addToCart: () => { if (!S.size) { this.setState({ needSize: true }); return; } this.setState({ cart: this.addItem({ id: 'fl', color: S.color, size: S.size }), added: true, needSize: false }); },
       addLabel: S.added ? t.addMore : t.add, added: S.added, needSize: S.needSize,
@@ -256,7 +257,7 @@ class Component extends DCLogic {
       pairs: pairsData.map(([k, layer, name, pr, img]) => {
         const on = !!S.pairs[k];
         return { layer, name, img, price: price(pr), on, icon: on ? '✓' : '+', aria: (on ? t.removeFrom : t.addTo) + name,
-          border: on ? '#C8794A' : '#3B4047', bg: on ? '#C8794A' : 'transparent', fg: on ? '#121417' : '#C8794A',
+          border: on ? '#46596A' : '#C3CED5', bg: on ? '#46596A' : 'transparent', fg: on ? '#F5F2EF' : '#46596A',
           toggle: () => this.setState({ pairs: Object.assign({}, S.pairs, { [k]: !on }), cart: this.addItem({ p1: { id: 'ls', color: 'g', size: 'M' }, p3: { id: 'tr', color: 'g', size: 'M' }, pa: { id: 'so', color: 'c', size: '42–44' } }[k], on ? -1 : 1) }) };
       }),
       specs: [

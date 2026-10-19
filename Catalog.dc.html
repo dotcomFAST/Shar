@@ -14,15 +14,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Onest:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Rubik+Spray+Paint&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#22262B}
-a{color:#EDEDEB;text-decoration:none;transition:color .15s}a:hover{color:#C8794A}
+body{margin:0;background:#D9E2E7}
+a{color:#26303A;text-decoration:none;transition:color .15s}a:hover{color:#46596A}
 button{cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
-button:not(.cta):hover{border-color:#C8794A !important}
-.cta:hover{background:#D68A5A !important}
-:focus-visible{outline:2px solid #C8794A;outline-offset:2px}
+button:not(.cta):hover{border-color:#46596A !important}
+.cta:hover{background:#3A4B59 !important}
+:focus-visible{outline:2px solid #46596A;outline-offset:2px}
 .h{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0}
 .mono{font-family:'JetBrains Mono',monospace}
-.lbl{font-family:'JetBrains Mono',monospace;font-size:12px;color:#A3A9B0}
+.lbl{font-family:'JetBrains Mono',monospace;font-size:12px;color:#56636E}
 .card img{transition:transform .4s}.card:hover img{transform:scale(1.03)}
 html{scroll-behavior:smooth}
 a,button,input,select,label{transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
@@ -39,34 +39,35 @@ button:active,.cta:active{transform:scale(.97)}
 .card img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.card:hover img{transform:scale(1.04)}
 @supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 22%}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+.onph,.onph a{color:#EDEDEB}.onph a:hover{color:#E2D5CD}.onph .spray{color:#B05600}
 </style>
 </helmet>
-<div class="page" style="background: #22262B; color: #EDEDEB; font-family: 'Onest', sans-serif; min-height: 100vh">
+<div class="page" style="background: #D9E2E7; color: #26303A; font-family: 'Onest', sans-serif; min-height: 100vh">
 
-<header style="border-bottom: 1px solid #3B4047">
+<header style="border-bottom: 1px solid #C3CED5">
 <div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="Main.dc.html" style="display: flex; align-items: baseline; gap: 12px">
 <span class="h" style="font-size: 30px; font-weight: 700; letter-spacing: 0.08em">SHAR</span>
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.tag}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{t.tag}}</span>
 </a>
 <nav aria-label="{{t.menu}}" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
 <a href="Main.dc.html">{{t.navAbout}}</a>
-<a href="Catalog.dc.html" aria-current="page" style="color: #C8794A">{{t.navCatalog}}</a>
+<a href="Catalog.dc.html" aria-current="page" style="color: #46596A">{{t.navCatalog}}</a>
 <a href="Builder.dc.html">{{t.navBuilder}}</a>
 </nav>
 <div style="display: flex; align-items: center; gap: 8px">
-<div role="group" aria-label="{{t.langLabel}}" style="display: flex; border: 1px solid #3B4047; border-radius: 4px; overflow: hidden">
+<div role="group" aria-label="{{t.langLabel}}" style="display: flex; border: 1px solid #C3CED5; border-radius: 18px; overflow: hidden">
 <button onClick="{{setUk}}" aria-pressed="{{isUk}}" style="height: 42px; width: 44px; border: none; background: {{ukBg}}; color: {{ukFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">UA</button>
 <button onClick="{{setEn}}" aria-pressed="{{isEn}}" style="height: 42px; width: 44px; border: none; background: {{enBg}}; color: {{enFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">EN</button>
 </div>
-<a href="#search" aria-label="{{t.search}}" style="width: 44px; height: 44px; border: 1px solid #3B4047; border-radius: 4px; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a>
-<a href="Cart.dc.html" aria-label="{{t.cart}}" style="height: 44px; padding: 0 14px; border: 1px solid #3B4047; border-radius: 4px; display: flex; align-items: center; gap: 8px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>{{cartCount}}</a>
+<a href="#search" aria-label="{{t.search}}" style="width: 44px; height: 44px; border: 1px solid #C3CED5; border-radius: 12px; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a>
+<a href="Cart.dc.html" aria-label="{{t.cart}}" style="height: 44px; padding: 0 14px; border: 1px solid #C3CED5; border-radius: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>{{cartCount}}</a>
 </div>
 </div>
 </header>
 
 <div style="max-width: 1280px; margin: 0 auto; padding: 32px 32px 0">
-<nav aria-label="{{t.crumbs}}" class="mono" style="font-size: 12px; color: #A3A9B0; display: flex; gap: 8px"><a href="Main.dc.html" style="color: #A3A9B0">{{t.navHome}}</a><span>/</span><span>{{t.navCatalog}}</span></nav>
+<nav aria-label="{{t.crumbs}}" class="mono" style="font-size: 12px; color: #56636E; display: flex; gap: 8px"><a href="Main.dc.html" style="color: #56636E">{{t.navHome}}</a><span>/</span><span>{{t.navCatalog}}</span></nav>
 <h1 class="h" style="font-size: 72px; font-weight: 700; line-height: 1; margin-top: 24px">{{t.navCatalog}}</h1>
 <div role="group" aria-label="{{t.scenario}}" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px">
 <sc-for list="{{scenarios}}" as="s" hint-placeholder-count="5">
@@ -80,20 +81,20 @@ button:active,.cta:active{transform:scale(.97)}
 <fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
 <legend class="lbl" style="margin-bottom: 8px">{{t.fLayer}}</legend>
 <sc-for list="{{layers}}" as="l" hint-placeholder-count="4">
-<label style="display: flex; gap: 10px; align-items: center; font-size: 15px; min-height: 36px; cursor: pointer"><input type="checkbox" checked="{{l.on}}" onChange="{{l.toggle}}" style="width: 18px; height: 18px; accent-color: #C8794A"> {{l.label}} <span class="mono" style="color: #A3A9B0; font-size: 12px">{{l.count}}</span></label>
+<label style="display: flex; gap: 10px; align-items: center; font-size: 15px; min-height: 36px; cursor: pointer"><input type="checkbox" checked="{{l.on}}" onChange="{{l.toggle}}" style="width: 18px; height: 18px; accent-color: #46596A"> {{l.label}} <span class="mono" style="color: #56636E; font-size: 12px">{{l.count}}</span></label>
 </sc-for>
 </fieldset>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: center"><label for="temp" class="lbl">{{t.fTemp}}</label></div>
-<input id="temp" type="range" min="-15" max="20" step="1" value="{{tempVal}}" onChange="{{onTemp}}" aria-valuetext="{{tempLabel}}" style="accent-color: #C8794A; width: 100%">
-<div class="mono" style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #A3A9B0"><span>−15 °C</span><span style="color: #C8794A; font-size: 14px">{{tempLabel}}</span><span>+20 °C</span></div>
-<sc-if value="{{hasTemp}}" hint-placeholder-val="{{false}}"><button class="pop" onClick="{{clearTemp}}" style="align-self: flex-start; height: 32px; padding: 0 10px; border: 1px solid #484E56; background: none; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 13px">{{t.anyTemp}}</button></sc-if>
+<input id="temp" type="range" min="-15" max="20" step="1" value="{{tempVal}}" onChange="{{onTemp}}" aria-valuetext="{{tempLabel}}" style="accent-color: #46596A; width: 100%">
+<div class="mono" style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #56636E"><span>−15 °C</span><span style="color: #46596A; font-size: 14px">{{tempLabel}}</span><span>+20 °C</span></div>
+<sc-if value="{{hasTemp}}" hint-placeholder-val="{{false}}"><button class="pop" onClick="{{clearTemp}}" style="align-self: flex-start; height: 32px; padding: 0 10px; border: 1px solid #AEBCC5; background: none; color: #26303A; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 13px">{{t.anyTemp}}</button></sc-if>
 </div>
 <div role="group" aria-label="{{t.fGender}}" style="display: flex; flex-direction: column; gap: 12px">
 <span class="lbl">{{t.fGender}}</span>
 <div style="display: flex; gap: 8px">
 <sc-for list="{{genders}}" as="g" hint-placeholder-count="2">
-<button onClick="{{g.pick}}" aria-pressed="{{g.on}}" style="flex: 1; height: 44px; border: 1px solid {{g.border}}; background: {{g.bg}}; color: {{g.fg}}; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 14px">{{g.label}}</button>
+<button onClick="{{g.pick}}" aria-pressed="{{g.on}}" style="flex: 1; height: 44px; border: 1px solid {{g.border}}; background: {{g.bg}}; color: {{g.fg}}; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 14px">{{g.label}}</button>
 </sc-for>
 </div>
 </div>
@@ -101,12 +102,12 @@ button:active,.cta:active{transform:scale(.97)}
 <span class="lbl">{{t.fSize}}</span>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
 <sc-for list="{{sizes}}" as="z" hint-placeholder-count="6">
-<button onClick="{{z.pick}}" aria-pressed="{{z.on}}" class="mono" style="height: 44px; border: 1px solid {{z.border}}; background: {{z.bg}}; color: {{z.fg}}; border-radius: 4px; font-size: 14px">{{z.label}}</button>
+<button onClick="{{z.pick}}" aria-pressed="{{z.on}}" class="mono" style="height: 44px; border: 1px solid {{z.border}}; background: {{z.bg}}; color: {{z.fg}}; border-radius: 12px; font-size: 14px">{{z.label}}</button>
 </sc-for>
 </div>
 </div>
 <div role="group" aria-label="{{t.fColor}}" style="display: flex; flex-direction: column; gap: 12px">
-<span class="lbl">{{t.fColor}}<span style="color: #EDEDEB">{{colorName}}</span></span>
+<span class="lbl">{{t.fColor}}<span style="color: #26303A">{{colorName}}</span></span>
 <div style="display: flex; gap: 10px">
 <sc-for list="{{colors}}" as="c" hint-placeholder-count="4">
 <button onClick="{{c.pick}}" aria-pressed="{{c.on}}" aria-label="{{c.label}}" title="{{c.label}}" style="width: 36px; height: 36px; border-radius: 50%; background: {{c.hex}}; border: {{c.ring}}; box-shadow: {{c.halo}}"></button>
@@ -117,49 +118,49 @@ button:active,.cta:active{transform:scale(.97)}
 
 <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px">
-<label style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border: 1px solid #484E56; border-radius: 4px; background: #2A2E33"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A3A9B0" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input id="search" type="search" value="{{q}}" onChange="{{onQ}}" placeholder="{{t.searchPh}}" aria-label="{{t.search}}" style="flex: 1; min-width: 0; height: 40px; border: none; background: none; color: #EDEDEB; font-family: 'Onest', sans-serif; font-size: 15px; outline: none"></label>
-<label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #A3A9B0">{{t.sort}}
-<select value="{{sort}}" onChange="{{onSort}}" style="height: 44px; background: #2E3238; color: #EDEDEB; border: 1px solid #484E56; border-radius: 4px; padding: 0 12px; font-family: 'Onest', sans-serif; font-size: 14px; cursor: pointer"><option value="pop">{{t.s1}}</option><option value="warm">{{t.s2}}</option><option value="price">{{t.s3}}</option></select>
+<label style="flex: 1 1 260px; display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border: 1px solid #AEBCC5; border-radius: 12px; background: #E6ECEF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#56636E" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input id="search" type="search" value="{{q}}" onChange="{{onQ}}" placeholder="{{t.searchPh}}" aria-label="{{t.search}}" style="flex: 1; min-width: 0; height: 40px; border: none; background: none; color: #26303A; font-family: 'Onest', sans-serif; font-size: 15px; outline: none"></label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #56636E">{{t.sort}}
+<select value="{{sort}}" onChange="{{onSort}}" style="height: 44px; background: #EEF2F4; color: #26303A; border: 1px solid #AEBCC5; border-radius: 12px; padding: 0 12px; font-family: 'Onest', sans-serif; font-size: 14px; cursor: pointer"><option value="pop">{{t.s1}}</option><option value="warm">{{t.s2}}</option><option value="price">{{t.s3}}</option></select>
 </label>
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: 32px">
-<span class="mono" style="font-size: 13px; color: #A3A9B0; margin-right: 4px">{{foundLabel}}</span>
+<span class="mono" style="font-size: 13px; color: #56636E; margin-right: 4px">{{foundLabel}}</span>
 <sc-for list="{{chips}}" as="c" hint-placeholder-count="0">
-<button onClick="{{c.remove}}" aria-label="{{c.aria}}" class="mono" style="height: 32px; padding: 0 10px; border: 1px solid #484E56; background: none; color: #EDEDEB; border-radius: 4px; font-size: 12px; display: flex; align-items: center; gap: 6px">{{c.label}} <span aria-hidden="true" style="color: #A3A9B0">×</span></button>
+<button onClick="{{c.remove}}" aria-label="{{c.aria}}" class="mono" style="height: 32px; padding: 0 10px; border: 1px solid #AEBCC5; background: none; color: #26303A; border-radius: 12px; font-size: 12px; display: flex; align-items: center; gap: 6px">{{c.label}} <span aria-hidden="true" style="color: #56636E">×</span></button>
 </sc-for>
-<sc-if value="{{hasChips}}" hint-placeholder-val="{{false}}"><button onClick="{{resetAll}}" style="height: 32px; padding: 0 6px; border: none; background: none; color: #C8794A; font-family: 'Onest', sans-serif; font-size: 14px">{{t.reset}}</button></sc-if>
+<sc-if value="{{hasChips}}" hint-placeholder-val="{{false}}"><button onClick="{{resetAll}}" style="height: 32px; padding: 0 6px; border: none; background: none; color: #46596A; font-family: 'Onest', sans-serif; font-size: 14px">{{t.reset}}</button></sc-if>
 </div>
 
 <sc-if value="{{isEmpty}}" hint-placeholder-val="{{false}}">
-<div style="border: 1px dashed #484E56; border-radius: 4px; padding: 48px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
-<span style="font-family: 'Rubik Spray Paint', cursive; color: #C8794A; font-size: 40px; transform: rotate(-4deg)">{{t.emptySpray}}</span>
-<p style="margin: 0; font-size: 17px; color: #C9CDD2; max-width: 420px">{{t.emptyText}}</p>
-<button onClick="{{resetAll}}" class="cta" style="height: 48px; padding: 0 24px; background: #C8794A; color: #121417; border: none; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 600">{{t.reset}}</button>
+<div style="border: 1px dashed #AEBCC5; border-radius: 18px; padding: 48px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+<span style="font-family: 'Rubik Spray Paint', cursive; color: #46596A; font-size: 40px; transform: rotate(-4deg)">{{t.emptySpray}}</span>
+<p style="margin: 0; font-size: 17px; color: #3E4A55; max-width: 420px">{{t.emptyText}}</p>
+<button onClick="{{resetAll}}" class="cta" style="height: 48px; padding: 0 24px; background: #46596A; color: #F5F2EF; border: none; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 600">{{t.reset}}</button>
 </div>
 </sc-if>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 32px 16px">
 <sc-for list="{{products}}" as="p" hint-placeholder-count="9">
 <a href="Product.dc.html" class="card" style="display: flex; flex-direction: column; gap: 10px">
-<div style="position: relative; overflow: hidden; border-radius: 2px">
+<div style="position: relative; overflow: hidden; border-radius: 18px">
 <img data-dc-src="{{p.img}}" alt="{{p.name}}" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover">
-<span class="mono" style="position: absolute; left: 12px; top: 12px; background: #22262B; border: 1px solid #484E56; padding: 4px 8px; font-size: 11px; border-radius: 2px; color: #EDEDEB">{{p.layer}}</span>
+<span class="mono" style="position: absolute; left: 12px; top: 12px; background: #D9E2E7; border: 1px solid #AEBCC5; padding: 4px 8px; font-size: 11px; border-radius: 6px; color: #26303A">{{p.layer}}</span>
 </div>
 <div style="display: flex; justify-content: space-between; gap: 8px"><span style="font-size: 16px; font-weight: 500">{{p.name}}</span><span style="font-size: 16px; white-space: nowrap">{{p.price}}</span></div>
-<div style="display: flex; justify-content: space-between; gap: 8px"><span class="mono" style="font-size: 12px; color: #A3A9B0">{{p.temp}}</span><span class="mono" style="font-size: 12px; color: #A3A9B0">{{p.colors}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 8px"><span class="mono" style="font-size: 12px; color: #56636E">{{p.temp}}</span><span class="mono" style="font-size: 12px; color: #56636E">{{p.colors}}</span></div>
 </a>
 </sc-for>
 </div>
 <sc-if value="{{hasMore}}" hint-placeholder-val="{{true}}">
-<div style="display: flex; justify-content: center; margin-top: 24px"><button onClick="{{showMore}}" style="height: 52px; padding: 0 32px; border: 1px solid #EDEDEB; background: none; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px">{{moreLabel}}</button></div>
+<div style="display: flex; justify-content: center; margin-top: 24px"><button onClick="{{showMore}}" style="height: 52px; padding: 0 32px; border: 1px solid #26303A; background: none; color: #26303A; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px">{{moreLabel}}</button></div>
 </sc-if>
 </div>
 </div>
 
-<footer style="border-top: 1px solid #3B4047">
+<footer style="border-top: 1px solid #C3CED5">
 <div style="max-width: 1280px; margin: 0 auto; padding: 32px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px">
 <a href="Main.dc.html" class="h" style="font-size: 24px; font-weight: 700; letter-spacing: 0.08em">SHAR</a>
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.footTag}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{t.footTag}}</span>
 </div>
 </footer>
 </div>
@@ -244,7 +245,7 @@ class Component extends DCLogic {
       name: uk ? p[0] : p[1], price: price(p[2]), img: p[7], layer: LAYER[p[5]],
       temp: p[4] >= 30 ? (uk ? 'будь-яка погода' : 'any weather') : ft(p[3]) + '…' + ft(p[4]) + ' °C', colors: nCol(p[6].length)
     }));
-    const pill = (on) => ({ bg: on ? '#C8794A' : 'transparent', fg: on ? '#121417' : '#EDEDEB', border: on ? '#C8794A' : '#484E56' });
+    const pill = (on) => ({ bg: on ? '#46596A' : 'transparent', fg: on ? '#F5F2EF' : '#26303A', border: on ? '#46596A' : '#AEBCC5' });
     const scLabels = uk ? ['Усе', 'Вдома', 'Офіс', 'Місто', 'Укриття'] : ['All', 'At home', 'Office', 'City', 'Shelter'];
     const scTemps = [null, 14, 16, -8, 10];
     const chips = [];
@@ -258,16 +259,16 @@ class Component extends DCLogic {
     const found = list.length;
     return {
       t, isUk: uk, isEn: !uk, cartCount: S.cart,
-      ukBg: uk ? '#C8794A' : 'transparent', ukFg: uk ? '#121417' : '#EDEDEB',
-      enBg: uk ? 'transparent' : '#C8794A', enFg: uk ? '#EDEDEB' : '#121417',
+      ukBg: uk ? '#46596A' : 'transparent', ukFg: uk ? '#F5F2EF' : '#26303A',
+      enBg: uk ? 'transparent' : '#46596A', enFg: uk ? '#26303A' : '#F5F2EF',
       setUk: () => this.setLang('uk'), setEn: () => this.setLang('en'),
       scenarios: scLabels.map((label, i) => Object.assign({ label, on: S.sc === i, pick: () => this.setState({ sc: i, temp: scTemps[i] }) }, pill(S.sc === i))),
       layers: ['l1', 'l2', 'l3', 'acc'].map((k) => ({ label: LNAME[k], on: S[k], count: all.filter((p) => p[5] === k).length, toggle: () => this.setState({ [k]: !S[k] }) })),
       tempVal: S.temp === null ? 14 : S.temp, tempLabel: S.temp === null ? (uk ? 'будь-яка' : 'any') : ft(S.temp) + ' °C', hasTemp: S.temp !== null,
       onTemp: (e) => this.setState({ temp: parseInt(e.target.value, 10), sc: 0 }), clearTemp: () => this.setState({ temp: null, sc: 0 }),
       genders: [['m', uk ? 'Чоловічий' : 'Men'], ['w', uk ? 'Жіночий' : 'Women']].map(([k, label]) => Object.assign({ label, on: S.gender === k, pick: () => this.setState({ gender: S.gender === k ? null : k }) }, pill(S.gender === k))),
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((z) => ({ label: z, on: S.size === z, pick: () => this.setState({ size: S.size === z ? null : z }), bg: 'transparent', fg: S.size === z ? '#C8794A' : '#EDEDEB', border: S.size === z ? '#C8794A' : '#484E56' })),
-      colors: ['g', 'c', 'n', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #22262B' : '1px solid #484E56', halo: S.color === k ? '0 0 0 2px #C8794A' : 'none', pick: () => this.setState({ color: S.color === k ? null : k }) })),
+      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((z) => ({ label: z, on: S.size === z, pick: () => this.setState({ size: S.size === z ? null : z }), bg: 'transparent', fg: S.size === z ? '#46596A' : '#26303A', border: S.size === z ? '#46596A' : '#AEBCC5' })),
+      colors: ['g', 'c', 'n', 'm'].map((k) => ({ label: COL[k][1], hex: COL[k][0], on: S.color === k, ring: S.color === k ? '2px solid #D9E2E7' : '1px solid #AEBCC5', halo: S.color === k ? '0 0 0 2px #46596A' : 'none', pick: () => this.setState({ color: S.color === k ? null : k }) })),
       colorName: S.color ? ' · ' + COL[S.color][1] : '',
       q: S.q, onQ: (e) => this.setState({ q: e.target.value }),
       sort: S.sort, onSort: (e) => this.setState({ sort: e.target.value }),

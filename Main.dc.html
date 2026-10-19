@@ -14,16 +14,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Onest:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Rubik+Spray+Paint&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#22262B}
-a{color:#EDEDEB;text-decoration:none;transition:color .15s}a:hover{color:#C8794A}
+body{margin:0;background:#D9E2E7}
+a{color:#26303A;text-decoration:none;transition:color .15s}a:hover{color:#46596A}
 button{cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
-button:not(.cta):hover{border-color:#C8794A !important}
-.cta:hover{background:#D68A5A !important}
-:focus-visible{outline:2px solid #C8794A;outline-offset:2px}
-.ph{background:repeating-linear-gradient(135deg,#2E3238 0 14px,#2A2E33 14px 28px);border:1px dashed #484E56;display:flex;align-items:center;justify-content:center;color:#A3A9B0;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.5;text-align:center;padding:16px;box-sizing:border-box}
+button:not(.cta):hover{border-color:#46596A !important}
+.cta:hover{background:#3A4B59 !important}
+:focus-visible{outline:2px solid #46596A;outline-offset:2px}
+.ph{background:repeating-linear-gradient(135deg,#EEF2F4 0 14px,#E6ECEF 14px 28px);border:1px dashed #AEBCC5;display:flex;align-items:center;justify-content:center;color:#56636E;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.5;text-align:center;padding:16px;box-sizing:border-box}
 .h{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.01em;margin:0}
 .mono{font-family:'JetBrains Mono',monospace}
-.spray{font-family:'Rubik Spray Paint',cursive;color:#C8794A}
+.spray{font-family:'Rubik Spray Paint',cursive;color:#B05600}
 html{scroll-behavior:smooth}
 a,button,input,select,label{transition:color .2s,background-color .2s,border-color .2s,box-shadow .2s,transform .2s,opacity .2s}
 button:active,.cta:active{transform:scale(.97)}
@@ -47,41 +47,42 @@ button:active,.cta:active{transform:scale(.97)}
 .lay .st{opacity:0}
 .lay.in .st{animation:stagin .75s cubic-bezier(.2,.7,.2,1) both}
 @media (prefers-reduced-motion: reduce){.lay .st{opacity:1 !important;transform:none !important}}
+.onph,.onph a{color:#EDEDEB}.onph a:hover{color:#E2D5CD}.onph .spray{color:#B05600}
 </style>
 </helmet>
-<div class="page" style="background: #22262B; color: #EDEDEB; font-family: 'Onest', sans-serif; min-height: 100vh">
+<div class="page" style="background: #D9E2E7; color: #26303A; font-family: 'Onest', sans-serif; min-height: 100vh">
 
-<header style="border-bottom: 1px solid #3B4047">
+<header style="border-bottom: 1px solid #C3CED5">
 <div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="Main.dc.html" style="display: flex; align-items: baseline; gap: 12px">
 <span class="h" style="font-size: 30px; font-weight: 700; letter-spacing: 0.08em">SHAR</span>
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.tag}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{t.tag}}</span>
 </a>
 <nav aria-label="{{t.menu}}" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
-<a href="Main.dc.html" aria-current="page" style="color: #C8794A">{{t.navAbout}}</a>
+<a href="Main.dc.html" aria-current="page" style="color: #46596A">{{t.navAbout}}</a>
 <a href="Catalog.dc.html">{{t.navCatalog}}</a>
 <a href="Builder.dc.html">{{t.navBuilder}}</a>
 </nav>
 <div style="display: flex; align-items: center; gap: 8px">
-<div role="group" aria-label="{{t.langLabel}}" class="mono" style="display: flex; border: 1px solid #3B4047; border-radius: 4px; overflow: hidden">
+<div role="group" aria-label="{{t.langLabel}}" class="mono" style="display: flex; border: 1px solid #C3CED5; border-radius: 18px; overflow: hidden">
 <button onClick="{{setUk}}" aria-pressed="{{isUk}}" style="height: 42px; width: 44px; border: none; background: {{ukBg}}; color: {{ukFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">UA</button>
 <button onClick="{{setEn}}" aria-pressed="{{isEn}}" style="height: 42px; width: 44px; border: none; background: {{enBg}}; color: {{enFg}}; font-family: 'JetBrains Mono', monospace; font-size: 13px">EN</button>
 </div>
-<a href="Catalog.dc.html" aria-label="{{t.search}}" style="width: 44px; height: 44px; border: 1px solid #3B4047; border-radius: 4px; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a>
-<a href="Cart.dc.html" aria-label="{{t.cart}}" style="height: 44px; padding: 0 14px; border: 1px solid #3B4047; border-radius: 4px; display: flex; align-items: center; gap: 8px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>{{cartCount}}</a>
+<a href="Catalog.dc.html" aria-label="{{t.search}}" style="width: 44px; height: 44px; border: 1px solid #C3CED5; border-radius: 12px; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></a>
+<a href="Cart.dc.html" aria-label="{{t.cart}}" style="height: 44px; padding: 0 14px; border: 1px solid #C3CED5; border-radius: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1 12H6z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>{{cartCount}}</a>
 </div>
 </div>
 </header>
 
-<section style="position: relative; overflow: hidden">
+<section class="onph" style="position: relative; overflow: hidden">
 <img class="kb" src="23.jpg" alt="Жінка з чаєм на підвіконні, темне місто за вікном" style="width: 100%; display: block; object-fit: cover; object-position: 70% center; height: 720px; border: none; border-bottom: 1px solid #3B4047">
 <div style="position: absolute; inset: 0; max-width: 1280px; margin: 0 auto; padding: 96px 32px 64px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 56px; pointer-events: none">
 <div style="display: flex; flex-direction: column; gap: 24px; max-width: 760px; pointer-events: auto">
 <h1 class="h" style="font-size: 104px; line-height: 0.92; font-weight: 700; white-space: pre-line">{{t.heroH}}</h1>
 <p style="margin: 0; font-size: 20px; line-height: 1.5; color: #C9CDD2; max-width: 520px">{{t.heroP}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
-<a href="Builder.dc.html" class="cta" style="height: 52px; padding: 0 28px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; font-weight: 600; font-size: 16px">{{t.cta1}}</a>
-<a href="Builder.dc.html" style="height: 52px; padding: 0 28px; border: 1px solid #EDEDEB; border-radius: 4px; display: flex; align-items: center; font-weight: 500; font-size: 16px">{{t.cta2}}</a>
+<a href="Builder.dc.html" class="cta" style="height: 52px; padding: 0 28px; background: #E2D5CD; color: #26303A; border-radius: 12px; display: flex; align-items: center; font-weight: 600; font-size: 16px">{{t.cta1}}</a>
+<a href="Builder.dc.html" style="height: 52px; padding: 0 28px; border: 1px solid #EDEDEB; border-radius: 12px; display: flex; align-items: center; font-weight: 500; font-size: 16px">{{t.cta2}}</a>
 </div>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end" class="mono">
@@ -99,7 +100,7 @@ button:active,.cta:active{transform:scale(.97)}
 <div ref="{{ccRingRef}}" style="position: absolute; left: 50%; top: 50px; width: 0; height: 0; transform-style: preserve-3d; will-change: transform">
 <sc-for list="{{ccCards}}" as="c" hint-placeholder-count="8">
 <div ref="{{c.ref}}" style="position: absolute; left: -200px; top: 0; width: 400px; transform: rotateY({{c.deg}}deg) translateZ({{ccR}}px)">
-<div class="ccin" data-i="{{c.i}}" style="animation-delay: {{c.delay}}; border: 1px solid #3B4047; border-radius: 6px; overflow: hidden; background: #22262B">
+<div class="ccin" data-i="{{c.i}}" style="animation-delay: {{c.delay}}; border: 1px solid #C3CED5; border-radius: 12px; overflow: hidden; background: #D9E2E7">
 <img data-dc-src="{{c.img}}" alt="" draggable="false" style="display: block; width: 100%; height: 460px; object-fit: cover; pointer-events: none">
 </div>
 </div>
@@ -108,31 +109,30 @@ button:active,.cta:active{transform:scale(.97)}
 </div>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; flex-wrap: wrap">
 <div aria-live="polite" style="display: flex; align-items: baseline; gap: 16px; min-width: 0">
-<span class="mono" style="font-size: 13px; color: #C8794A">{{ccNum}}</span>
 <span class="h" style="font-size: 36px; font-weight: 600">{{ccTitle}}</span>
-<span class="mono" style="font-size: 14px; color: #A3A9B0">{{ccSub}}</span>
+<span class="mono" style="font-size: 14px; color: #56636E">{{ccSub}}</span>
 </div>
 <div style="display: flex; align-items: center; gap: 8px">
-<button onClick="{{ccPrev}}" aria-label="{{ccPrevLabel}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #484E56; background: none; color: #EDEDEB; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
-<button onClick="{{ccNext}}" aria-label="{{ccNextLabel}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #484E56; background: none; color: #EDEDEB; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
-<a href="Catalog.dc.html" class="cta" style="height: 48px; padding: 0 20px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; font-weight: 600; font-size: 15px">{{ccGo}}</a>
+<button onClick="{{ccPrev}}" aria-label="{{ccPrevLabel}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #AEBCC5; background: none; color: #26303A; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+<button onClick="{{ccNext}}" aria-label="{{ccNextLabel}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid #AEBCC5; background: none; color: #26303A; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></button>
+<a href="Catalog.dc.html" class="cta" style="height: 48px; padding: 0 20px; background: #46596A; color: #F5F2EF; border-radius: 12px; display: flex; align-items: center; font-weight: 600; font-size: 15px">{{ccGo}}</a>
 </div>
 </div>
 </section>
 
 <section class="reveal" style="max-width: 1280px; margin: 0 auto; padding: 120px 32px 0">
-<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; border: 1px solid #3B4047; border-radius: 4px; padding: 48px">
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; border: 1px solid #C3CED5; border-radius: 18px; box-shadow: 0 2px 6px rgba(38, 48, 58, 0.06), 0 22px 48px -20px rgba(38, 48, 58, 0.30); padding: 48px">
 <div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 20px">
 <h2 class="h" style="font-size: 56px; line-height: 1; font-weight: 700">{{t.bH}}</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9CDD2">{{t.bP}}</p>
-<a href="Builder.dc.html" class="cta" style="align-self: flex-start; height: 52px; padding: 0 28px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; font-weight: 600">{{t.bBtn}}</a>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3E4A55">{{t.bP}}</p>
+<a href="Builder.dc.html" class="cta" style="align-self: flex-start; height: 52px; padding: 0 28px; background: #46596A; color: #F5F2EF; border-radius: 12px; display: flex; align-items: center; font-weight: 600">{{t.bBtn}}</a>
 </div>
 <div style="flex: 1 1 480px; position: relative; min-height: 520px">
 <img src="38.jpg" alt="Манекен у трьох шарах одягу Shar" style="display: block; object-fit: cover; object-position: center; position: absolute; left: 15%; width: 70%; top: 0; height: 100%">
-<div class="sway" style="animation-delay: 0s; will-change: transform; position: absolute; left: 0; top: 40px; background: #2E3238; border: 1px solid #484E56; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.layer}} 01</span><span style="font-size: 15px">{{t.p1}}</span></div>
-<div class="sway" style="animation-delay: -1.5s; will-change: transform; position: absolute; right: 0; top: 140px; background: #2E3238; border: 1px solid #484E56; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.layer}} 02</span><span style="font-size: 15px">{{t.p2}}</span></div>
-<div class="sway" style="animation-delay: -3s; will-change: transform; position: absolute; left: 0; bottom: 120px; background: #2E3238; border: 1px solid #484E56; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.warmTo}}</span><span class="mono" style="font-size: 28px; color: #C8794A">+6 °C</span></div>
-<div class="sway" style="animation-delay: -4.5s; will-change: transform; position: absolute; right: 0; bottom: 40px; background: #2E3238; border: 1px solid #484E56; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #A3A9B0">{{t.setWeight}}</span><span class="mono" style="font-size: 20px">{{t.g620}}</span></div>
+<div class="sway" style="animation-delay: 0s; will-change: transform; position: absolute; left: 0; top: 40px; background: #EEF2F4; border: 1px solid #AEBCC5; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #56636E">{{t.layer}} 01</span><span style="font-size: 15px">{{t.p1}}</span></div>
+<div class="sway" style="animation-delay: -1.5s; will-change: transform; position: absolute; right: 0; top: 140px; background: #EEF2F4; border: 1px solid #AEBCC5; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #56636E">{{t.layer}} 02</span><span style="font-size: 15px">{{t.p2}}</span></div>
+<div class="sway" style="animation-delay: -3s; will-change: transform; position: absolute; left: 0; bottom: 120px; background: #EEF2F4; border: 1px solid #AEBCC5; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #56636E">{{t.warmTo}}</span><span class="mono" style="font-size: 28px; color: #46596A">+6 °C</span></div>
+<div class="sway" style="animation-delay: -4.5s; will-change: transform; position: absolute; right: 0; bottom: 40px; background: #EEF2F4; border: 1px solid #AEBCC5; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><span class="mono" style="font-size: 11px; color: #56636E">{{t.setWeight}}</span><span class="mono" style="font-size: 20px">{{t.g620}}</span></div>
 <span class="spray" style="position: absolute; right: 18%; top: -24px; font-size: 44px; transform: rotate(-5deg)">{{t.spray2}}</span>
 </div>
 </div>
@@ -140,14 +140,14 @@ button:active,.cta:active{transform:scale(.97)}
 
 <section class="lay {{layIn}}" ref="{{layRef}}" style="max-width: 1280px; margin: 0 auto; padding: 120px 32px 0">
 <h2 class="st h" style="animation-delay: 0s; font-size: 48px; font-weight: 600; margin-bottom: 12px">{{t.lH}}</h2>
-<p class="st" style="animation-delay: 0.12s; margin: 0 0 40px; font-size: 18px; color: #A3A9B0; max-width: 560px">{{t.lP}}</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border-top: 1px solid #3B4047">
+<p class="st" style="animation-delay: 0.12s; margin: 0 0 40px; font-size: 18px; color: #56636E; max-width: 560px">{{t.lP}}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border-top: 1px solid #C3CED5">
 <sc-for list="{{layers}}" as="l" hint-placeholder-count="3">
-<div style="padding: 32px 32px 32px 0; display: flex; flex-direction: column; gap: 16px; border-bottom: 1px solid #3B4047">
-<span class="st mono" style="animation-delay: {{l.d0}}; font-size: 64px; color: #C8794A; line-height: 1">{{l.num}}</span>
+<div style="padding: 32px 32px 32px 0; display: flex; flex-direction: column; gap: 16px; border-bottom: 1px solid #C3CED5">
+<span class="st mono" style="animation-delay: {{l.d0}}; font-size: 64px; color: #46596A; line-height: 1">{{l.num}}</span>
 <span class="st h" style="animation-delay: {{l.d1}}; font-size: 26px; font-weight: 600">{{l.name}}</span>
-<span class="st" style="animation-delay: {{l.d2}}; font-size: 16px; line-height: 1.6; color: #C9CDD2">{{l.text}}</span>
-<a href="Catalog.dc.html" class="st mono" style="animation-delay: {{l.d3}}; font-size: 13px; color: #A3A9B0">{{l.link}} →</a>
+<span class="st" style="animation-delay: {{l.d2}}; font-size: 16px; line-height: 1.6; color: #3E4A55">{{l.text}}</span>
+<a href="Catalog.dc.html" class="st mono" style="animation-delay: {{l.d3}}; font-size: 13px; color: #56636E">{{l.link}} →</a>
 </div>
 </sc-for>
 </div>
@@ -163,16 +163,16 @@ button:active,.cta:active{transform:scale(.97)}
 <a href="Product.dc.html" class="card" style="display: flex; flex-direction: column; gap: 12px">
 <div style="position: relative">
 <img data-dc-src="{{p.img}}" alt="" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 3 / 4">
-<span class="mono" style="position: absolute; left: 12px; top: 12px; background: #22262B; border: 1px solid #484E56; padding: 4px 8px; font-size: 11px; border-radius: 2px">{{p.layer}}</span>
+<span class="mono" style="position: absolute; left: 12px; top: 12px; background: #D9E2E7; border: 1px solid #AEBCC5; padding: 4px 8px; font-size: 11px; border-radius: 6px">{{p.layer}}</span>
 </div>
 <div style="display: flex; justify-content: space-between; gap: 8px"><span style="font-size: 16px; font-weight: 500">{{p.name}}</span><span style="font-size: 16px">{{p.price}}</span></div>
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{p.temp}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{p.temp}}</span>
 </a>
 </sc-for>
 </div>
 </section>
 
-<section class="reveal" id="about" style="margin-top: 120px; position: relative">
+<section class="onph reveal" id="about" style="margin-top: 120px; position: relative">
 <img src="29.jpg" alt="Вечірня вулиця без світла, люди з ліхтариками" style="width: 100%; display: block; object-fit: cover; object-position: center; height: 560px; border-left: none; border-right: none">
 <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 32px; pointer-events: none">
 <div style="max-width: 820px; text-align: center; display: flex; flex-direction: column; gap: 20px; align-items: center">
@@ -186,20 +186,20 @@ button:active,.cta:active{transform:scale(.97)}
 <h2 class="h" style="font-size: 48px; font-weight: 600; margin-bottom: 32px">{{t.tH}}</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
 <sc-for list="{{tips}}" as="x" hint-placeholder-count="3">
-<button onClick="{{x.open}}" aria-haspopup="dialog" class="card" style="width: 100%; text-align: left; border: 1px solid #3B4047; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-height: 200px; background: none; color: #EDEDEB; font-family: 'Onest', sans-serif">
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{x.tag}}</span>
+<button onClick="{{x.open}}" aria-haspopup="dialog" class="card" style="width: 100%; text-align: left; border: 1px solid #C3CED5; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-height: 200px; background: none; color: #26303A; font-family: 'Onest', sans-serif">
+<span class="mono" style="font-size: 12px; color: #56636E">{{x.tag}}</span>
 <span style="font-size: 22px; font-weight: 500; line-height: 1.3">{{x.title}}</span>
-<span class="mono" style="margin-top: auto; font-size: 13px; color: #C8794A">{{t.read}}</span>
+<span class="mono" style="margin-top: auto; font-size: 13px; color: #46596A">{{t.read}}</span>
 </button>
 </sc-for>
 </div>
 </section>
 
-<footer style="margin-top: 120px; border-top: 1px solid #3B4047">
+<footer style="margin-top: 120px; border-top: 1px solid #C3CED5">
 <div style="max-width: 1280px; margin: 0 auto; padding: 48px 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span class="h" style="font-size: 30px; font-weight: 700; letter-spacing: 0.08em">SHAR</span>
-<span class="mono" style="font-size: 12px; color: #A3A9B0">{{t.footTag}}</span>
+<span class="mono" style="font-size: 12px; color: #56636E">{{t.footTag}}</span>
 </div>
 <nav aria-label="{{t.footer}}" style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 14px">
 <div style="display: flex; flex-direction: column; gap: 10px"><a href="Catalog.dc.html">{{t.navCatalog}}</a><a href="Builder.dc.html">{{t.navBuilder}}</a><a href="#">{{t.fTips}}</a></div>
@@ -209,15 +209,15 @@ button:active,.cta:active{transform:scale(.97)}
 </div>
 </footer>
 <sc-if value="{{tipOpen}}" hint-placeholder-val="{{false}}">
-<div class="pop" onClick="{{closeTip}}" style="position: fixed; inset: 0; z-index: 50; background: rgba(10, 12, 14, 0.75); display: flex; align-items: center; justify-content: center; padding: 24px">
-<div role="dialog" aria-modal="true" aria-labelledby="tip-title" onClick="{{stop}}" style="position: relative; width: 100%; max-width: 560px; max-height: 86vh; overflow-y: auto; box-sizing: border-box; background: #2A2E33; border: 1px solid #484E56; border-radius: 8px; padding: 36px; display: flex; flex-direction: column; gap: 16px">
-<button onClick="{{closeTip}}" aria-label="{{t.close}}" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border: 1px solid transparent; border-radius: 4px; background: none; color: #EDEDEB; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
-<span class="mono" style="font-size: 12px; color: #C8794A">{{tip.tag}}</span>
+<div class="pop" onClick="{{closeTip}}" style="position: fixed; inset: 0; z-index: 50; background: rgba(38, 48, 58, 0.45); display: flex; align-items: center; justify-content: center; padding: 24px">
+<div role="dialog" aria-modal="true" aria-labelledby="tip-title" onClick="{{stop}}" style="position: relative; width: 100%; max-width: 560px; max-height: 86vh; overflow-y: auto; box-sizing: border-box; background: #E6ECEF; border: 1px solid #AEBCC5; border-radius: 22px; padding: 36px; display: flex; flex-direction: column; gap: 16px">
+<button onClick="{{closeTip}}" aria-label="{{t.close}}" style="position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border: 1px solid transparent; border-radius: 12px; background: none; color: #26303A; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<span class="mono" style="font-size: 12px; color: #46596A">{{tip.tag}}</span>
 <h3 id="tip-title" class="h" style="font-size: 34px; line-height: 1.05; font-weight: 600; padding-right: 44px">{{tip.title}}</h3>
-<sc-for list="{{tip.paras}}" as="b" hint-placeholder-count="3"><p style="margin: 0; font-size: 16px; line-height: 1.65; color: #C9CDD2">{{b.text}}</p></sc-for>
-<div style="display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid #3B4047; padding-top: 20px; margin-top: 4px">
-<a data-dc-href="{{tip.href}}" class="cta" style="flex: 1 1 200px; height: 48px; padding: 0 20px; background: #C8794A; color: #121417; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 600">{{tip.cta}}</a>
-<button onClick="{{closeTip}}" style="flex: 1 1 140px; height: 48px; padding: 0 20px; border: 1px solid #484E56; background: none; color: #EDEDEB; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 15px">{{t.gotIt}}</button>
+<sc-for list="{{tip.paras}}" as="b" hint-placeholder-count="3"><p style="margin: 0; font-size: 16px; line-height: 1.65; color: #3E4A55">{{b.text}}</p></sc-for>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid #C3CED5; padding-top: 20px; margin-top: 4px">
+<a data-dc-href="{{tip.href}}" class="cta" style="flex: 1 1 200px; height: 48px; padding: 0 20px; background: #46596A; color: #F5F2EF; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 600">{{tip.cta}}</a>
+<button onClick="{{closeTip}}" style="flex: 1 1 140px; height: 48px; padding: 0 20px; border: 1px solid #AEBCC5; background: none; color: #26303A; border-radius: 12px; font-family: 'Onest', sans-serif; font-size: 15px">{{t.gotIt}}</button>
 </div>
 </div>
 </div>
@@ -315,7 +315,7 @@ class Component extends DCLogic {
       return Object.assign({}, s, { isActive: act, notActive: !act,
         tf: 'translateX(' + x + 'px) translateZ(' + z + 'px) rotateY(' + ang + 'deg)',
         op: act ? 1 : vis ? 0.6 : 0, z: 10 - Math.abs(d), pe: vis ? 'auto' : 'none', tab: vis ? 0 : -1, hidden: vis ? 'false' : 'true',
-        border: act ? '#C8794A' : '#3B4047', bright: act ? 1 : 0.5, shadow: act ? '0 30px 60px rgba(0, 0, 0, 0.45)' : 'none',
+        border: act ? '#46596A' : '#C3CED5', bright: act ? 1 : 0.5, shadow: act ? '0 30px 60px rgba(38, 48, 58, 0.28)' : 'none',
         goLabel: (uk ? 'Каталог для сценарію ' : 'Shop for ') + s.name, showLabel: (uk ? 'Показати сценарій ' : 'Show scenario ') + s.name,
         pick: () => this.setState({ sc: i }) });
     });
@@ -329,7 +329,7 @@ class Component extends DCLogic {
       scHold: () => this.setState({ hold: true }), scGo: () => this.setState({ hold: false }),
       scTouchStart: (e) => { this._tx = e.touches && e.touches[0] ? e.touches[0].clientX : null; this.setState({ hold: true }); },
       scTouchEnd: (e) => { const x = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : null; if (this._tx !== null && x !== null && Math.abs(x - this._tx) > 40) go(x < this._tx ? a + 1 : a - 1); this.setState({ hold: false }); },
-      scDots: Array.from({ length: n }, (_, i) => ({ cur: i === a ? 'true' : 'false', label: (uk ? 'Сценарій ' : 'Scenario ') + (i + 1), w: i === a ? '24px' : '8px', c: i === a ? '#C8794A' : '#6B7179', pick: () => go(i) }))
+      scDots: Array.from({ length: n }, (_, i) => ({ cur: i === a ? 'true' : 'false', label: (uk ? 'Сценарій ' : 'Scenario ') + (i + 1), w: i === a ? '24px' : '8px', c: i === a ? '#46596A' : '#7D8C96', pick: () => go(i) }))
     };
   }
   tipsData(uk) {
@@ -405,8 +405,8 @@ class Component extends DCLogic {
     const L = (a, b) => uk ? a : b;
     return {
       t, isUk: uk, isEn: !uk,
-      ukBg: uk ? '#C8794A' : 'transparent', ukFg: uk ? '#121417' : '#EDEDEB',
-      enBg: uk ? 'transparent' : '#C8794A', enFg: uk ? '#EDEDEB' : '#121417',
+      ukBg: uk ? '#46596A' : 'transparent', ukFg: uk ? '#F5F2EF' : '#26303A',
+      enBg: uk ? 'transparent' : '#46596A', enFg: uk ? '#26303A' : '#F5F2EF',
       setUk: () => this.setLang('uk'), setEn: () => this.setLang('en'), cartCount: this.state.cart,
       ...this.ccVals(uk),
       layIn: this.state.layIn ? 'in' : '', layRef: (el) => { this._layEl = el; },
